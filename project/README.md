@@ -18,3 +18,5 @@ Im Browser: localhost:4200
 
 `ng g service service_name`
 
+
+set PATH=%PATH%;C:\deinpfad
