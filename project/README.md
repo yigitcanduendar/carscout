@@ -2,7 +2,7 @@
 
 Wenn Ihr Probleme habt, wie z.B. AppComponent nicht gefunden, dann bitte folgende Zeile ausführen:
 `npm install -g @angular/cli`
-
+ 
 `npm install`
 `npm install -g nodemon`
 `npm install -g gulp`
