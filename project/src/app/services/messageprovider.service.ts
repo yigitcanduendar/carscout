@@ -12,11 +12,7 @@ export class MessageProviderService {
   //Sendet an alle komponente eine Message mit gegebenen MessageType
   display(message: string, messageType?: MessageType) {
     this._message = message;
-    if (!messageType) {
-      this._messageType = messageType;
-    } else {
-      this._messageType = MessageType.success;
-    }
+    this._messageType = messageType;
     setTimeout(() => {
       this._message = '';
     }, 3000);
