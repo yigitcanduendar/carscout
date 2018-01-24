@@ -1,0 +1,4 @@
+car_id,manufacturer,modell,year,ps,consumption,km_driven,colour,seats,age,description
+1234,BMW,6 Series,2004,Violet,9.34,55078,Green,4,1,ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna
+5678,Mercedes-Benz,S-Class,2001,Crimson,4.25,52241,Red,5,2,felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio
+9101,Ford,Mustang,1999,Indigo,2.02,197122,Aquamarine,8,3,hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut
