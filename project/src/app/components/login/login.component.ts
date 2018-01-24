@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     Milan: 'test123'
   };
 
-  constructor() { }
+  constructor(private messageService: MessageProviderService) { }
 
   /**
    * Speichert und vergleicht ob Benutzer in DB existiert,
@@ -27,8 +27,10 @@ export class LoginComponent implements OnInit {
   save() {
     if (this.checkUser(this.username, this.password)) {
       console.log('verfügbar');
+      this.messageService.display("Erfolgreich eingeloggt!", MessageType.success);
     } else {
       console.log('nicht verfügbar');
+      this.messageService.display("Benutzername oder Passwort falsch!", MessageType.danger);
     }
   }
 
