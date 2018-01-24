@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
-import { MessageType } from '../model/messageType.enum';
+import { MessageType } from '../model/messagetype.enum';
 
 @Injectable()
-export class MessageproviderService {
+export class MessageProviderService {
 
   constructor() { }
 
   private _message: string;
   private _messageType: MessageType = MessageType.success;
 
-  display(message: string, messageBoxType?: MessageType) {
+  //Sendet an alle komponente eine Message mit gegebenen MessageType
+  display(message: string, messageType?: MessageType) {
     this._message = message;
-    if (!messageBoxType) {
-      this._messageType = messageBoxType;
+    if (!messageType) {
+      this._messageType = messageType;
     } else {
       this._messageType = MessageType.success;
     }
@@ -21,11 +22,15 @@ export class MessageproviderService {
     }, 3000);
   }
 
+  //Liefert die Mesage aus dem service raus für Komponente, die Messages zeigen können 
+  //Aufruf dieser methode Bsp. messagebox.component.ts
   get message(): string {
     return this._message;
   }
 
-  get messageBoxType(): MessageType {
+  //Liefert die MesageType aus dem service raus für Komponente, die Messages Typ-Bedingt zeigen können 
+  //Aufruf dieser methode Bsp. messagebox.component.ts
+  get messageType(): MessageType {
     return this._messageType;
   }
 
