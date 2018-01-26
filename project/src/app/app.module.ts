@@ -11,6 +11,7 @@ import { MessageboxComponent } from './components/messagebox/messagebox.componen
 import { ImpressumComponent } from './components/legal-information/impressum/impressum.component';
 import { AgbComponent } from './components/legal-information/agb/agb.component';
 import { PrivacyPolicyComponent } from './components/legal-information/privacy-policy/privacy-policy.component';
+import { Md5 } from 'ts-md5';
 
 @NgModule({
   declarations: [
