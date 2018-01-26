@@ -8,13 +8,15 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MessageProviderService } from './services/messageprovider.service';
 import { MessageboxComponent } from './components/messagebox/messagebox.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    MessageboxComponent
+    MessageboxComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
