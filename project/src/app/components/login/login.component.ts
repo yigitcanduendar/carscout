@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { MessageType } from '../../model/messagetype.enum';
+import { Md5 } from 'ts-md5/dist/md5';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   /** Dummy-Daten zur Zeit nur als Objekt später von der DB! */
   public users: Object = {
-    Can: 'test123',
+    Can: Md5.hashStr('test123'),
     Milan: 'test123'
   };
 
@@ -37,8 +38,12 @@ export class LoginComponent implements OnInit {
    * Später mit DB Abfrage!
    */
   public checkUser(username, password): Boolean {
+
+
+
     for (const key in this.users) {
-      if (this.users.hasOwnProperty(this.username) && this.users[this.username] === this.password) {
+      if (this.users.hasOwnProperty(username) && this.users[username] === Md5.hashStr(password)
+      ) {
         return true;
       }
     }
