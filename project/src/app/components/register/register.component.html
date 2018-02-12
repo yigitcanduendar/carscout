@@ -12,6 +12,15 @@
       </div>
     </div>
 
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="basic-addon2">E-Mail</label>
+      <div class="col-md-4">
+        <input type="text" name="email" class="form-control" placeholder="m.mustermann@bsp.com" aria-describedby="basic-addon2" [(ngModel)]="benutzer.email">
+      </div>
+    </div>
+
+
     <!-- Password input-->
     <div class="form-group">
       <label class="col-md-4 control-label" for="passwordinput">Password</label>
@@ -32,16 +41,9 @@
 
 
     <div class="form-group">
-      <label class="col-md-4 control-label" for="basic-addon2">E-Mail</label>
-      <div class="col-md-4">
-        <input type="text" class="form-control" placeholder="m.mustermann@bsp.com" aria-describedby="basic-addon2" [(ngModel)]="benutzer.email">
-      </div>
-    </div>
-
-    <div class="form-group">
       <label class="col-md-4 control-label" for="basic-addon2"></label>
       <div class="col-md-4">
-        <input type="checkbox" aria-label="..." [(ngModel)]="cb_agb" />
+        <input type="checkbox" name="agb" aria-label="..." [(ngModel)]="cb_agb" />
         <label> Ich habe die </label>
         <a href="/login" target="_blank">AGB</a>
         <label> gelesen und Akzeptiere Sie.</label>
@@ -50,7 +52,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="basic-addon2"></label>
       <div class="col-md-4">
-        <button type="button" class="btn btn-default navbar-btn" (click)="checkValid()">Jetzt Regristrieren</button>
+        <button id="singlebutton" name="singlebutton" class="btn btn-primary" (click)="checkValid()">Jetzt Registrieren</button>
       </div>
     </div>
   </fieldset>
