@@ -18,7 +18,8 @@
                     <a href="">Startseite</a>
                 </li>
                 <li>
-                    <a href="/login">Login</a>
+                    <a *ngIf="cookieService.get('online') == undefined" href="/login">Login</a>
+                    <a *ngIf="cookieService.get('online')" href="/logout">Logout</a>
                 </li>
                 <li>
                     <a href="/register">Registrieren</a>
@@ -40,4 +41,12 @@
 <div class='container'>
     <app-messagebox></app-messagebox>
     <router-outlet></router-outlet>
+</div>
+
+<div class='footer navbar-fixed-bottom carscout-footer'>
+    <a href="/impressum">Impressum</a>
+    |
+    <a href="/privacyPolicy">Datenschutzerklärung</a>
+    |
+    <a href="/agb">AGB</a>
 </div>
