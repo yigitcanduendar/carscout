@@ -7,14 +7,16 @@ import { LoginComponent } from '../components/login/login.component';
 import { AgbComponent } from '../components/legal-information/agb/agb.component';
 import { ImpressumComponent } from '../components/legal-information/impressum/impressum.component';
 import { PrivacyPolicyComponent } from '../components/legal-information/privacy-policy/privacy-policy.component';
+import { LogoutComponent } from '../components/logout/logout.component';
 
 // Routing-----------------------------------------------
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'impressum', component: ImpressumComponent},
-  { path: 'privacyPolicy', component: PrivacyPolicyComponent},
-  { path: 'agb', component: AgbComponent}
+  { path: 'impressum', component: ImpressumComponent },
+  { path: 'privacyPolicy', component: PrivacyPolicyComponent },
+  { path: 'agb', component: AgbComponent },
+  { path: 'logout', component: LogoutComponent }
 ];
 // Ende---------------------------------------------------
 

@@ -20,3 +20,21 @@ Im Browser: localhost:4200
 
 
 set PATH=%PATH%;C:\deinpfad
+
+## Weiterleitung
+
+Im constructor als Argument 'private router: Router'
+Dann innerhalb der Methode:
+    `this.router.navigate(['route'])` 
+
+Beispiel: 
+    `this.router.navigate(['/login'])` 
+
+## Cookies
+
+Beim einloggen wird in der LoginComponent ein Cookie `online` auf success gesetzt.
+Um den Cookie `online` abzurufen:
+    `this.cookieService.get('online');`
+
+Oder siehe LoginComponent unter save(); !!!
+
