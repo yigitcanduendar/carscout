@@ -30,4 +30,11 @@ Dann innerhalb der Methode:
 Beispiel: 
     `this.router.navigate(['/login'])` 
 
+## Cookies
+
+Beim einloggen wird in der LoginComponent ein Cookie `online` auf success gesetzt.
+Um den Cookie `online` abzurufen:
+    `this.cookieService.get('online');`
+
+Oder siehe LoginComponent unter save(); !!!
 
