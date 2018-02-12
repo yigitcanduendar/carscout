@@ -20,6 +20,9 @@
                     <a *ngIf="cookieService.get('online') == undefined" href="/login">Login</a>
                     <a *ngIf="cookieService.get('online')" href="/logout">Logout</a>
                 </li>
+                <li>
+                    <a href="/register">Registrieren</a>
+                </li>
             </ul>
             <form class="navbar-form navbar-left">
                 <div class="form-group">

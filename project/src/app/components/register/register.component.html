@@ -1,0 +1,59 @@
+<form class="form-horizontal">
+  <fieldset>
+
+    <!-- Form Name -->
+    <legend>Regristieren</legend>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput">Benutzername</label>
+      <div class="col-md-4">
+        <input id="textinput" name="textinput" type="text" placeholder="Max Mustermann" class="form-control input-md" [(ngModel)]="benutzer.name">
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="basic-addon2">E-Mail</label>
+      <div class="col-md-4">
+        <input type="text" name="email" class="form-control" placeholder="m.mustermann@bsp.com" aria-describedby="basic-addon2" [(ngModel)]="benutzer.email">
+      </div>
+    </div>
+
+
+    <!-- Password input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="passwordinput">Password</label>
+      <div class="col-md-4">
+        <input id="passwordinput" name="passwordinput" placeholder="Mind. 5 zeichen" type="password" class="form-control input-md"
+          [(ngModel)]="benutzer.password">
+      </div>
+    </div>
+
+    <!-- Password Wdh. input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="passwordinput2">Passwor wiederholen</label>
+      <div class="col-md-4">
+        <input id="passwordinput2" name="passwordinput2" placeholder="Mind. 5 zeichen" type="password" class="form-control input-md"
+          [(ngModel)]="password2">
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="basic-addon2"></label>
+      <div class="col-md-4">
+        <input type="checkbox" name="agb" aria-label="..." [(ngModel)]="cb_agb" />
+        <label> Ich habe die </label>
+        <a href="/login" target="_blank">AGB</a>
+        <label> gelesen und Akzeptiere Sie.</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="basic-addon2"></label>
+      <div class="col-md-4">
+        <button id="singlebutton" name="singlebutton" class="btn btn-primary" (click)="checkValid()">Jetzt Registrieren</button>
+      </div>
+    </div>
+  </fieldset>
+</form>

@@ -15,7 +15,7 @@ export class MessageProviderService {
     this._messageType = messageType;
     setTimeout(() => {
       this._message = '';
-    }, 3000);
+    }, 2000);
   }
 
   //Liefert die Mesage aus dem service raus für Komponente, die Messages zeigen können 
