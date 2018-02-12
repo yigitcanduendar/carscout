@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { MessageType } from '../../model/messagetype.enum';
 import { Md5 } from 'ts-md5/dist/md5';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
   public username;
@@ -19,17 +21,19 @@ export class LoginComponent implements OnInit {
     Milan: 'test123'
   };
 
-  constructor(private messageService: MessageProviderService) { }
+  constructor(private messageService: MessageProviderService, private router: Router) { }
 
   /**
    * Speichert und vergleicht ob Benutzer in DB existiert,
-   * wenn ja dann leite weiter und wenn nicht dann return zur Login-Seite.
+   * wenn ja dann leite weiter zur Angebotsübersicht und wenn nicht dann return zur Login-Seite.
    */
   save() {
     if (this.checkUser(this.username, this.password)) {
       this.messageService.display("Erfolgreich eingeloggt!", MessageType.success);
+      this.router.navigate(['']);
     } else {
       this.messageService.display("Benutzername oder Passwort falsch!", MessageType.danger);
+      this.router.navigate(['/login']);
     }
   }
 
