@@ -31,6 +31,8 @@ Beispiel:
     `this.router.navigate(['/login'])` 
 
 ## Cookies
+Zum installieren
+npm install ngx-cookie
 
 Beim einloggen wird in der LoginComponent ein Cookie `online` auf success gesetzt.
 Um den Cookie `online` abzurufen:
@@ -38,3 +40,6 @@ Um den Cookie `online` abzurufen:
 
 Oder siehe LoginComponent unter save(); !!!
 
+## MD5 
+
+npm install 

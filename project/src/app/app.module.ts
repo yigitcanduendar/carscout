@@ -14,6 +14,7 @@ import { PrivacyPolicyComponent } from './components/legal-information/privacy-p
 import { Md5 } from 'ts-md5';
 import { CookieModule } from 'ngx-cookie';
 import { LogoutComponent } from './components/logout/logout.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     ImpressumComponent,
     AgbComponent,
     PrivacyPolicyComponent,
-    LogoutComponent
+    LogoutComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

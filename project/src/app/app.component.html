@@ -22,7 +22,7 @@
                     <a *ngIf="cookieService.get('online')" href="/logout">Logout</a>
                 </li>
                 <li>
-                    <a href="/register">Registrieren</a>
+                    <a *ngIf="cookieService.get('online') == undefined" href="/register">Registrieren</a>
                 </li>
 
             </ul>
