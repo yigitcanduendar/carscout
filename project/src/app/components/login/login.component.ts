@@ -3,6 +3,7 @@ import { MessageProviderService } from '../../services/messageprovider.service';
 import { MessageType } from '../../model/messagetype.enum';
 import { Md5 } from 'ts-md5/dist/md5';
 import { Router } from '@angular/router';
+import { CookieModule, CookieService } from 'ngx-cookie';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   public username;
   public password;
+  public online;
 
   /** Dummy-Daten zur Zeit nur als Objekt später von der DB! */
   public users: Object = {
@@ -21,7 +23,10 @@ export class LoginComponent implements OnInit {
     Milan: 'test123'
   };
 
-  constructor(private messageService: MessageProviderService, private router: Router) { }
+  constructor(
+    private messageService: MessageProviderService, private router: Router, private cookieService: CookieService) {
+    this.online = false;
+  }
 
   /**
    * Speichert und vergleicht ob Benutzer in DB existiert,
@@ -30,6 +35,9 @@ export class LoginComponent implements OnInit {
   save() {
     if (this.checkUser(this.username, this.password)) {
       this.messageService.display("Erfolgreich eingeloggt!", MessageType.success);
+      this.cookieService.put('online', 'success');
+      this.online = true;
+      // Weiterleitung zur Startseite
       this.router.navigate(['']);
     } else {
       this.messageService.display("Benutzername oder Passwort falsch!", MessageType.danger);
@@ -42,9 +50,6 @@ export class LoginComponent implements OnInit {
    * Später mit DB Abfrage!
    */
   public checkUser(username, password): Boolean {
-
-
-
     for (const key in this.users) {
       if (this.users.hasOwnProperty(username) && this.users[username] === Md5.hashStr(password)
       ) {

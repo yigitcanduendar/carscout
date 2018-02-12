@@ -18,7 +18,8 @@
                     <a href="">Startseite</a>
                 </li>
                 <li>
-                    <a href="/login">Login</a>
+                    <a *ngIf="cookieService.get('online') == undefined" href="/login">Login</a>
+                    <a *ngIf="cookieService.get('online')" href="/logout">Logout</a>
                 </li>
 
             </ul>
