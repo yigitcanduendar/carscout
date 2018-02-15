@@ -33,7 +33,7 @@ import { RegisterComponent } from './components/register/register.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    CookieModule.forRoot()
+    CookieModule.forRoot(),
   ],
   providers: [MessageProviderService, Md5],
   bootstrap: [AppComponent]
