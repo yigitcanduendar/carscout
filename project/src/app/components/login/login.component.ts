@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
+
   /**
    * Überprüft, ob eingegebner User im Objekt ist.
    * Später mit DB Abfrage!

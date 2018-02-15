@@ -8,6 +8,8 @@ Wenn Ihr Probleme habt, wie z.B. AppComponent nicht gefunden, dann bitte folgend
 `npm install -g gulp`
 `npm start`
 
+`npm install @angular/animations@latest --save`
+
 Im Browser: localhost:4200
 
 ## Erstellen einer Component
@@ -32,7 +34,7 @@ Beispiel:
 
 ## Cookies
 Zum installieren
-npm install ngx-cookie
+npm install ngx-cookie@latest g
 
 Beim einloggen wird in der LoginComponent ein Cookie `online` auf success gesetzt.
 Um den Cookie `online` abzurufen:
