@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   /** Dummy-Daten zur Zeit nur als Objekt später von der DB! */
   public users: Object = {
     Can: Md5.hashStr('test123'),
-    Milan: 'test123'
+    Milan: Md5.hashStr('test123')
   };
 
   constructor(
