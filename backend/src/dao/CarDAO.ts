@@ -7,9 +7,8 @@ export class CarDAO {
 
     static async getAll() {
         let db = await sqlite.open(CarDAO.dbFile);
-        let cars = await db.all('select * from Cars');
+        let cars = await db.all('Select * from Cars');
         db.close();
         return cars;
     }
-
 }
