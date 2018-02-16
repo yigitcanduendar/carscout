@@ -12,6 +12,9 @@ import { ImpressumComponent } from './components/legal-information/impressum/imp
 import { AgbComponent } from './components/legal-information/agb/agb.component';
 import { PrivacyPolicyComponent } from './components/legal-information/privacy-policy/privacy-policy.component';
 import { Md5 } from 'ts-md5';
+import { CookieModule } from 'ngx-cookie';
+import { LogoutComponent } from './components/logout/logout.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +24,16 @@ import { Md5 } from 'ts-md5';
     MessageboxComponent,
     ImpressumComponent,
     AgbComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    LogoutComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    CookieModule.forRoot(),
   ],
   providers: [MessageProviderService, Md5],
   bootstrap: [AppComponent]
