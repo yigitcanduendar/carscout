@@ -15,6 +15,8 @@ import { Md5 } from 'ts-md5';
 import { CookieModule } from 'ngx-cookie';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RegisterComponent } from './components/register/register.component';
+import { TodoRestApiService } from './services/todo-rest-api.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,8 +36,9 @@ import { RegisterComponent } from './components/register/register.component';
     AppRoutingModule,
     FormsModule,
     CookieModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [MessageProviderService, Md5],
+  providers: [MessageProviderService, Md5, TodoRestApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
