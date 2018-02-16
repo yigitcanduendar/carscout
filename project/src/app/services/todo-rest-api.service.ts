@@ -9,19 +9,21 @@ export class TodoRestApiService {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
   };
 
-  private carDataCache: Car[];
+  private carDataCache: Car[] = [];
 
   private refresh() {
+    console.log('refresh!');
     this.http.get('api/cars').subscribe(data => {
       this.carDataCache = <Car[]>data;
+      console.log(JSON.stringify(this.carDataCache));
     },
       err => {
         console.log(err);
       });
   }
 
-
   constructor(private http: HttpClient) {
+    this.carDataCache.push(new Car(5, 'weddwdf', 'wefwef', 'wefwef', 'wefwef', 'wefwef', 'wefwef', 'wefwef', '32', 234, 4));
     this.refresh();
   }
 

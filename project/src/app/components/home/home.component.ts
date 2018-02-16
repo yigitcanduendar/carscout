@@ -12,6 +12,7 @@ import { TodoRestApiService } from '../../services/todo-rest-api.service';
 })
 export class HomeComponent implements OnInit {
 
+
   constructor(private router: Router, private rest: TodoRestApiService) {
     this.allCars();
   }
@@ -19,7 +20,8 @@ export class HomeComponent implements OnInit {
   public cars: Array<Car>;
 
   private allCars() {
-    console.log(this.rest.cars);
+    console.log('COMPONENT: ' + this.rest.cars);
+    this.cars = this.rest.cars;
   }
 
   public toOffer(carId: number) {

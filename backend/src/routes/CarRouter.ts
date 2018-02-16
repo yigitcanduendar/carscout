@@ -11,20 +11,20 @@ export class CarRouter {
     this.init();
   }
 
-
   async getAll(req: Request, res: Response, next: NextFunction) {
     let cars = await CarDAO.getAll();
-    return cars;
-    // if (cars) {
-    //   res.status(200).send(JSON.stringify(cars));
-    // }
-    // else {
-    //   res.status(404).send('nix gefunden');
-    // }
+    console.log(JSON.stringify(cars));
+    if (cars) {
+      res.status(200).send(JSON.stringify(cars));
+    }
+    else {
+      res.status(404).send('nix gefunden');
+    }
   }
 
   init() {
     this.router.get('/', this.getAll);
+
   }
 }
 
