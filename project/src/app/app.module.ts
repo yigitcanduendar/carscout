@@ -15,6 +15,7 @@ import { Md5 } from 'ts-md5';
 import { CookieModule } from 'ngx-cookie';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RegisterComponent } from './components/register/register.component';
+import { CarDAO } from './DAO/CarDAO';
 
 @NgModule({
   declarations: [

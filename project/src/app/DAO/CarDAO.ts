@@ -1,18 +1,30 @@
 import { Car } from '../model/car';
-
-const sqlite = require('sqlite-sync');
+import { state } from '@angular/animations';
+import { Sqlite } from 'sqlite-sync';
 
 export class CarDAO {
 
-    private DB_FILE = 'CarDB.db3';
+    private DB_FILE = 'carDB.db3';
 
-    public getAll(): Car[] {
-        let cars: Car[] = [];
-        sqlite.connect('carDB.db3');
-        sqlite.run('SELECT * from Cars').forEach(result => {
-            cars.push(new Car(result.id, result.manufacturer, result.modell, result.Population, result.SurfaceArea));
+    async getAll(): Car[] {
+        const cars: Car[] = [];
+        Sqlite.connect(this.DB_FILE);
+        Sqlite.run('SELECT * from Cars').forEach(result => {
+            cars.push(new Car(
+                result.id,
+                result.manufacturer,
+                result.modell,
+                result.year,
+                result.ps,
+                result.consumption,
+                result.km_driven,
+                result.colour,
+                result.seats,
+                result.description,
+                result.state
+            ));
         });
-        sqlite.close();
+        Sqlite.close();
         return cars;
     }
 }
