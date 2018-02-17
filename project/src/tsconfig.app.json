@@ -7,7 +7,7 @@
     "types": []
   },
   "include": [
-    "./model/Car.ts",
+    "./app/model/Car.ts",
     "Car.ts",
     "**/*.ts"
   ],

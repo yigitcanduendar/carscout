@@ -12,6 +12,4 @@ export class Car {
         public kilometerstand: number,
         public leistung: number
     ) { }
-
-    // foo
 }

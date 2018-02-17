@@ -20,8 +20,8 @@ export class HomeComponent implements OnInit {
   public cars: Array<Car>;
 
   private allCars() {
-    console.log('COMPONENT: ' + this.rest.cars);
     this.cars = this.rest.cars;
+    console.log(JSON.stringify(this.cars));
   }
 
   public toOffer(carId: number) {
