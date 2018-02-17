@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
 
   private allCars() {
     this.cars = this.rest.cars;
-    console.log(JSON.stringify(this.cars));
   }
 
   public toOffer(carId: number) {
