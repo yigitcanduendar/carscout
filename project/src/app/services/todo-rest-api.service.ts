@@ -13,9 +13,9 @@ export class TodoRestApiService {
   private carDataCache: Car[] = [];
 
   private refresh() {
-    this.http.get('api/cars').subscribe(data => {
+    this.http.get('api/cars').subscribe((data:Car[]) => {
       console.log(data);
-      // this.carDataCache = data;
+     this.carDataCache = data;
     },
       err => {
         console.log(err);

@@ -17,6 +17,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TodoRestApiService } from './services/todo-rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { APP_BASE_HREF } from '@angular/common'
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     CookieModule.forRoot(),
     HttpClientModule
   ],
-  providers: [MessageProviderService, Md5, TodoRestApiService],
+  providers: [MessageProviderService, { provide: APP_BASE_HREF, useValue: '/' }, Md5, TodoRestApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

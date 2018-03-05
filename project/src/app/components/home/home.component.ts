@@ -14,13 +14,10 @@ export class HomeComponent implements OnInit {
 
 
   constructor(private router: Router, private rest: TodoRestApiService) {
-    this.allCars();
   }
 
-  public cars: Array<Car>;
-
-  private allCars() {
-    this.cars = this.rest.cars;
+  get cars() {
+return this.rest.cars;
   }
 
   public toOffer(carId: number) {
