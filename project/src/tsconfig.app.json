@@ -9,6 +9,8 @@
   "include": [
     "./app/model/Car.ts",
     "Car.ts",
+    "./app/model/user.ts",
+    "User.ts",
     "**/*.ts"
   ],
   "exclude": [

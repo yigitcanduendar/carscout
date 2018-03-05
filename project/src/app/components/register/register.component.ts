@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   }
 
   inputIsValid() {
-    if (this.benutzer.name == null) {
+    if (this.benutzer.username == null) {
       this.messageService.display("Bitte geben sie ein Benutzernamen ein.", MessageType.warning);
       return false;
     }
@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
       this.messageService.display("Bitte geben sie ein gültige E-Mail Adresse ein.", MessageType.warning);
       return false;
     }
-    if (this.benutzer.password == null) {
+    if (this.benutzer.pw == null) {
       this.messageService.display("Bitte geben sie ein Passwort ein.", MessageType.warning);
       return false;
     }
@@ -47,9 +47,9 @@ export class RegisterComponent implements OnInit {
   }
 
   showMessage(){
-    if (this.benutzer.name.length <= 3 || this.benutzer.email.length <= 4 || this.benutzer.password.length <= 4) {
+    if (this.benutzer.username.length <= 3 || this.benutzer.email.length <= 4 || this.benutzer.pw.length <= 4) {
       this.messageService.display("Bitte überprüfen Sie Ihre eingaben!", MessageType.warning);
-    } else if (this.benutzer.password != this.password2) {
+    } else if (this.benutzer.pw != this.password2) {
       this.messageService.display("Bitte überprüfen Sie Ihre eingaben!" + '<br/>' + "-Passwörter Stimmen nicht überein", MessageType.warning);
     } else {
       this.messageService.display("success?", MessageType.success);
