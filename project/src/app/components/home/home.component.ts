@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private rest: TodoRestApiService) {
   }
 
-  get cars(): Car {
+  get cars() {
     return this.rest.cars;
   }
 

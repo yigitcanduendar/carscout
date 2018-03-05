@@ -4,9 +4,9 @@ export class User {
     public username?: string,
     public pw?: string,
     public email?: string,
-    public online?: boolean
+    public online: boolean
   ) {
-
+    this.online = false;
   }
 
 }

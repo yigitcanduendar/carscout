@@ -6,5 +6,6 @@ export class User {
         public email?: string,
         public online?: boolean
     ) {
+        this.online = false;
     }
 }

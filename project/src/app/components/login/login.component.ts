@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
     private cookieService: CookieService,
     private restApiService: TodoRestApiService
   ) {
-    this.users.online = false;
   }
 
   get users() {
@@ -39,7 +38,6 @@ export class LoginComponent implements OnInit {
     if (this.checkUser(this.username, this.password)) {
       this.messageService.display("Erfolgreich eingeloggt!", MessageType.success);
       this.cookieService.put('online', 'success');
-      this.users.online = true;
       // Weiterleitung zur Startseite
       this.router.navigate(['']);
     } else {
@@ -57,6 +55,7 @@ export class LoginComponent implements OnInit {
     for (const key in this.users) {
       if (this.users[key].username === username && this.users[key].pw === password
       ) {
+        this.users[key].online = true;
         return true;
       }
     }
