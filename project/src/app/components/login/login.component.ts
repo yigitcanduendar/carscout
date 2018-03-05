@@ -4,6 +4,8 @@ import { MessageType } from '../../model/messagetype.enum';
 import { Md5 } from 'ts-md5/dist/md5';
 import { Router } from '@angular/router';
 import { CookieModule, CookieService } from 'ngx-cookie';
+import { User } from '../../model/user';
+import { TodoRestApiService } from '../../services/todo-rest-api.service';
 
 @Component({
   selector: 'app-login',
@@ -13,19 +15,19 @@ import { CookieModule, CookieService } from 'ngx-cookie';
 
 export class LoginComponent implements OnInit {
 
-  public username;
-  public password;
-  public online;
-
-  /** Dummy-Daten zur Zeit nur als Objekt später von der DB! */
-  public users: Object = {
-    Can: Md5.hashStr('test123'),
-    Milan: Md5.hashStr('test123')
-  };
+  private username: string;
+  private password: string;
 
   constructor(
-    private messageService: MessageProviderService, private router: Router, private cookieService: CookieService) {
-    this.online = false;
+    private messageService: MessageProviderService,
+    private router: Router,
+    private cookieService: CookieService,
+    private restApiService: TodoRestApiService
+  ) {
+  }
+
+  get users() {
+    return this.restApiService.users;
   }
 
   /**
@@ -33,10 +35,9 @@ export class LoginComponent implements OnInit {
    * wenn ja dann leite weiter zur Angebotsübersicht und wenn nicht dann return zur Login-Seite.
    */
   save() {
-    if (this.checkUser(this.username, this.password)) {
+    if (this.checkUser(this.username, Md5.hashStr(this.password))) {
       this.messageService.display("Erfolgreich eingeloggt!", MessageType.success);
       this.cookieService.put('online', 'success');
-      this.online = true;
       // Weiterleitung zur Startseite
       this.router.navigate(['']);
     } else {
@@ -52,8 +53,9 @@ export class LoginComponent implements OnInit {
    */
   public checkUser(username, password): Boolean {
     for (const key in this.users) {
-      if (this.users.hasOwnProperty(username) && this.users[username] === Md5.hashStr(password)
+      if (this.users[key].username === username && this.users[key].pw === password
       ) {
+        this.users[key].online = true;
         return true;
       }
     }
