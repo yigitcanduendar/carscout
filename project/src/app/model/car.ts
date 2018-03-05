@@ -1,19 +1,17 @@
 export class Car {
     constructor(
         public id: number,
-        public name: String,
-        public erstzulassung: String,
-        public preis: String,
-        public kraftstoffart: String,
-        public hersteller: String,
+        public manufacturer: string,
         public modell: String,
-        public fahrzeugstand: String,
-        public kategorie: String,
-        public kilometerstand: number,
-        public leistung: number
-        colour: String,
-        seats: number,
-        description: String,
-        state: String
+        public ps: number,
+        public year: number,
+        public consumption: string,
+        public km_driven: number,
+        public colour: String,
+        public seats: number,
+        public description: string,
+        // public category: string,
+        public state: string,
+        public price: string
     ) { }
 }

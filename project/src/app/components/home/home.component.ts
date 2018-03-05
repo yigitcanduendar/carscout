@@ -17,11 +17,12 @@ export class HomeComponent implements OnInit {
   }
 
   get cars() {
+    console.log(this.rest.cars);
     return this.rest.cars;
   }
 
   public toOffer(carId: number) {
-    this.router.navigate(['/offer/' + carId]);
+    this.router.navigate(['/cars/' + carId]);
   }
 
   ngOnInit() {
