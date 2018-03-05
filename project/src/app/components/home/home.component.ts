@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
 import { Router } from '@angular/router';
 import { Car } from '../../model/car';
-import { CarDAO } from '../../DAO/CarDAO';
+import { NextFunction } from 'express';
+import { TodoRestApiService } from '../../services/todo-rest-api.service';
 
 @Component({
   selector: 'app-home',
@@ -11,15 +12,15 @@ import { CarDAO } from '../../DAO/CarDAO';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) {
+
+  constructor(private router: Router, private rest: TodoRestApiService) {
     this.allCars();
   }
 
   public cars: Array<Car>;
 
   private allCars() {
-    const carDAO = new CarDAO();
-    this.cars = carDAO.getAll();
+    this.cars = this.rest.cars;
   }
 
   public toOffer(carId: number) {

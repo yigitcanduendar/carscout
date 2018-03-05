@@ -4,7 +4,7 @@ import { MessageType } from '../../model/messagetype.enum';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 
 @Component({
-  selector: 'app-messagebox',
+  selector: 'app-message-box',
   templateUrl: './messagebox.component.html',
   animations: [
     trigger(
@@ -28,21 +28,21 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
 })
 export class MessageboxComponent implements OnInit {
 
-  constructor(private MessageProviderService: MessageProviderService) { }
+  constructor(private messageProviderService: MessageProviderService) { }
 
   ngOnInit() {
   }
 
-  //Liefert die Mesage aus dem service zurück 
-  //Aufruf dieser methode von der HTML
+  // Liefert die Mesage aus dem service zurück
+  // Aufruf dieser methode von der HTML
   get message(): string {
-    return this.MessageProviderService.message;
+    return this.messageProviderService.message;
   }
 
-  //Liefert die MesageType aus dem service zurück 
-  //Aufruf dieser methode von der HTML
+  // Liefert die MesageType aus dem service zurück 
+  // Aufruf dieser methode von der HTML
   get messageType(): string {
-    return MessageType[this.MessageProviderService.messageType];
+    return MessageType[this.messageProviderService.messageType];
   }
 }
 

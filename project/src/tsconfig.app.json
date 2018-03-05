@@ -6,6 +6,11 @@
     "module": "es2015",
     "types": []
   },
+  "include": [
+    "./app/model/Car.ts",
+    "Car.ts",
+    "**/*.ts"
+  ],
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
