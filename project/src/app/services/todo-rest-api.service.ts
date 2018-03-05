@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Car } from '../model/Car';
 import { Observable } from 'rxjs/Observable';
+import { User } from '../model/User';
 
 @Injectable()
 export class TodoRestApiService {
@@ -11,8 +12,9 @@ export class TodoRestApiService {
   };
 
   private carDataCache: Car[] = [];
+  private userDataCache: User[] = [];
 
-  private refresh() {
+  private refreshCars() {
     this.http.get('api/cars').subscribe((data: Car[]) => {
       this.carDataCache = data;
     },
@@ -21,56 +23,27 @@ export class TodoRestApiService {
       });
   }
 
-  constructor(private http: HttpClient) {
-    this.refresh();
+  private refreshUsers() {
+    this.http.get('api/users').subscribe((data: User[]) => {
+      this.userDataCache = data;
+    },
+      err => {
+        console.log(err);
+      });
   }
 
+  constructor(private http: HttpClient) {
+    this.refreshCars();
+    this.refreshUsers();
+  }
+
+  get users(): User[] {
+    return this.userDataCache;
+  }
 
   get cars(): Car[] {
     return this.carDataCache;
   }
-
-  // deleteTodo(id: number) {
-
-  //   this.todoDataCache = this.todoDataCache.filter(t => t.id !== id);
-  //   this.http.delete(
-  //     `api/todos/` + id).subscribe(
-  //       () => this.refresh(),
-  //       err => {
-  //         console.log(err);
-  //         this.refresh();
-  //         this.MessageBoxService.display('Fehler beim Löschen: Code ' + err.status, MessageBoxType.danger);
-  //       });
-  // }
-
-  // saveTodo(newTodo: TodoEntry) {
-  //   this.todoDataCache.push(newTodo);
-  //   const body = new URLSearchParams();
-  //   body.set('label', newTodo.label);
-  //   body.set('category_id', String(newTodo.category.id));
-  //   if (newTodo.dueDate) {
-  //     body.set('dueDate', String(newTodo.dueDate));
-  //   }
-  //   if (newTodo.priority) {
-  //     body.set('priority', String(newTodo.priority));
-  //   }
-  //   console.log('body: ' + body.toString());
-  //   this.http.post(
-  //     `api/todoss`,
-  //     body.toString(),
-  //     this.options).subscribe(() => this.refresh(),
-  //       (err) => {
-  //         // reverse change
-  //         this.refresh();
-  //         this.MessageBoxService.display('Fehler beim Speichern: StatusCode '
-  //           + err.status, MessageBoxType.danger); console.log(err);
-  //       });
-  // }
-
-  // deleteAll() {
-  // this.localStorage.setItem('todos', JSON.stringify([]));
-  // }
-
 }
 
 
