@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
    * wenn ja dann leite weiter zur Angebotsübersicht und wenn nicht dann return zur Login-Seite.
    */
   save() {
-    if (this.checkUser(this.username, this.password)) {
+    if (this.checkUser(this.username, Md5.hashStr(this.password))) {
       this.messageService.display("Erfolgreich eingeloggt!", MessageType.success);
       this.cookieService.put('online', 'success');
       // Weiterleitung zur Startseite
