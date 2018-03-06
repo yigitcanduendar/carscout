@@ -21,6 +21,13 @@ export class TodoRestApiService {
       err => {
         console.log(err);
       });
+
+      this.http.get('api/offers').subscribe(data => {
+      this.offerDataCache = <Offer[]>data;
+    },
+      err2 => {
+        console.log(err2);
+      });
   }
 
   private refreshUsers() {
@@ -40,7 +47,6 @@ export class TodoRestApiService {
   get users(): User[] {
     return this.userDataCache;
   }
-
   get cars(): Car[] {
     return this.carDataCache;
   }
