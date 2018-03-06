@@ -17,7 +17,8 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TodoRestApiService } from './services/todo-rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
-import { APP_BASE_HREF } from '@angular/common'
+import { APP_BASE_HREF } from '@angular/common';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { APP_BASE_HREF } from '@angular/common'
     AgbComponent,
     PrivacyPolicyComponent,
     LogoutComponent,
-    RegisterComponent
+    RegisterComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
