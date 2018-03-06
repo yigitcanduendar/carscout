@@ -3,7 +3,7 @@ const sqlite = require('sqlite-async');
 
 export class OfferDAO {
 
-    static dbFile = 'carDB.db3';
+    static dbFile = 'car.db3';
 
     static async getAll() {
         let db = await sqlite.open(OfferDAO.dbFile);

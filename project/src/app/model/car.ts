@@ -10,7 +10,8 @@ export class Car {
         public colour: String,
         public seats: number,
         public description: string,
-        // public category: string,
+        public category: string,
+        public fuel_type: string,
         public state: string,
         public price: string
     ) { }
