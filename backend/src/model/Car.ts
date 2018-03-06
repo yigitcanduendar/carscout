@@ -3,7 +3,7 @@ export class Car {
         id: number,
         name: String,
         erstzulassung: String,
-        preis: String,
+        price: String,
         kraftstoffart: String,
         hersteller: String,
         modell: String,

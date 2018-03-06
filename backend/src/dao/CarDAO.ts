@@ -11,4 +11,12 @@ export class CarDAO {
         db.close();
         return cars;
     }
+
+    static async getCarById(id: number): Promise<Car> {
+        let db = await sqlite.open(CarDAO.dbFile);
+        let car = await db.get('Select * from Cars Where id==' + id
+        );
+        db.close();
+        return car;
+    }
 }
