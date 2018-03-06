@@ -9,6 +9,7 @@ import { ImpressumComponent } from '../components/legal-information/impressum/im
 import { PrivacyPolicyComponent } from '../components/legal-information/privacy-policy/privacy-policy.component';
 import { LogoutComponent } from '../components/logout/logout.component';
 import { RegisterComponent } from '../components/register/register.component';
+import { ProposalComponent } from '../components/proposal/proposal.component';
 
 // Routing-----------------------------------------------
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'privacyPolicy', component: PrivacyPolicyComponent },
   { path: 'agb', component: AgbComponent },
   { path: 'logout', component: LogoutComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'proposal', component: ProposalComponent }
   
 ];
 // Ende---------------------------------------------------
