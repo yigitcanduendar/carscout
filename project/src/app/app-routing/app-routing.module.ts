@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'agb', component: AgbComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'cars/:id', component: AngebotDetailComponent }
+  { path: 'proposal', component: ProposalComponent }
 
 
 ];

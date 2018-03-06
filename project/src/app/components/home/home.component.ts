@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit {
   }
 
   get cars() {
-return this.rest.cars;
+    console.log(this.rest.cars);
+    return this.rest.cars;
   }
 
   public toOffer(carId: number) {

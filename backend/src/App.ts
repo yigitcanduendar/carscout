@@ -3,7 +3,7 @@ import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 import CarRouter from './routes/CarRouter';
-
+import UserRouter from './routes/UserRouter';
 
 // Creates and configures an ExpressJS web server.
 class App {
@@ -28,7 +28,7 @@ class App {
   // Configure API endpoints.
   private routes(): void {
     this.express.use('/cars', CarRouter);
-  
+    this.express.use('/users', UserRouter);
   }
 
 }
