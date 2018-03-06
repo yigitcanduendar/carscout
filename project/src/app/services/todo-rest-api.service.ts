@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Car } from '../model/Car';
+import { Offer } from '../model/Offer';
 
 @Injectable()
 export class TodoRestApiService {
@@ -10,6 +11,7 @@ export class TodoRestApiService {
   };
 
   private carDataCache: Car[];
+  private offerDataCache: Offer[];
 
   private refresh() {
     this.http.get('api/cars').subscribe(data => {
@@ -18,6 +20,13 @@ export class TodoRestApiService {
       err => {
         console.log(err);
       });
+
+      this.http.get('api/offers').subscribe(data => {
+      this.offerDataCache = <Offer[]>data;
+    },
+      err2 => {
+        console.log(err2);
+      });
   }
 
 
@@ -25,7 +34,9 @@ export class TodoRestApiService {
     this.refresh();
   }
 
-
+ get offers(): Offer[]  {
+    return this.offerDataCache;
+ }
   get cars(): Car[] {
     return this.carDataCache;
   }
