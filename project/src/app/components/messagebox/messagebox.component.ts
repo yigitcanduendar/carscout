@@ -39,7 +39,7 @@ export class MessageboxComponent implements OnInit {
     return this.messageProviderService.message;
   }
 
-  // Liefert die MesageType aus dem service zurück
+  // Liefert die MesageType aus dem service zurück 
   // Aufruf dieser methode von der HTML
   get messageType(): string {
     return MessageType[this.messageProviderService.messageType];

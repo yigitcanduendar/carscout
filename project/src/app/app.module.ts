@@ -18,7 +18,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { TodoRestApiService } from './services/todo-rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
-import { CarSearchFilterPipe } from './pipes/car-search-filter.pipe';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { CarSearchFilterPipe } from './pipes/car-search-filter.pipe';
     PrivacyPolicyComponent,
     LogoutComponent,
     RegisterComponent,
-    CarSearchFilterPipe,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
