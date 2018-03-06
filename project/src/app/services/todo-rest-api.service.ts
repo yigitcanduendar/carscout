@@ -21,13 +21,6 @@ export class TodoRestApiService {
       err => {
         console.log(err);
       });
-
-      this.http.get('api/offers').subscribe(data => {
-      this.offerDataCache = <Offer[]>data;
-    },
-      err2 => {
-        console.log(err2);
-      });
   }
 
   private refreshUsers() {
