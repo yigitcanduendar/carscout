@@ -21,7 +21,7 @@ return this.rest.cars;
   }
 
   public toOffer(carId: number) {
-    this.router.navigate(['/offer/' + carId]);
+    this.router.navigate(['/cars/' + carId]);
   }
 
   ngOnInit() {

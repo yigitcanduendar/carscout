@@ -21,10 +21,22 @@ export class CarRouter {
       res.status(404).send('nix gefunden');
     }
   }
+  
+  async getById(req: Request, res: Response, next: NextFunction) {
+    console.log(req.params.id);
+    let car = await CarDAO.getCarById(req.params.id);
+    console.log(JSON.stringify(car));
+    if (car) {
+      res.status(200).send(JSON.stringify(car));
+    }
+    else {
+      res.status(404).send('nix gefunden');
+    }
+  }
 
   init() {
     this.router.get('/', this.getAll);
-
+    this.router.get('/:id', this.getById)
   }
 }
 

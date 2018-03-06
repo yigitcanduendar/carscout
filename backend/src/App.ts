@@ -28,6 +28,7 @@ class App {
   // Configure API endpoints.
   private routes(): void {
     this.express.use('/cars', CarRouter);
+  
   }
 
 }
