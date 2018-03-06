@@ -8,7 +8,8 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="selectbasic">Hersteller</label>
   <div class="col-md-4">
-    <select id="selectbasic" name="selectbasic" class="form-control">
+    <select id="selectBrand" name="selectBrand" class="form-control">
+      <option value="leer"></option>   
       <option value="Acura">Acura</option>
       <option value="Alfa Romeo">Alfa Romeo</option>
       <option value="Aston Martin">Aston Martin</option>
@@ -86,7 +87,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="modell">Modell</label>  
   <div class="col-md-4">
-  <input id="modell" name="modell" placeholder="Modell" class="form-control input-md" type="text">
+  <input id="modell" name="modell" class="form-control input-md" type="text">
     
   </div>
 </div>
@@ -96,65 +97,74 @@
   <label class="col-md-4 control-label" for="fahrzeugtyp">Fahrzeugtyp</label>
   <div class="col-md-4">
     <select id="fahrzeugtyp" name="fahrzeugtyp" class="form-control">
-      <option value="">Cabrio</option>
-      <option value="">Limousine</option>
-      <option value="">Geländewagen</option>
-      <option value="">Sportwagen</option>
-      <option value="">Coupé</option>
-      <option value="">Kleinwagen</option>
-      <option value="">Van</option>
-      <option value="">Kombi</option>
+      <option value="leer"></option>
+      <option value="cabrio">Cabrio</option>
+      <option value="limousine">Limousine</option>
+      <option value="gelaendewagen">Geländewagen</option>
+      <option value="sportwagen">Sportwagen</option>
+      <option value="coupe">Coupé</option>
+      <option value="kleinwagen">Kleinwagen</option>
+      <option value="cav">Van</option>
+      <option value="combi">Kombi</option>
     </select>
   </div>
 </div>
 
 <!-- Anzahl Sitze -->
-<div class="form-group">
+<div class="form-group" id="sitze">
   <label class="col-md-4 control-label" for="radios">Anzahl Sitze</label>
   <div class="col-md-4"> 
     <label class="radio-inline" for="radios-0">
-      <input name="radios" id="radios-0" value="1" checked="checked" type="radio">
+      <input name="sitze" id="radios-0" value="1" type="radio">
       1
     </label> 
     <label class="radio-inline" for="radios-1">
-      <input name="radios" id="radios-1" value="2" type="radio">
+      <input name="sitze" id="radios-1" value="2" type="radio">
       2
     </label> 
     <label class="radio-inline" for="radios-2">
-      <input name="radios" id="radios-2" value="3" type="radio">
+      <input name="sitze" id="radios-2" value="3" type="radio">
       3
     </label> 
     <label class="radio-inline" for="radios-3">
-      <input name="radios" id="radios-3" value="4" type="radio">
+      <input name="sitze" id="radios-3" value="4" type="radio">
       4
     </label> 
     <label class="radio-inline" for="radios-4">
-      <input name="radios" id="radios-4" value="5" type="radio">
+      <input name="sitze" id="radios-4" value="5" type="radio">
       5
     </label> 
     <label class="radio-inline" for="radios-5">
-      <input name="radios" id="radios-5" value="6" type="radio">
+      <input name="sitze" id="radios-5" value="6" type="radio">
       6
     </label> 
     <label class="radio-inline" for="radios-6">
-      <input name="radios" id="radios-6" value="7" type="radio">
+      <input name="sitze" id="radios-6" value="7" type="radio">
       7
     </label>
   </div>
 </div>
 
 <!-- Anzahl Türen -->
-<div class="form-group">
+<div class="form-group" id="tueren">
   <label class="col-md-4 control-label" for="radios">Anzahl Türen</label>
   <div class="col-md-4"> 
     <label class="radio-inline" for="radios-0">
-      <input name="radios" id="radios-0" value="2/3" checked="checked" type="radio">
+      <input name="tueren" id="radios-0" value="2/3" type="radio">
       2/3
     </label> 
     <label class="radio-inline" for="radios-1">
-      <input name="radios" id="radios-1" value="4/5" type="radio">
+      <input name="tueren" id="radios-1" value="4/5" type="radio">
       4/5
     </label>
+  </div>
+</div>
+
+<!-- Baujahr -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="q">Baujahr</label>  
+  <div class="col-md-4">
+  <input id="baujahr" name="baujahr" placeholder="Baujahr" class="form-control input-md" type="number" min="1900" max="2099" step="1" value="2018">
   </div>
 </div>
 
@@ -162,8 +172,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="q">Erstzulassung</label>  
   <div class="col-md-4">
-  <input id="q" name="q" placeholder="Erstzulassung" class="form-control input-md" type="text">
-    
+  <input id="erstzulassung" name="erstzulassung" class="form-control input-md" type="date">    
   </div>
 </div>
 
@@ -171,7 +180,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="kilometer">Kilometerstand</label>  
   <div class="col-md-4">
-  <input id="kilometer" name="kilometer" placeholder="Kilometerstand" class="form-control input-md" type="text">
+  <input id="kilometer" name="kilometer" class="form-control input-md" type="text">
     
   </div>
 </div>
@@ -180,7 +189,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="Leistung">Leistung</label>  
   <div class="col-md-4">
-  <input id="Leistung" name="Leistung" placeholder="Leistung" class="form-control input-md" type="text">
+  <input id="Leistung" name="Leistung" class="form-control input-md" type="text">
     
   </div>
 </div>
@@ -189,7 +198,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="Preis">Preis</label>  
   <div class="col-md-4">
-  <input id="Preis" name="Preis" placeholder="Preis" class="form-control input-md" type="text">
+  <input id="Preis" name="Preis" class="form-control input-md" type="text">
     
   </div>
 </div>
@@ -199,6 +208,7 @@
   <label class="col-md-4 control-label" for="Kraftstoff">Kraftstoffart</label>
   <div class="col-md-4">
     <select id="Kraftstoff" name="Kraftstoff" class="form-control">
+      <option value="leer"></option>
       <option value="Benzin">Benzin</option>
       <option value="Diesel">Diesel</option>
       <option value="Elektro">Elektro</option>
@@ -213,6 +223,7 @@
   <label class="col-md-4 control-label" for="Getriebe">Getriebe</label>
   <div class="col-md-4">
     <select id="Getriebe" name="Getriebe" class="form-control">
+      <option value="leer"></option>
       <option value="Schaltgetriebe">Schaltgetriebe</option>
       <option value="Automatik">Automatik</option>
       <option value="Halbautomatik">Halbautomatik</option>
@@ -225,6 +236,7 @@
   <label class="col-md-4 control-label" for="Farbe">Farbe</label>
   <div class="col-md-4">
     <select id="Farbe" name="Farbe" class="form-control">
+      <option value="leer"></option>
       <option value="beige">beige</option>
       <option value="schwarz">schwarz</option>
       <option value="blau">blau</option>
@@ -482,6 +494,22 @@
   <label class="col-md-4 control-label" for="Zusatz">Zusatz</label>
   <div class="col-md-4">                     
     <textarea class="form-control" id="Zusatz" name="Zusatz"></textarea>
+  </div>
+</div>
+
+<!-- Bilder hinzufuegen --> 
+<div class="form-group">
+  <label class="col-md-4 control-label" for="pictures">Bilder</label>
+  <div class="col-md-4">
+    <input id="pictures" name="pictures" class="input-file" type="file">
+  </div>
+</div>
+
+<!-- Erstellen Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-success">Angebot erstellen</button>
   </div>
 </div>
 
