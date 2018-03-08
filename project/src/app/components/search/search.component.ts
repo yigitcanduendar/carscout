@@ -27,7 +27,7 @@ export class SearchComponent implements OnInit {
     let results = [];
 
     if (!this.searchText) {
-      //this.messageService.display('Bitte geben Sie einen Suchbegriff ein!', MessageType.warning);
+      this.messageService.display('Bitte geben Sie einen Suchbegriff ein!', MessageType.warning);
       this.searchService.setResult(this.allCars);
       return;
     }
@@ -55,7 +55,7 @@ export class SearchComponent implements OnInit {
         results.push(this.result);
         this.searchService.setResult(results);
       } else if (results.length === 0) {
-        //this.messageService.display('Kein Ergebnis zu "' + this.searchText + '" gefunden!', MessageType.warning);
+        this.messageService.display('Kein Ergebnis zu "' + this.searchText + '" gefunden!', MessageType.warning);
         this.searchService.setResult(this.allCars);
       }
 
