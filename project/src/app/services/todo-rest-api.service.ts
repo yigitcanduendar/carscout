@@ -43,7 +43,7 @@ export class TodoRestApiService {
   }
 
   constructor(private http: HttpClient) {
-    this.refreshCars();
+    this.refreshAllCars();
     this.refreshUsers();
   }
 

@@ -19,6 +19,7 @@ import { TodoRestApiService } from './services/todo-rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { AngebotDetailComponent } from './components/angebot-detail/angebot-detail.component'
+import { ProposalComponent } from './components/proposal/proposal.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AngebotDetailComponent } from './components/angebot-detail/angebot-deta
     PrivacyPolicyComponent,
     LogoutComponent,
     RegisterComponent,
-    AngebotDetailComponent
+    AngebotDetailComponent,
+    ProposalComponent
   ],
   imports: [
     BrowserModule,

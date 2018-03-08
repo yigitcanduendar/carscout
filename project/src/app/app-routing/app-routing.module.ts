@@ -10,6 +10,7 @@ import { PrivacyPolicyComponent } from '../components/legal-information/privacy-
 import { LogoutComponent } from '../components/logout/logout.component';
 import { RegisterComponent } from '../components/register/register.component';
 import { AngebotDetailComponent } from '../components/angebot-detail/angebot-detail.component';
+import { ProposalComponent } from '../components/proposal/proposal.component';
 
 // Routing-----------------------------------------------
 const routes: Routes = [
@@ -20,7 +21,9 @@ const routes: Routes = [
   { path: 'agb', component: AgbComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'proposal', component: ProposalComponent }
+  { path: 'proposal', component: ProposalComponent },
+  { path: 'cars/:id', component: AngebotDetailComponent }
+
 
 
 ];
