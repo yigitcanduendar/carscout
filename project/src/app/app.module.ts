@@ -22,6 +22,7 @@ import { AngebotDetailComponent } from './components/angebot-detail/angebot-deta
 import { ProposalComponent } from './components/proposal/proposal.component';
 import { ResultPageComponent } from './components/result-page/result-page.component';
 import { SearchComponent } from './components/search/search.component';
+import { SearchServiceService } from './services/search-service.service';
 
 @NgModule({
   declarations: [
