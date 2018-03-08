@@ -23,7 +23,7 @@
 
     <!-- Password input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="passwordinput">Password</label>
+      <label class="col-md-4 control-label" for="passwordinput">Passwort</label>
       <div class="col-md-4">
         <input id="passwordinput" name="passwordinput" placeholder="Mind. 5 zeichen" type="password" class="form-control input-md"
           [(ngModel)]="benutzer.password">
@@ -32,7 +32,7 @@
 
     <!-- Password Wdh. input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="passwordinput2">Passwor wiederholen</label>
+      <label class="col-md-4 control-label" for="passwordinput2">Passwort wiederholen</label>
       <div class="col-md-4">
         <input id="passwordinput2" name="passwordinput2" placeholder="Mind. 5 zeichen" type="password" class="form-control input-md"
           [(ngModel)]="password2">
@@ -52,7 +52,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="basic-addon2"></label>
       <div class="col-md-4">
-        <button id="singlebutton" name="singlebutton" class="btn btn-primary" (click)="checkValid()">Jetzt Registrieren</button>
+        <button id="singlebutton" name="singlebutton" class="btn btn-primary" (click)="submit()">Jetzt Registrieren</button>
       </div>
     </div>
   </fieldset>

@@ -11,6 +11,7 @@ import { LogoutComponent } from '../components/logout/logout.component';
 import { RegisterComponent } from '../components/register/register.component';
 import { AngebotDetailComponent } from '../components/angebot-detail/angebot-detail.component';
 import { ProposalComponent } from '../components/proposal/proposal.component';
+import { ResultPageComponent } from '../components/result-page/result-page.component';
 
 // Routing-----------------------------------------------
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'proposal', component: ProposalComponent },
+  { path: 'results', component: ResultPageComponent }
   { path: 'cars/:id', component: AngebotDetailComponent }
 
 

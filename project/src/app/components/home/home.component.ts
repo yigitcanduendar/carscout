@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
   }
 
   get cars() {
-    console.log(this.rest.cars);
     return this.rest.cars;
   }
 

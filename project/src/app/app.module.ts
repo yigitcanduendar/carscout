@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { AngebotDetailComponent } from './components/angebot-detail/angebot-detail.component'
 import { ProposalComponent } from './components/proposal/proposal.component';
+import { ResultPageComponent } from './components/result-page/result-page.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ProposalComponent } from './components/proposal/proposal.component';
     LogoutComponent,
     RegisterComponent,
     AngebotDetailComponent,
-    ProposalComponent
+    ProposalComponent,
+    ResultPageComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,7 @@ import { ProposalComponent } from './components/proposal/proposal.component';
     CookieModule.forRoot(),
     HttpClientModule
   ],
-  providers: [MessageProviderService, { provide: APP_BASE_HREF, useValue: '/' }, Md5, TodoRestApiService],
+  providers: [SearchServiceService, MessageProviderService, { provide: APP_BASE_HREF, useValue: '/' }, Md5, TodoRestApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
