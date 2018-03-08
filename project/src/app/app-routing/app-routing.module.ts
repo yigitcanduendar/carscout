@@ -10,6 +10,7 @@ import { PrivacyPolicyComponent } from '../components/legal-information/privacy-
 import { LogoutComponent } from '../components/logout/logout.component';
 import { RegisterComponent } from '../components/register/register.component';
 import { ProposalComponent } from '../components/proposal/proposal.component';
+import { ResultPageComponent } from '../components/result-page/result-page.component';
 
 // Routing-----------------------------------------------
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'agb', component: AgbComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'results', component: ResultPageComponent }
   { path: 'proposal', component: ProposalComponent }
   
 ];

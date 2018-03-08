@@ -1,0 +1,30 @@
+<div class="alert alert-info" role="alert">
+  <b>Anzahl Treffer: {{ counter }}</b>
+</div>
+
+<ul>
+  <li *ngFor="let car of cars">
+    <div class="row featurette">
+      <div class="col-md-5">
+        <img class="featurette-image img-fluid mx-auto" width="100%" height="250" src="assets/images/amg_c.jpg" alt="Generic placeholder image">
+      </div>
+      <div class="col-md-7">
+        <h2 class="featurette-heading">{{ car.modell }} {{ car.manufacturer }}
+          <span class="text-muted price">{{ car.price }} €</span>
+        </h2>
+        <ul class="lead infoBox">
+          <li> Erstzulassung: {{ car.year }}</li>
+          <li> Fahrzeugstand: {{ car.state }}</li>
+          <li> Kategorie: {{ car.category }}</li>
+        </ul>
+        <ul class="lead">
+          <li> Kilometerstand: {{ car.km_driven }} km</li>
+          <li> Leistung: {{ car.ps }} PS</li>
+          <li> Kraftstoffart: {{ car.fuel_type }}</li>
+        </ul>
+        <button type="button" class="btn btn-primary" (click)="toOffer(car.id)">Zum Angebot</button>
+      </div>
+    </div>
+    <hr class="featurette-divider">
+  </li>
+</ul>

@@ -19,6 +19,8 @@ import { TodoRestApiService } from './services/todo-rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { ProposalComponent } from './components/proposal/proposal.component'
+import { ResultPageComponent } from './components/result-page/result-page.component';
+import { SearchServiceService } from './services/search-service.service';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { ProposalComponent } from './components/proposal/proposal.component'
     LogoutComponent,
     RegisterComponent,
     ProposalComponent
+    ResultPageComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import { ProposalComponent } from './components/proposal/proposal.component'
     CookieModule.forRoot(),
     HttpClientModule
   ],
-  providers: [MessageProviderService, { provide: APP_BASE_HREF, useValue: '/' }, Md5, TodoRestApiService],
+  providers: [SearchServiceService, MessageProviderService, { provide: APP_BASE_HREF, useValue: '/' }, Md5, TodoRestApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
