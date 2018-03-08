@@ -26,8 +26,10 @@ export class SearchComponent implements OnInit {
   public search() {
     let results = [];
     this.allCars.forEach(e => {
-      console.log(e.modell);
-      if (e.modell.toLocaleLowerCase().indexOf(this.searchText.toLocaleLowerCase()) !== -1) {
+      if (
+        e.modell.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1 ||
+        e.manufacturer.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1
+      ) {
         this.result = {
           'modell': e.modell,
           'category': e.category,
@@ -46,7 +48,7 @@ export class SearchComponent implements OnInit {
         results.push(this.result);
         this.searchService.setResult(results);
       } else {
-        this.searchService.setResult([]);
+        this.searchService.setResult(results);
       }
       this.router.navigateByUrl('/results');
     });
