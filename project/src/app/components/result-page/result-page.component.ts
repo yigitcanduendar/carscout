@@ -11,7 +11,17 @@ export class ResultPageComponent implements OnInit {
   constructor(private searchService: SearchServiceService) {
   }
 
-  get cars() {
+  get counter(): number {
+    if (!this.searchService.results) {
+      return 0;
+    } else if (this.searchService.results.length === 0) {
+      return this.searchService.results.length;
+    } else {
+      return this.searchService.results.length;
+    }
+  }
+
+  get cars(): Array<Object> {
     return this.searchService.results;
   }
 

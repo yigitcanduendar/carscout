@@ -16,7 +16,7 @@ export class OfferDAO {
      * funktion zum Speichern von Bildern für Angebote.
      * Benötigt id des Angebots aus DB, BildNummer (1-5), Base64 Stringform des Bildes, Bildtyp (jpg, bmp, png, usw)
      */
-    static boolean async saveImageForOffer(offer_id: number, pictureNr: String, image_base64: String, image_type: String) {
+    static async saveImageForOffer(offer_id: number, pictureNr: String, image_base64: String, image_type: String) {
 
         let db = await sqlite.open(OfferDAO.dbFile);
         try {
@@ -31,6 +31,4 @@ export class OfferDAO {
         db.close();
         return true;
     }
-
-
 }

@@ -4,6 +4,7 @@ import { Car } from '../../model/car';
 import { Router } from '@angular/router';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { SearchServiceService } from '../../services/search-service.service';
+import { MessageType } from '../../model/messagetype.enum';
 
 @Component({
   selector: 'app-search',
@@ -13,16 +14,21 @@ import { SearchServiceService } from '../../services/search-service.service';
 export class SearchComponent implements OnInit {
 
   public searchText: string;
-  public result: Array<Object>;
+  public result;
 
-  constructor(private restApiService: TodoRestApiService, private router: Router, private searchService: SearchServiceService) { }
+  constructor(
+    private restApiService: TodoRestApiService,
+    private router: Router,
+    private searchService: SearchServiceService,
+    private messageService: MessageProviderService
+  ) { }
 
   public search() {
-
-
+    let results = [];
     this.allCars.forEach(e => {
-      if (this.searchText === e.modell) {
-        this.result = [{
+      console.log(e.modell);
+      if (e.modell.toLocaleLowerCase().indexOf(this.searchText.toLocaleLowerCase()) !== -1) {
+        this.result = {
           'modell': e.modell,
           'category': e.category,
           'colour': e.colour,
@@ -36,10 +42,11 @@ export class SearchComponent implements OnInit {
           'seats': e.seats,
           'state': e.state,
           'year': e.year
-        }];
-        this.searchService.setResult(this.result);
+        };
+        results.push(this.result);
+        this.searchService.setResult(results);
       } else {
-
+        this.searchService.setResult([]);
       }
       this.router.navigateByUrl('/results');
     });

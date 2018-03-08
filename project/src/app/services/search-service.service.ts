@@ -11,7 +11,7 @@ export class SearchServiceService {
     this.data = data;
   }
 
-  get results() {
+  get results(): Array<Object> {
     return this.data;
   }
 }
