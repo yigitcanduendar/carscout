@@ -32,39 +32,94 @@ export class ProposalComponent implements OnInit {
   public safety: string;
   public extras: string;
   public isTrader: string;
+  public checked;
 
-  // DAS PROBLEM IST, DASS NG-MODEL NICHT FUNKTIONIERT DA ER DENKT DAS ALLE GLEICH SIND!!!!!!
-  // TODO: LÖSUNG FINDEN !!!!!!!!!!!!!!!
-  public choiceInterior;
-
-
-  get interiors(): Array<String> {
-    return [
-      'Klimaanlage',
-      'Bluetooth',
-      'Elektr. Seitenspiegel',
-      'Regensensor',
-      'Sitzheizung',
-      'Tempomat',
-      'Bordcomputer',
-      'Elektr. Sitzeinstellung',
-      'MP3-Schnittstelle',
-      'Schiebedach',
-      'Tuner/Radio',
-      'CD-Spieler',
-      'Freisprecheinrichtung',
-      'Multifunktionslenkrad',
-      'Servolenkung',
-      'Standheizung',
-      'Zentralverriegelung',
-      'Elektr. Fensterheber',
-      'Navigationssystem'
-    ];
-  }
+  public klimaanlage: boolean;
+  public bluetooth: boolean;
+  public seitenspiegel: boolean;
+  public regensensor: boolean;
+  public sitzheizung: boolean;
+  public tempomat: boolean;
+  public bordcomputer: boolean;
+  public sitzeinstellung: boolean;
+  public mp3: boolean;
+  public schiebedach: boolean;
+  public radio: boolean;
+  public cd: boolean;
+  public freisprecheinrichtung: boolean;
+  public multifunktionslenkrad: boolean;
+  public servolenkung: boolean;
+  public standheizung: boolean;
+  public zentralverriegelung: boolean;
+  public fensterheber: boolean;
+  public navigation: boolean;
 
   public saveCar() {
-    console.log(this.choiceInterior);
+    console.log(this.getValuesInterior());
+
     //this.setCarIntoTable(this.carArray);
+  }
+
+  private getValuesInterior(): Array<String> {
+    let data = [];
+    if (this.klimaanlage === true) {
+      data.push('Klimaanlage');
+    }
+    if (this.bluetooth === true) {
+      data.push('Bluetooth');
+    }
+    if (this.seitenspiegel === true) {
+      data.push('Elektr. Seitenspiegel');
+    }
+    if (this.regensensor === true) {
+      data.push('Regensensor');
+    }
+    if (this.sitzheizung === true) {
+      data.push('Sitzheizung');
+    }
+    if (this.tempomat === true) {
+      data.push('Tempomat');
+    }
+    if (this.bordcomputer === true) {
+      data.push('Bordcomputer');
+    }
+    if (this.sitzeinstellung === true) {
+      data.push('Elektr. Sitzeinstellung');
+    }
+    if (this.mp3 === true) {
+      data.push('MP3-Schnittstelle');
+    }
+    if (this.schiebedach === true) {
+      data.push('Schiebedach');
+    }
+    if (this.radio === true) {
+      data.push('Tuner/Radio');
+    }
+    if (this.cd === true) {
+      data.push('CD-Spieler');
+    }
+    if (this.freisprecheinrichtung === true) {
+      data.push('Freisprecheinrichtung');
+    }
+    if (this.multifunktionslenkrad === true) {
+      data.push('Multifunktionslenkrad');
+    }
+    if (this.servolenkung === true) {
+      data.push('Servolenkung');
+    }
+    if (this.standheizung === true) {
+      data.push('Standheizung');
+    }
+    if (this.zentralverriegelung === true) {
+      data.push('Zentralverriegelung');
+    }
+    if (this.fensterheber === true) {
+      data.push('Elektr. Fensterheber');
+    }
+    if (this.navigation === true) {
+      data.push('Navigationssyste');
+    }
+    return data;
   }
 
   get carArray(): Array<Object> {
