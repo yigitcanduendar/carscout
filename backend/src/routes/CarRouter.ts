@@ -1,6 +1,7 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { Car } from '../model/Car';
 import { CarDAO } from '../dao/CarDAO';
+import { async } from '@angular/core/testing';
 
 
 export class CarRouter {
@@ -22,8 +23,20 @@ export class CarRouter {
     }
   }
 
+  async setCar(req: Request, res: Response, next: NextFunction) {
+    let carData = [{}];
+    await CarDAO.setCar(carData);
+    if (carData) {
+      res.status(200).send(JSON.stringify(carData));
+    }
+    else {
+      res.status(404).send('nix gefunden');
+    }
+  }
+
   init() {
     this.router.get('/', this.getAll);
+    this.router.post('/setCar', this.setCar);
 
   }
 }

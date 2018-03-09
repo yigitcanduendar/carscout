@@ -1,4 +1,5 @@
 import { Car } from '../model/Car';
+import { async } from '@angular/core/testing';
 const sqlite = require('sqlite-async');
 
 export class CarDAO {
@@ -10,5 +11,9 @@ export class CarDAO {
         let cars = await db.all('Select * from Cars');
         db.close();
         return cars;
+    }
+
+    static async setCar(carData: Array<Object>) {
+
     }
 }

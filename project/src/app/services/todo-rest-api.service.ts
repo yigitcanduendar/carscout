@@ -32,6 +32,17 @@ export class TodoRestApiService {
       });
   }
 
+  public setCar(cars: Array<Object>) {
+    const body = new URLSearchParams();
+    body.set('cars', JSON.stringify(cars));
+    this.http.post('api/setCar', body.toString(), this.options).subscribe(res => {
+      console.log(res);
+    },
+      err => {
+        console.log(err);
+      });
+  }
+
   constructor(private http: HttpClient) {
     this.refreshCars();
     this.refreshUsers();
