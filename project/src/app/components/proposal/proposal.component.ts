@@ -30,7 +30,7 @@ export class ProposalComponent implements OnInit {
   public number_of_doors: string;
   public registration_date: string;
   public transmission: string;
-  public safety: string;
+  public safeties: Array<String>;
   public extras: string;
   public isTrader: string;
   public checked;
@@ -57,7 +57,14 @@ export class ProposalComponent implements OnInit {
 
   public saveCar() {
     this.interiors = this.getValuesInterior();
+    this.safeties = this.getValuesSafeties();
     console.log(this.carArray);
+  }
+
+  private getValuesSafeties(): Array<String> {
+    let data = [];
+
+    return data;
   }
 
   private getValuesInterior(): Array<String> {
