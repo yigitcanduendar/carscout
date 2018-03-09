@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'proposal', component: ProposalComponent },
-  { path: 'results', component: ResultPageComponent }
+  { path: 'results', component: ResultPageComponent },
   { path: 'cars/:id', component: AngebotDetailComponent }
 
 
