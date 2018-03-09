@@ -51,6 +51,6 @@ npm install
 ##  => gulp
 ##  => npm start
 
-## Backend Starten
+## Frontend Starten
 ##  => npm start
 ##  => ng test -code --coverage

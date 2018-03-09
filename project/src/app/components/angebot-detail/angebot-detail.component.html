@@ -13,12 +13,7 @@
   <p>PS: {{fhz.ps}}</p>
 
   <p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    <button type="button" [disabled]="!isLoggedIn()" onclick="setAsFavourite()" class="btn btn-default">Favorisieren</button>
+    <!-- <button type="button" [disabled]="isLoggedIn()" onclick="resetAsFavourite()" class="btn btn-default">Entfavorisieren</button> -->
   </p>
 </div>
-
-
-<p>
-  angebot-detail works!
-</p>
-{{fhz.description}}

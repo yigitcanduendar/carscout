@@ -21,6 +21,6 @@ describe('AngebotDetailComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component.fhz).toBeNull();
   });
 });
