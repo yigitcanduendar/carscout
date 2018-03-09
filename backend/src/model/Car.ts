@@ -14,6 +14,13 @@ export class Car {
         public fuel_type: string,
         public state: string,
         public price: string,
-        public defects: string
+        public defects: string,
+        public doors: string,
+        public registration_date: Date,
+        public transmission: string,
+        public interior: string,
+        public safety: string,
+        public extras: string,
+        public isTrader: boolean
     ) { }
 }

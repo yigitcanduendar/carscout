@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'results', component: ResultPageComponent },
-  { path: 'proposal', component: ProposalComponent }
+  { path: 'addCar', component: ProposalComponent }
 
 ];
 // Ende---------------------------------------------------
