@@ -28,8 +28,11 @@ export class ImageUploaderComponent implements OnInit {
     return (this.pictureNr <= 5);
   }
 
+  get imgageFiles(): File[] {
+    return this.imgFiles;
+  }
 
 }
 
 
-}
+
