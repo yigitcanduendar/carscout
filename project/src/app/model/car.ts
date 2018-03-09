@@ -13,6 +13,6 @@ export class Car {
         public category: string,
         public fuel_type: string,
         public state: string,
-        public price: string
+        public pricde: string
     ) { }
 }
