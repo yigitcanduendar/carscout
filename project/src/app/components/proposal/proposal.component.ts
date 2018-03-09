@@ -33,8 +33,12 @@ export class ProposalComponent implements OnInit {
   public extras: string;
   public isTrader: string;
 
+  // DAS PROBLEM IST, DASS NG-MODEL NICHT FUNKTIONIERT DA ER DENKT DAS ALLE GLEICH SIND!!!!!!
+  // TODO: LÖSUNG FINDEN !!!!!!!!!!!!!!!
+  public choiceInterior;
 
-  get interior(): Array<String> {
+
+  get interiors(): Array<String> {
     return [
       'Klimaanlage',
       'Bluetooth',
@@ -44,14 +48,22 @@ export class ProposalComponent implements OnInit {
       'Tempomat',
       'Bordcomputer',
       'Elektr. Sitzeinstellung',
-      'MP3-Schnittstelle,'
-
+      'MP3-Schnittstelle',
+      'Schiebedach',
+      'Tuner/Radio',
+      'CD-Spieler',
+      'Freisprecheinrichtung',
+      'Multifunktionslenkrad',
+      'Servolenkung',
+      'Standheizung',
+      'Zentralverriegelung',
+      'Elektr. Fensterheber',
+      'Navigationssystem'
     ];
   }
 
-
   public saveCar() {
-    console.log(this.carArray);
+    console.log(this.choiceInterior);
     //this.setCarIntoTable(this.carArray);
   }
 
@@ -74,7 +86,7 @@ export class ProposalComponent implements OnInit {
       number_of_doors: this.number_of_doors,
       registration_date: this.registration_date,
       transmission: this.transmission,
-      interior: this.interior,
+      //interior: this.interiors,
       safety: this.safety,
       extras: this.extras,
       isTrader: this.isTrader

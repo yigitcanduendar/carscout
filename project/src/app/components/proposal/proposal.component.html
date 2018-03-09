@@ -250,101 +250,12 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="Innenausstattung">Innenausstattung</label>
       <div class="col-md-4">
-        <div class="checkbox">
+        <div class="checkbox" *ngFor="let interior of interiors">
           <label for="Innenausstattung-0">
-            <input name="Innenausstattung" id="Innenausstattung-0" value="Klimaanlage" type="checkbox" [(ngModel)]="interior"> Klimaanlage
+            <input name="Innenausstattung" id="Innenausstattung-0" value="{{ interior }}" type="checkbox" [(ngModel)]="choiceInterior"> {{ interior }}
           </label>
         </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-1">
-            <input name="Innenausstattung" id="Innenausstattung-1" value="Bluetooth" type="checkbox" [(ngModel)]="interior"> Bluetooth
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-2">
-            <input name="Innenausstattung" id="Innenausstattung-2" value="Elektr. Seitenspiegel" type="checkbox"> Elektr. Seitenspiegel
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-3">
-            <input name="Innenausstattung" id="Innenausstattung-3" value="Regensensor" type="checkbox"> Regensensor
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-4">
-            <input name="Innenausstattung" id="Innenausstattung-4" value="Sitzheizung" type="checkbox"> Sitzheizung
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-5">
-            <input name="Innenausstattung" id="Innenausstattung-5" value="Tempomat" type="checkbox"> Tempomat
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-6">
-            <input name="Innenausstattung" id="Innenausstattung-6" value="Bordcomputer" type="checkbox"> Bordcomputer
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-7">
-            <input name="Innenausstattung" id="Innenausstattung-7" value="Elektr. Sitzeinstellung" type="checkbox"> Elektr. Sitzeinstellung
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-8">
-            <input name="Innenausstattung" id="Innenausstattung-8" value="MP3-Schnittstelle" type="checkbox"> MP3-Schnittstelle
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-9">
-            <input name="Innenausstattung" id="Innenausstattung-9" value="Schiebedach" type="checkbox"> Schiebedach
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-10">
-            <input name="Innenausstattung" id="Innenausstattung-10" value="Tuner/Radio" type="checkbox"> Tuner/Radio
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-11">
-            <input name="Innenausstattung" id="Innenausstattung-11" value="CD-Spieler" type="checkbox"> CD-Spieler
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-12">
-            <input name="Innenausstattung" id="Innenausstattung-12" value="Freisprecheinrichtung" type="checkbox"> Freisprecheinrichtung
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-13">
-            <input name="Innenausstattung" id="Innenausstattung-13" value="Multifunktionslenkrad" type="checkbox"> Multifunktionslenkrad
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-14">
-            <input name="Innenausstattung" id="Innenausstattung-14" value="Servolenkung" type="checkbox"> Servolenkung
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-15">
-            <input name="Innenausstattung" id="Innenausstattung-15" value="Standheizung" type="checkbox"> Standheizung
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-16">
-            <input name="Innenausstattung" id="Innenausstattung-16" value="Zentralverriegelung" type="checkbox"> Zentralverriegelung
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-17">
-            <input name="Innenausstattung" id="Innenausstattung-17" value="Elektr. Fensterheber" type="checkbox"> Elektr. Fensterheber
-          </label>
-        </div>
-        <div class="checkbox">
-          <label for="Innenausstattung-18">
-            <input name="Innenausstattung" id="Innenausstattung-18" value="Navigationssystem" type="checkbox"> Navigationssystem
-          </label>
-        </div>
+
       </div>
     </div>
 
