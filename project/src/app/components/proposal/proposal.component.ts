@@ -23,6 +23,7 @@ export class ProposalComponent implements OnInit {
   public description: string;
   public category: string;
   public fuel_type: string;
+  public interiors: Array<String>;
   public state: string;
   public price: string;
   public defects: string;
@@ -55,9 +56,8 @@ export class ProposalComponent implements OnInit {
   public navigation: boolean;
 
   public saveCar() {
-    console.log(this.getValuesInterior());
-
-    //this.setCarIntoTable(this.carArray);
+    this.interiors = this.getValuesInterior();
+    console.log(this.carArray);
   }
 
   private getValuesInterior(): Array<String> {
@@ -141,7 +141,7 @@ export class ProposalComponent implements OnInit {
       number_of_doors: this.number_of_doors,
       registration_date: this.registration_date,
       transmission: this.transmission,
-      //interior: this.interiors,
+      interiors: this.interiors,
       safety: this.safety,
       extras: this.extras,
       isTrader: this.isTrader
