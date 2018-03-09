@@ -21,9 +21,9 @@ const routes: Routes = [
   { path: 'agb', component: AgbComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'results', component: ResultPageComponent }
+  { path: 'results', component: ResultPageComponent },
   { path: 'proposal', component: ProposalComponent }
-  
+
 ];
 // Ende---------------------------------------------------
 
