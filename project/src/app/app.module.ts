@@ -22,6 +22,7 @@ import { ProposalComponent } from './components/proposal/proposal.component';
 import { SearchServiceService } from './services/search-service.service';
 import { ResultPageComponent } from './components/result-page/result-page.component';
 import { SearchComponent } from './components/search/search.component';
+import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { SearchComponent } from './components/search/search.component';
     RegisterComponent,
     ProposalComponent,
     ResultPageComponent,
-    SearchComponent
+    SearchComponent,
+    ImageUploaderComponentComponent,
+    ImageUploaderComponent
   ],
   imports: [
     BrowserModule,
