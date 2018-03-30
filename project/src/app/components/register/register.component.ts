@@ -48,9 +48,9 @@ export class RegisterComponent implements OnInit {
 
   showMessage(){
     if (this.benutzer.username.length <= 3 || this.benutzer.email.length <= 4 || this.benutzer.pw.length <= 4) {
-      this.messageService.display("Bitte überprüfen Sie Ihre eingaben!", MessageType.warning);
+      this.messageService.display("Bitte überprüfen Sie Ihre Eingaben! Username, Email oder Passwort zu kurz (<=4 Zeichen). ", MessageType.warning);
     } else if (this.benutzer.pw != this.password2) {
-      this.messageService.display("Bitte überprüfen Sie Ihre eingaben!" + '<br/>' + "-Passwörter Stimmen nicht überein", MessageType.warning);
+      this.messageService.display("Bitte überprüfen Sie Ihre Eingaben!" + '<br/>' + "-Passwörter Stimmen nicht überein", MessageType.warning);
     } else {
       this.messageService.display("success?", MessageType.success);
     }

@@ -6,6 +6,7 @@ import { OfferDAO } from '../dao/OfferDAO';
 export class OfferRouter {
   router: Router
 
+
   constructor() {
     this.router = Router();
     this.init();
@@ -21,6 +22,7 @@ export class OfferRouter {
   init() {
     this.router.get('/', this.getAll);
   }
+  
   /**
    * Prüft die übergebenen Variablen, gibt bei Fehlern String zurück oder wenn
    * in Ordnung speichert ein Bild per OfferDAO in der Datenbank ab und gibt 200 Ok als String zurück
@@ -51,9 +53,12 @@ export class OfferRouter {
     } else {
       return "400 Bad Request. File nicht vorhanden /  nicht lesbar ";
     }
-
-
-    if (!OfferDAO.saveImageForOffer(offer_id, pictureNrString, file, filetype)) {
+    
+    let fileAsBase64String: String;
+    let fileReader: FileReader;
+    fileReader.readAsDataURL(file);
+    fileAsBase64String = fileReader.result;
+    if (!OfferDAO.saveImageForOffer(offer_id, pictureNrString, fileAsBase64String, file.type)) {
       return "400 BadRequest. Speichern schlug fehl.";
     }
     return "200 Ok. Image saved succesfully";

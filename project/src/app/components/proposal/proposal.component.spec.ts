@@ -22,4 +22,10 @@ describe('ProposalComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+it('should have an offer id equally to 0 or higher after findFreeOfferID', () => {
+    component.findFreeOfferID();
+    expect(component.getOfferID()).toBeGreaterThanOrEqual(0);
+  });
+
 });

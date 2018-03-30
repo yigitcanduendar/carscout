@@ -12,6 +12,13 @@ export class OfferDAO {
         return offers;
     }
 
+    static getAllAsOfferArray() {
+        let db = await sqlite.open(OfferDAO.dbFile);
+        let offers: Offer[] = await db.all("SELECT * FROM offers");
+        db.close();
+        return offers;
+    }
+
     /**
      * funktion zum Speichern von Bildern für Angebote.
      * Benötigt id des Angebots aus DB, BildNummer (1-5), Base64 Stringform des Bildes, Bildtyp (jpg, bmp, png, usw)
