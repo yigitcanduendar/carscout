@@ -39,6 +39,7 @@
     "sqlite": "^2.8.0",
     "sqlite-async": "^1.0.10",
     "sqlite-sync": "^0.3.6",
-    "sqlite3-promise": "^1.0.3"
+    "sqlite3-promise": "^1.0.3",
+    "ts-md5": "^1.2.4"
   }
 }
