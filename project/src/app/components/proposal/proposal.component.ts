@@ -3,6 +3,9 @@ import { Car } from '../../model/car';
 import { TodoRestApiService } from '../../services/todo-rest-api.service';
 import { element } from 'protractor';
 import * as express from 'express';
+import { MessageProviderService } from '../../services/messageprovider.service';
+import { MessageType } from '../../model/messagetype.enum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-proposal',
@@ -11,7 +14,7 @@ import * as express from 'express';
 })
 export class ProposalComponent implements OnInit {
 
-  constructor(private restApiService: TodoRestApiService) {
+  constructor(private restApiService: TodoRestApiService, private messageService: MessageProviderService, private router: Router) {
   }
 
   public manufacturer: string;
@@ -34,8 +37,6 @@ export class ProposalComponent implements OnInit {
   public safeties: String;
   public extrasArray: Array<String>;
   public extras: String;
-  public haendler: string;
-  public privat: string;
 
   public klimaanlage: boolean;
   public bluetooth: boolean;
@@ -73,7 +74,8 @@ export class ProposalComponent implements OnInit {
   public anhaengerkupplung: boolean;
   public panorama_dach: boolean;
 
-  public trader: string;
+  /** Ist Fest da es immer ausgewählt sein soll am Anfang. */
+  public trader = 'Händler';
 
   /**
    * Hilfsmethode um ein Array in ein String zu machen.
@@ -107,13 +109,13 @@ export class ProposalComponent implements OnInit {
     this.safeties = this.arrayToString(this.safetiesArray);
     this.extrasArray = this.getValuesExtras();
     this.extras = this.arrayToString(this.extrasArray);
-
-    if (this.privat === 'Privat') {
-      this.trader = 'Privat';
-    } else if (this.haendler === 'Händler') {
-      this.trader = 'Händler';
+    if (this.carArray.manufacturer === undefined || this.carArray.modell === undefined) {
+      this.messageService.display('Bitte erst die Felder auswählen die ein * vor dem Input-Feld haben!', MessageType.warning);
+      this.router.navigate(['/addCar']);
+    } else {
+      this.setCarIntoTable(this.carArray);
+      this.router.navigate(['']);
     }
-    this.setCarIntoTable(this.carArray);
   }
 
   /**

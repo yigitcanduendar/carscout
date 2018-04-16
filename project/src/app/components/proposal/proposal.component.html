@@ -5,8 +5,9 @@
     <legend>Angebotserstellung</legend>
 
     <!-- Hersteller -->
+    <a href="addCar#"></a>
     <div class="form-group">
-      <label class="col-md-4 control-label" for="selectbasic">Hersteller</label>
+      <label class="col-md-4 control-label" for="selectbasic">* Hersteller</label>
       <div class="col-md-4">
         <select id="selectBrand" name="selectBrand" class="form-control" [(ngModel)]="manufacturer">
           <option value="leer"></option>
@@ -85,7 +86,7 @@
 
     <!-- Modell -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="modell">Modell</label>
+      <label class="col-md-4 control-label" for="modell">* Modell</label>
       <div class="col-md-4">
         <input id="modell" name="modell" class="form-control input-md" type="text" [(ngModel)]="modell">
 
@@ -157,7 +158,7 @@
 
     <!-- Baujahr -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="q">Baujahr</label>
+      <label class="col-md-4 control-label" for="q">* Baujahr</label>
       <div class="col-md-4">
         <input id="baujahr" name="baujahr" placeholder="Baujahr" class="form-control input-md" type="number" min="1900" max="2099"
           step="1" value="2018" [(ngModel)]="year">
@@ -191,7 +192,7 @@
 
     <!-- Preis -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="Preis">Preis</label>
+      <label class="col-md-4 control-label" for="Preis">* Preis</label>
       <div class="col-md-4">
         <input id="Preis" name="Preis" class="form-control input-md" type="text" [(ngModel)]="price">
 
@@ -200,7 +201,7 @@
 
     <!-- Kraftstoffart -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="Kraftstoff">Kraftstoffart</label>
+      <label class="col-md-4 control-label" for="Kraftstoff">* Kraftstoffart</label>
       <div class="col-md-4">
         <select id="Kraftstoff" name="Kraftstoff" class="form-control" [(ngModel)]="fuel_type">
           <option value="leer"></option>
@@ -439,12 +440,12 @@
       <div class="col-md-4">
         <div class="radio">
           <label for="Anbieter-0">
-            <input name="Anbieter" id="Anbieter-0" value="Händler" type="radio" [(ngModel)]="haendler"> Händler
+            <input name="Anbieter" id="Anbieter-0" value="Händler" type="radio" [(ngModel)]="trader"> Händler
           </label>
         </div>
         <div class="radio">
           <label for="Anbieter-1">
-            <input name="Anbieter" id="Anbieter-1" value="Privat" type="radio" [(ngModel)]="privat"> Privat
+            <input name="Anbieter" id="Anbieter-1" value="Privat" type="radio" [(ngModel)]="trader"> Privat
           </label>
         </div>
       </div>
