@@ -48,8 +48,8 @@ describe('RegisterComponent', () => {
     expect(component.inputIsValid()).toBeFalsy();
   });
 
-  it('should return false with password2 null.', () => {
-    component.password2 = null;
+  it('should return false with pw2 null.', () => {
+    component.pw2 = null;
     expect(component.inputIsValid()).toBeFalsy();
   });
 
@@ -60,11 +60,11 @@ describe('RegisterComponent', () => {
     expect(messageService.display).toHaveBeenCalledWith('Bitte überprüfen Sie Ihre eingaben!', MessageType.warning);
   });
 
-  it('showMessage should display when user.pw != password2.', () => {
+  it('showMessage should display when user.pw != pw2.', () => {
    user.username="ahvbhabfi";
    user.email="daidhfoafhou";
     user.pw='abcde';
-    component.password2 ='abbc';
+    component.pw2 ='abbc';
     spyOn(messageService, 'display');
     component.showMessage();
     expect(messageService.display).toHaveBeenCalledWith('Bitte überprüfen Sie Ihre eingaben!'+'<br/>'+"-Passwörter Stimmen nicht überein", MessageType.warning);
@@ -74,7 +74,7 @@ describe('RegisterComponent', () => {
     user.username="ahvbhabfi";
     user.email="daidhfoafhou";
     user.pw='abcde';
-    component.password2 ='abcde';
+    component.pw2 ='abcde';
     spyOn(messageService, 'display');
     component.showMessage();
     expect(messageService.display).toHaveBeenCalledWith('success?', MessageType.success);
