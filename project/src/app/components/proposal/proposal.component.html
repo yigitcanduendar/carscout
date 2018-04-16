@@ -1,15 +1,16 @@
 <form class="form-horizontal">
   <fieldset>
 
+    <div class="alert alert-warning" role="alert"></div>
+
     <!-- Form Name -->
     <legend>Angebotserstellung</legend>
 
     <!-- Hersteller -->
-    <a href="addCar#"></a>
     <div class="form-group">
       <label class="col-md-4 control-label" for="selectbasic">* Hersteller</label>
       <div class="col-md-4">
-        <select id="selectBrand" name="selectBrand" class="form-control" [(ngModel)]="manufacturer">
+        <select id="selectBrand" name="selectBrand" class="form-control" [(ngModel)]="manufacturer" required="required">
           <option value="leer"></option>
           <option value="Acura">Acura</option>
           <option value="Alfa Romeo">Alfa Romeo</option>
