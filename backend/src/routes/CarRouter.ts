@@ -21,7 +21,7 @@ export class CarRouter {
       res.status(404).send('nix gefunden');
     }
   }
-  
+
   async getById(req: Request, res: Response, next: NextFunction) {
     console.log(req.params.id);
     let car = await CarDAO.getCarById(req.params.id);

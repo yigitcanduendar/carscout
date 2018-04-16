@@ -8,10 +8,9 @@ import { MessageType } from '../../model/messagetype.enum';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
-  ngOnInit(): void {
-  }
- 
+export class RegisterComponent {
+
+
   constructor(private messageService: MessageProviderService) {
   }
 
@@ -27,7 +26,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  inputIsValid() {
+  inputIsValid():boolean {
     if (this.benutzer.username == null) {
       this.messageService.display("Bitte geben sie ein Benutzernamen ein.", MessageType.warning);
       return false;
@@ -44,6 +43,8 @@ export class RegisterComponent implements OnInit {
       this.messageService.display("Bitte wiederholen sie Ihr Passwort.", MessageType.warning);
       return false;
     }
+
+    return true;
   }
 
   showMessage(){

@@ -8,5 +8,4 @@ export class User {
   ) {
     this.online = false;
   }
-
 }

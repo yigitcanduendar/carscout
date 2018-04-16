@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
 import { TodoRestApiService } from '../../services/todo-rest-api.service';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
-import { read } from 'fs';
+import { MessageProviderService } from '../../services/messageprovider.service';
+import { MessageType } from '../../model/messagetype.enum';
 
 @Component({
   selector: 'app-angebot-detail',
@@ -14,7 +15,7 @@ import { read } from 'fs';
 })
 export class AngebotDetailComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private cookieService: CookieService, private rest: TodoRestApiService) {
+  constructor(private route: ActivatedRoute, private cookieService: CookieService, private rest: TodoRestApiService, private msgservice: MessageProviderService) {
     this.route.params.subscribe(params => {
       console.log("id: " + params["id"])
       this.rest.refreshSelectedCar(+params["id"]);
@@ -35,13 +36,18 @@ export class AngebotDetailComponent implements OnInit {
   }
 
   get isLoggedIn() {
-    if (this.cookieService.get("online") == undefined)
-
+    if (this.cookieService.get("online") == undefined) {
       return false;
-    else
+    }
+    else {
       return true;
+    }
   }
   public setAsFavourite() {
-
+    if (this.isLoggedIn == false) {
+      this.msgservice.display("Sie müssen eingelogt sein, um Angebote zu Favorisieren.", MessageType.warning);
+    } else {
+      this.msgservice.display("Angebot Favorisiert!.", MessageType.success);
+    }
   }
 }

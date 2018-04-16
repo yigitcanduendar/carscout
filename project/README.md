@@ -53,4 +53,4 @@ npm install
 
 ## Frontend Starten
 ##  => npm start
-##  => ng test -code --coverage
+##  => ng test --code-coverage

@@ -13,7 +13,7 @@
   <p>PS: {{fhz.ps}}</p>
 
   <p>
-    <button type="button" [disabled]="!isLoggedIn()" onclick="setAsFavourite()" class="btn btn-default">Favorisieren</button>
+    <button type="button" (click)="setAsFavourite()" class="btn btn-default">Favorisieren</button>
     <!-- <button type="button" [disabled]="isLoggedIn()" onclick="resetAsFavourite()" class="btn btn-default">Entfavorisieren</button> -->
   </p>
 </div>
