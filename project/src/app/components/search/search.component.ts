@@ -41,7 +41,6 @@ export class SearchComponent implements OnInit {
           'modell': e.modell,
           'category': e.category,
           'colour': e.colour,
-          'consumption': e.consumption,
           'description': e.description,
           'fuel_type': e.fuel_type,
           'km_driven': e.km_driven,
@@ -49,7 +48,6 @@ export class SearchComponent implements OnInit {
           'price': e.price,
           'ps': e.ps,
           'seats': e.seats,
-          'state': e.state,
           'year': e.year
         };
         results.push(this.result);

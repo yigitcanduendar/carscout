@@ -28,7 +28,7 @@ export class ProposalComponent implements OnInit {
   public interiors: String;
   public price: string;
   public number_of_doors: string;
-  public registration_date: string;
+  public registration_date: Date;
   public transmission: string;
   public safetiesArray: Array<String>;
   public safeties: String;
@@ -80,17 +80,21 @@ export class ProposalComponent implements OnInit {
    * @param data
    */
   private arrayToString(data): String {
-    let newData = '';
     if (data.length > 0) {
-      for (let i = 0; i < data.length; i++) {
-        if (i !== data.length - 1) {
-          newData += data[i] + ', ';
-        } else {
-          newData += data[i];
+      let newData = '';
+      if (data.length > 0) {
+        for (let i = 0; i < data.length; i++) {
+          if (i !== data.length - 1) {
+            newData += data[i] + ', ';
+          } else {
+            newData += data[i];
+          }
         }
       }
+      return newData;
     }
-    return newData;
+    data = undefined;
+    return data;
   }
 
   /**
@@ -109,7 +113,6 @@ export class ProposalComponent implements OnInit {
     } else if (this.haendler === 'Händler') {
       this.trader = 'Händler';
     }
-    console.log(this.carArray);
     this.setCarIntoTable(this.carArray);
   }
 

@@ -9,15 +9,14 @@
           <span class="text-muted price">{{ car.price }} €</span>
         </h2>
         <ul class="lead infoBox">
-          <li> Erstzulassung: {{ car.year }}</li>
-          <li> Fahrzeugstand: {{ car.state }}</li>
+          <li> Baujahr: {{ car.year }}</li>
+          <li> Farbe: {{ car.colour }}</li>
           <li> Kategorie: {{ car.category }}</li>
         </ul>
         <ul class="lead">
           <li> Kilometerstand: {{ car.km_driven }} km</li>
           <li> Leistung: {{ car.ps }} PS</li>
           <li> Kraftstoffart: {{ car.fuel_type }}</li>
-          <li> Mängel: {{ car.defects }}</li>
         </ul>
         <button type="button" class="btn btn-primary" (click)="toOffer(car.id)">Zum Angebot</button>
       </div>
