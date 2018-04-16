@@ -13,6 +13,7 @@ import { MessageType } from '../../model/messagetype.enum';
   templateUrl: './angebot-detail.component.html',
   styleUrls: ['./angebot-detail.component.css']
 })
+
 export class AngebotDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private cookieService: CookieService, private rest: TodoRestApiService, private msgservice: MessageProviderService) {
@@ -23,7 +24,7 @@ export class AngebotDetailComponent implements OnInit {
 
   }
 
-  get fhz(): Car {
+  get selectedCar(): Car {
     console.log('newModell' + JSON.stringify(this.rest.selectedCar));
     return this.rest.selectedCar;
   }

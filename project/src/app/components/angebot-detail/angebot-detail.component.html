@@ -1,16 +1,25 @@
 <div class="jumbotron">
-  <h1>{{fhz.modell}} {{fhz.manufacturer}} </h1>
+    <h1>{{selectedCar.modell}} {{selectedCar.manufacturer}} </h1>
+    <div></div>
+    <div>
+        <p>Hersteller : {{selectedCar.year}}</p>
+        <p>Modell : {{selectedCar.year}}</p>
+        <p>Preis : {{selectedCar.year}}</p>
+    TBD
+    </div>
+    <div></div>
+
   <p></p>
   <p>Preis
-    <span class="badge" STYLE="color: black; font-size: 19pt">{{fhz.price}}€</span>
+    <span class="badge" STYLE="color: black; font-size: 19pt">{{selectedCar.price}}€</span>
   </p>
   <p></p>
-  <p>Erstzulassung : {{fhz.year}}</p>
-  <p>Kilometerstand : {{fhz.km_driven}}km</p>
-  <p>Farbe: {{fhz.colour}}</p>
-  <p>Kategorie: {{fhz.category}}</p>
-  <p>Fahrzeugstand: {{fhz.state}}</p>
-  <p>PS: {{fhz.ps}}</p>
+  <p>Erstzulassung : {{selectedCar.year}}</p>
+  <p>Kilometerstand : {{selectedCar.km_driven}}km</p>
+  <p>Farbe: {{selectedCar.colour}}</p>
+  <p>Kategorie: {{selectedCar.category}}</p>
+  <p>Fahrzeugstand: {{selectedCar.state}}</p>
+  <p>PS: {{selectedCar.ps}}</p>
 
   <p>
     <button type="button" (click)="setAsFavourite()" class="btn btn-default">Favorisieren</button>
