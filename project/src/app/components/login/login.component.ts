@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
    */
   public checkUser(username, password): Boolean {
     for (const key in this.users) {
-      if (this.users[key].username === username && this.users[key].pw === password
+      if (this.users[key].username === username && this.users[key].password === password
       ) {
         this.users[key].online = true;
         return true;
