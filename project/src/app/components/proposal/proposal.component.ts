@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Car } from '../../model/car';
 import { TodoRestApiService } from '../../services/todo-rest-api.service';
+import { element } from 'protractor';
+import * as express from 'express';
 
 @Component({
   selector: 'app-proposal',
@@ -22,13 +24,16 @@ export class ProposalComponent implements OnInit {
   public description: string;
   public category: string;
   public fuel_type: string;
-  public interiors: Array<String>;
+  public interiorsArray: Array<String>;
+  public interiors: String;
   public price: string;
   public number_of_doors: string;
-  public registration_date: string;
+  public registration_date: Date;
   public transmission: string;
-  public safeties: Array<String>;
-  public extras: Array<String>;
+  public safetiesArray: Array<String>;
+  public safeties: String;
+  public extrasArray: Array<String>;
+  public extras: String;
   public haendler: string;
   public privat: string;
 
@@ -68,18 +73,43 @@ export class ProposalComponent implements OnInit {
   public anhaengerkupplung: boolean;
   public panorama_dach: boolean;
 
+  public trader: string;
+
+  /**
+   * Hilfsmethode um ein Array in ein String zu machen.
+   * @param data
+   */
+  private arrayToString(data): String {
+    let newData = '';
+    if (data.length > 0) {
+      for (let i = 0; i < data.length; i++) {
+        if (i !== data.length - 1) {
+          newData += data[i] + ', ';
+        } else {
+          newData += data[i];
+        }
+      }
+    }
+    return newData;
+  }
+
   /**
    * Speichert alle Werte mit dem CarArray in die Tabelle.
    */
   public saveCar() {
-    this.interiors = this.getValuesInterior();
-    this.safeties = this.getValuesSafeties();
-    this.extras = this.getValuesExtras();
-    if (this.privat === "Privat") {
-      this.carArray.splice(this.carArray.indexOf(this.privat), 1);
-    } else if (this.haendler === "Händler") {
-      this.carArray.splice(this.carArray.indexOf(this.haendler), 1);
+    this.interiorsArray = this.getValuesInterior();
+    this.interiors = this.arrayToString(this.interiorsArray);
+    this.safetiesArray = this.getValuesSafeties();
+    this.safeties = this.arrayToString(this.safetiesArray);
+    this.extrasArray = this.getValuesExtras();
+    this.extras = this.arrayToString(this.extrasArray);
+
+    if (this.privat === 'Privat') {
+      this.trader = 'Privat';
+    } else if (this.haendler === 'Händler') {
+      this.trader = 'Händler';
     }
+    console.log(this.carArray);
     this.setCarIntoTable(this.carArray);
   }
 
@@ -201,7 +231,7 @@ export class ProposalComponent implements OnInit {
       data.push('Elektr. Fensterheber');
     }
     if (this.navigation === true) {
-      data.push('Navigationssyste');
+      data.push('Navigationssystem');
     }
     return data;
   }
@@ -209,8 +239,8 @@ export class ProposalComponent implements OnInit {
   /**
    * Das Objekt, welches später in die Tabelle hinzugefügt wird.
    */
-  get carArray(): Array<Object> {
-    return [{
+  get carArray(): Car {
+    return {
       manufacturer: this.manufacturer,
       modell: this.modell,
       ps: this.ps,
@@ -226,19 +256,18 @@ export class ProposalComponent implements OnInit {
       registration_date: this.registration_date,
       transmission: this.transmission,
       interiors: this.interiors,
-      safety: this.safeties,
+      safeties: this.safeties,
       extras: this.extras,
-      haendler: this.haendler,
-      privat: this.privat
-    }];
+      trader: this.trader
+    };
   }
 
   /**
    * Setzt mit dem CarArray die Daten in die Tabelle.
-   * 
+   *
    * @param carArray
    */
-  public setCarIntoTable(carArray) {
+  public setCarIntoTable(carArray: Car) {
     this.restApiService.setCar(carArray);
   }
 

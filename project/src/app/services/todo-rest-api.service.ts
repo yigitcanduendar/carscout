@@ -32,16 +32,28 @@ export class TodoRestApiService {
       });
   }
 
-  public insertNewUser(user : User) {
-     const body = new URLSearchParams();
-     body.set('newUser',JSON.stringify(user));
-    this.http.post('api/users/newUser/',body.toString(),this.options).
-    subscribe(res => {
-      console.log(res);
-    }, 
-    err => {
-      console.log("Error occured!");
-    })
+  public insertNewUser(user: User) {
+    const body = new URLSearchParams();
+    body.set('newUser', JSON.stringify(user));
+    this.http.post('api/users/newUser/', body.toString(), this.options).
+      subscribe(res => {
+        console.log(res);
+      },
+        err => {
+          console.log("Error occured!");
+        });
+  }
+
+  public setCar(car: Car) {
+    const body = new URLSearchParams();
+    body.set('setCar', JSON.stringify(car));
+    this.http.post('api/cars/setCar/', body.toString(), this.options).
+      subscribe(res => {
+        console.log(res);
+      },
+        err => {
+          console.log("Error occured!");
+        });
   }
 
   constructor(private http: HttpClient) {
