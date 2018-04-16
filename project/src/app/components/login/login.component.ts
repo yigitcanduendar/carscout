@@ -16,7 +16,7 @@ import { TodoRestApiService } from '../../services/todo-rest-api.service';
 export class LoginComponent implements OnInit {
 
   private username: string;
-  private password: string;
+  private pw: string;
 
   constructor(
     private messageService: MessageProviderService,
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
    * wenn ja dann leite weiter zur Angebotsübersicht und wenn nicht dann return zur Login-Seite.
    */
   save() {
-    if (this.checkUser(this.username, Md5.hashStr(this.password))) {
+    if (this.checkUser(this.username, Md5.hashStr(this.pw))) {
       this.messageService.display("Erfolgreich eingeloggt!", MessageType.success);
       this.cookieService.put('online', 'success');
       // Weiterleitung zur Startseite
@@ -51,10 +51,11 @@ export class LoginComponent implements OnInit {
    * Überprüft, ob eingegebner User im Objekt ist.
    * Später mit DB Abfrage!
    */
-  public checkUser(username, password): Boolean {
+  public checkUser(username, pw): Boolean {
+
     for (const key in this.users) {
-      if (this.users[key].username === username && this.users[key].pw === password
-      ) {
+      if (this.users[key].username === username && this.users[key].pw === pw) {
+        console.log(this.users[key]);
         this.users[key].online = true;
         return true;
       }
