@@ -28,7 +28,7 @@ export class ProposalComponent implements OnInit {
   public interiors: String;
   public price: string;
   public number_of_doors: string;
-  public registration_date: Date;
+  public registration_date: string;
   public transmission: string;
   public safetiesArray: Array<String>;
   public safeties: String;
