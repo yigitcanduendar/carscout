@@ -14,6 +14,11 @@ export class CarDAO {
     }
 
     static async setCar(carData: Array<Object>) {
+        let db = await sqlite.open(CarDAO.dbFile);
 
+        let car = await db.run("INSERT INTO Users (username, email, pw) VALUES('" + newUser.username + "','" + newUser.email + "','" + Md5.hashStr(newUser.password) + "')");
+        db.close();
+
+        return car;
     }
 }

@@ -16,7 +16,6 @@ export class ProposalComponent implements OnInit {
   public modell: string;
   public ps: string;
   public year: string;
-  public consumption: string;
   public km_driven: string;
   public colour: string;
   public seats: string;
@@ -24,16 +23,14 @@ export class ProposalComponent implements OnInit {
   public category: string;
   public fuel_type: string;
   public interiors: Array<String>;
-  public state: string;
   public price: string;
-  public defects: string;
   public number_of_doors: string;
   public registration_date: string;
   public transmission: string;
   public safeties: Array<String>;
-  public extras: string;
-  public isTrader: string;
-  public checked;
+  public extras: Array<String>;
+  public haendler: string;
+  public privat: string;
 
   public klimaanlage: boolean;
   public bluetooth: boolean;
@@ -55,18 +52,98 @@ export class ProposalComponent implements OnInit {
   public fensterheber: boolean;
   public navigation: boolean;
 
+  public abs: boolean;
+  public esp: boolean;
+  public nebelscheinwerfer: boolean;
+  public abstandstempomat: boolean;
+  public kurvenlicht: boolean;
+  public allradantrieb: boolean;
+  public led_scheinwerfer: boolean;
+  public xenonscheinwerfer: boolean;
+  public spurhalteassistent: boolean;
+  public tagfahrlicht: boolean;
+
+  public sportsitze: boolean;
+  public sportfahrwerk: boolean;
+  public anhaengerkupplung: boolean;
+  public panorama_dach: boolean;
+
+  /**
+   * Speichert alle Werte mit dem CarArray in die Tabelle.
+   */
   public saveCar() {
     this.interiors = this.getValuesInterior();
     this.safeties = this.getValuesSafeties();
-    console.log(this.carArray);
+    this.extras = this.getValuesExtras();
+    if (this.privat === "Privat") {
+      this.carArray.splice(this.carArray.indexOf(this.privat), 1);
+    } else if (this.haendler === "Händler") {
+      this.carArray.splice(this.carArray.indexOf(this.haendler), 1);
+    }
+    this.setCarIntoTable(this.carArray);
   }
 
-  private getValuesSafeties(): Array<String> {
+  /**
+   * Prüft, ob eine Checkbox für Extras ausgewählt wurde und füllt diese mit den entsprechenden Werten.
+   */
+  private getValuesExtras(): Array<String> {
     let data = [];
-
+    if (this.sportsitze === true) {
+      data.push('Sportsitze');
+    }
+    if (this.sportfahrwerk === true) {
+      data.push('Sportfahrwerk');
+    }
+    if (this.anhaengerkupplung === true) {
+      data.push('Anhängerkupplung');
+    }
+    if (this.panorama_dach === true) {
+      data.push('Panorama-Dach');
+    }
     return data;
   }
 
+  /**
+   * Prüft, ob eine Checkbox für Sicherheiten ausgewählt wurde und füllt diese mit den entsprechenden Werten.
+   */
+  private getValuesSafeties(): Array<String> {
+    let data = [];
+    if (this.abs === true) {
+      data.push('ABS');
+    }
+    if (this.esp === true) {
+      data.push('ESP');
+    }
+    if (this.nebelscheinwerfer === true) {
+      data.push('Nebelscheinwerfer');
+    }
+    if (this.abstandstempomat === true) {
+      data.push('Abstandstempomat');
+    }
+    if (this.kurvenlicht === true) {
+      data.push('Kurvenlicht');
+    }
+    if (this.allradantrieb === true) {
+      data.push('Allradantrieb');
+    }
+    if (this.led_scheinwerfer === true) {
+      data.push('LED-Scheinwerfer');
+    }
+    if (this.xenonscheinwerfer === true) {
+      data.push('Xenonscheinwerfer');
+    }
+    if (this.spurhalteassistent === true) {
+      data.push('Spurhalteassistent');
+    }
+    if (this.tagfahrlicht === true) {
+      data.push('Tagfahrlicht');
+    }
+    return data;
+  }
+
+  /**
+   * Prüft, ob eine Checkbox für Inennausstattungsmerkmale ausgewählt wurde und füllt diese mit den entsprechenden Werten.
+   */
   private getValuesInterior(): Array<String> {
     let data = [];
     if (this.klimaanlage === true) {
@@ -129,32 +206,38 @@ export class ProposalComponent implements OnInit {
     return data;
   }
 
+  /**
+   * Das Objekt, welches später in die Tabelle hinzugefügt wird.
+   */
   get carArray(): Array<Object> {
     return [{
       manufacturer: this.manufacturer,
       modell: this.modell,
       ps: this.ps,
       year: this.year,
-      consumption: this.consumption,
       km_driven: this.km_driven,
       colour: this.colour,
       seats: this.seats,
       description: this.description,
       category: this.category,
       fuel_type: this.fuel_type,
-      state: this.state,
       price: this.price,
-      defects: this.defects,
       number_of_doors: this.number_of_doors,
       registration_date: this.registration_date,
       transmission: this.transmission,
       interiors: this.interiors,
-      safety: this.safety,
+      safety: this.safeties,
       extras: this.extras,
-      isTrader: this.isTrader
+      haendler: this.haendler,
+      privat: this.privat
     }];
   }
 
+  /**
+   * Setzt mit dem CarArray die Daten in die Tabelle.
+   * 
+   * @param carArray
+   */
   public setCarIntoTable(carArray) {
     this.restApiService.setCar(carArray);
   }

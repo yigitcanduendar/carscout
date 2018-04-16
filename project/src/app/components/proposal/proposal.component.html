@@ -355,52 +355,52 @@
       <div class="col-md-4">
         <div class="checkbox">
           <label for="Sicherheit-0">
-            <input name="Sicherheit" id="Sicherheit-0" value="ABS" type="checkbox"> ABS
+            <input name="Sicherheit" id="Sicherheit-0" value="ABS" type="checkbox" [(ngModel)]="abs"> ABS
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-1">
-            <input name="Sicherheit" id="Sicherheit-1" value="ESP" type="checkbox"> ESP
+            <input name="Sicherheit" id="Sicherheit-1" value="ESP" type="checkbox" [(ngModel)]="esp"> ESP
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-2">
-            <input name="Sicherheit" id="Sicherheit-2" value="Nebelscheinwerfer" type="checkbox"> Nebelscheinwerfer
+            <input name="Sicherheit" id="Sicherheit-2" value="Nebelscheinwerfer" type="checkbox" [(ngModel)]="nebelscheinwerfer"> Nebelscheinwerfer
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-3">
-            <input name="Sicherheit" id="Sicherheit-3" value="Abstandstempomat" type="checkbox"> Abstandstempomat
+            <input name="Sicherheit" id="Sicherheit-3" value="Abstandstempomat" type="checkbox" [(ngModel)]="abstandstempomat"> Abstandstempomat
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-4">
-            <input name="Sicherheit" id="Sicherheit-4" value="Kurvenlicht" type="checkbox"> Kurvenlicht
+            <input name="Sicherheit" id="Sicherheit-4" value="Kurvenlicht" type="checkbox" [(ngModel)]="kurvenlicht"> Kurvenlicht
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-5">
-            <input name="Sicherheit" id="Sicherheit-5" value="Allradantrieb" type="checkbox"> Allradantrieb
+            <input name="Sicherheit" id="Sicherheit-5" value="Allradantrieb" type="checkbox" [(ngModel)]="allradantrieb"> Allradantrieb
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-6">
-            <input name="Sicherheit" id="Sicherheit-6" value="LED-Scheinwerfer" type="checkbox"> LED-Scheinwerfer
+            <input name="Sicherheit" id="Sicherheit-6" value="LED-Scheinwerfer" type="checkbox" [(ngModel)]="led_scheinwerfer"> LED-Scheinwerfer
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-7">
-            <input name="Sicherheit" id="Sicherheit-7" value="Xenonscheinwerfer" type="checkbox"> Xenonscheinwerfer
+            <input name="Sicherheit" id="Sicherheit-7" value="Xenonscheinwerfer" type="checkbox" [(ngModel)]="xenonscheinwerfer"> Xenonscheinwerfer
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-8">
-            <input name="Sicherheit" id="Sicherheit-8" value="Spurhalteassistent" type="checkbox"> Spurhalteassistent
+            <input name="Sicherheit" id="Sicherheit-8" value="Spurhalteassistent" type="checkbox" [(ngModel)]="spurhalteassistent"> Spurhalteassistent
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-9">
-            <input name="Sicherheit" id="Sicherheit-9" value="Tagfahrlicht" type="checkbox"> Tagfahrlicht
+            <input name="Sicherheit" id="Sicherheit-9" value="Tagfahrlicht" type="checkbox" [(ngModel)]="tagfahrlicht"> Tagfahrlicht
           </label>
         </div>
       </div>
@@ -412,22 +412,22 @@
       <div class="col-md-4">
         <div class="checkbox">
           <label for="Extras-0">
-            <input name="Extras" id="Extras-0" value="Sportsitze" type="checkbox"> Sportsitze
+            <input name="Extras" id="Extras-0" value="Sportsitze" type="checkbox" [(ngModel)]="sportsitze"> Sportsitze
           </label>
         </div>
         <div class="checkbox">
           <label for="Extras-1">
-            <input name="Extras" id="Extras-1" value="Sportfahrwerk" type="checkbox"> Sportfahrwerk
+            <input name="Extras" id="Extras-1" value="Sportfahrwerk" type="checkbox" [(ngModel)]="sportfahrwerk"> Sportfahrwerk
           </label>
         </div>
         <div class="checkbox">
           <label for="Extras-2">
-            <input name="Extras" id="Extras-2" value="Anhängerkupplung" type="checkbox"> Anhängerkupplung
+            <input name="Extras" id="Extras-2" value="Anhängerkupplung" type="checkbox" [(ngModel)]="anhaengerkupplung"> Anhängerkupplung
           </label>
         </div>
         <div class="checkbox">
           <label for="Extras-3">
-            <input name="Extras" id="Extras-3" value="Panorama-Dach" type="checkbox"> Panorama-Dach
+            <input name="Extras" id="Extras-3" value="Panorama-Dach" type="checkbox" [(ngModel)]="panorama_dach"> Panorama-Dach
           </label>
         </div>
       </div>
@@ -439,12 +439,12 @@
       <div class="col-md-4">
         <div class="radio">
           <label for="Anbieter-0">
-            <input name="Anbieter" id="Anbieter-0" value="Händler" checked="checked" type="radio"> Händler
+            <input name="Anbieter" id="Anbieter-0" value="Händler" type="radio" [(ngModel)]="haendler"> Händler
           </label>
         </div>
         <div class="radio">
           <label for="Anbieter-1">
-            <input name="Anbieter" id="Anbieter-1" value="Privat" type="radio"> Privat
+            <input name="Anbieter" id="Anbieter-1" value="Privat" type="radio" [(ngModel)]="privat"> Privat
           </label>
         </div>
       </div>
@@ -454,7 +454,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="Zusatz">Zusatz</label>
       <div class="col-md-4">
-        <textarea class="form-control" id="Zusatz" name="Zusatz"></textarea>
+        <textarea class="form-control" id="Zusatz" name="Zusatz" [(ngModel)]="description"></textarea>
       </div>
     </div>
 
