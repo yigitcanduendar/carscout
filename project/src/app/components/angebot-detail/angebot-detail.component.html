@@ -1,11 +1,19 @@
-<div class="jumbotron">
-    <h1>{{selectedCar.modell}} {{selectedCar.manufacturer}} </h1>
-    <div>IMAGE PLACEHOLDER</div>
-    <div>
-        <p>Hersteller : {{selectedCar.year}} | Leistung : {selectedCar.ps}}</p>
-        <p>Modell : {{selectedCar.year}} | Kilometerstand : {selectedCar.km_driven}}</p>
-        <p>Preis : <span class="badge" STYLE="color: black; font-size: 19pt">{{selectedCar.price}}€</span> | Baujahr : {selectedCar.year}}</p>
+<div class="panel panel-default" style="margin-top: 20px;">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{selectedCar.modell}} {{selectedCar.manufacturer}}</h3>
     </div>
+    <div class="panel-body">
+    <div class="offer-detail-information-container">
+        <div class="offer-detail-image-container">IMAGE PLACEHOLDER</div>
+        <div class="offer-detail-main-information-container">
+            <p>Hersteller : {{selectedCar.year}} | Leistung : {{selectedCar.ps}}</p>
+            <p>Modell : {{selectedCar.year}} | Kilometerstand : {{selectedCar.km_driven}}</p>
+            <p>Preis : <span class="badge" STYLE="color: black; font-size: 19pt">{{selectedCar.price}}€</span> | Baujahr : {{selectedCar.year}}</p>
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
     <div>
         <p>Erstzulassung : {{selectedCar.year}}</p>
         <p>Farbe: {{selectedCar.colour}}</p>
@@ -17,8 +25,12 @@
         <p>Kraftstoffart: {{selectedCar.state}}</p>
         <p>Beschreibung: {{selectedCar.state}}</p>
     </div>
-    <p>
-        <button type="button" (click)="setAsFavourite()" class="btn btn-default">Favorisieren</button>
-    <!-- <button type="button" [disabled]="isLoggedIn()" onclick="resetAsFavourite()" class="btn btn-default">Entfavorisieren</button> -->
-    </p>
+  
+    </div>
+    <div class="panel-footer">
+        <button type="button" (click)="setAsFavourite()" class="btn btn-default">Favorisieren
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        </button>
+        <!-- <button type="button" [disabled]="isLoggedIn()" onclick="resetAsFavourite()" class="btn btn-default">Entfavorisieren</button> -->
+    </div>
 </div>

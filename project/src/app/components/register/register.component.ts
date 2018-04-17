@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
 
-
   constructor(private messageService: MessageProviderService,private rest :TodoRestApiService,private router: Router) {
   }
 
