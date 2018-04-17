@@ -122,6 +122,7 @@ export class ProposalComponent implements OnInit {
     } else {
       this.router.navigate(['']);
       this.setCarIntoTable(this.carArray);
+      // TODO: this.saveOffer();
     }
   }
 
