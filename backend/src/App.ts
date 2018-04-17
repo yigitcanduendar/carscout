@@ -4,7 +4,7 @@ import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 import CarRouter from './routes/CarRouter';
 import UserRouter from './routes/UserRouter';
-import { OfferRouter } from './routes/OfferRouter';
+import OfferRouter from './routes/OfferRouter';
 
 // Creates and configures an ExpressJS web server.
 class App {
@@ -28,9 +28,9 @@ class App {
 
   // Configure API endpoints.
   private routes(): void {
+    this.express.use('/offers', OfferRouter);
     this.express.use('/cars', CarRouter);
     this.express.use('/users', UserRouter);
-    this.express.use('/offers', OfferRouter);
   }
 
 }

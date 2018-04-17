@@ -2,7 +2,6 @@ import { Router, Request, Response, NextFunction } from 'express';
 import { Car } from '../model/Car';
 import { CarDAO } from '../dao/CarDAO';
 
-
 export class CarRouter {
   router: Router
 

@@ -124,6 +124,7 @@ export class ProposalComponent implements OnInit {
       this.router.navigate(['']);
       this.setCarIntoTable(this.carArray);
       this.saveOffer();
+      console.log(this.cookieService.get('user'));
     }
   }
 

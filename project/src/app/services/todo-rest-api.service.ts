@@ -69,7 +69,7 @@ export class TodoRestApiService {
   public setOffer(username: string) {
     const body = new URLSearchParams();
     body.set('setOffer', JSON.stringify(username));
-    this.http.post('api/cars/setOffer/', body.toString(), this.options).
+    this.http.post('api/offers/setOffer/', body.toString(), this.options).
       subscribe(res => {
         console.log(res);
       },

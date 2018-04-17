@@ -1,8 +1,6 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { Offer } from '../model/Offer';
 import { OfferDAO } from '../dao/OfferDAO';
-import { User } from '../../../project/src/app/model/user';
-
 
 export class OfferRouter {
   router: Router
@@ -11,7 +9,6 @@ export class OfferRouter {
     this.router = Router();
     this.init();
   }
-
 
   async getAll(req: Request, res: Response, next: NextFunction) {
     let offers = await OfferDAO.getAll();
@@ -24,7 +21,7 @@ export class OfferRouter {
 
   init() {
     this.router.get('/', this.getAll);
-    this.router.get('/setOffer', this.setOffer);
+    this.router.post('/setOffer', this.setOffer);
   }
 }
 

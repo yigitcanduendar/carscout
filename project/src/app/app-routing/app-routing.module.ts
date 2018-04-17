@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { CommonModule } from '@angular/common';
@@ -25,10 +25,7 @@ const routes: Routes = [
   { path: 'proposal', component: ProposalComponent },
   { path: 'results', component: ResultPageComponent },
   { path: 'addCar', component: ProposalComponent },
-  { path: 'cars/:id', component: AngebotDetailComponent }
-
-
-
+  { path: 'cars/:id', component: AngebotDetailComponent },
 ];
 // Ende---------------------------------------------------
 

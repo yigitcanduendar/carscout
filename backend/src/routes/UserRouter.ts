@@ -36,7 +36,7 @@ export class UserRouter {
     }
 
     async insertNewUser(req: Request, res: Response, next: NextFunction) {
-       await UserDAO.insertNewUser( JSON.parse(req.body.newUser));
+        await UserDAO.insertNewUser(JSON.parse(req.body.newUser));
     }
 
     init() {
