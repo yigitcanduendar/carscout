@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
     if (this.checkUser(this.username, Md5.hashStr(this.pw))) {
       this.messageService.display("Erfolgreich eingeloggt!", MessageType.success);
       this.cookieService.put('online', 'success');
+      this.cookieService.put('user', this.username);
       // Weiterleitung zur Startseite
       this.router.navigate(['']);
     } else {
