@@ -6,17 +6,17 @@
       </div>
       <div class="col-md-7">
         <h2 class="featurette-heading">{{ car.modell }} {{ car.manufacturer }}
-          <span class="text-muted price">{{ car.price }} €</span>
+          <span class="text-muted price" *ngIf="car.price">{{ car.price }} €</span>
         </h2>
         <ul class="lead infoBox">
-          <li> Baujahr: {{ car.year }}</li>
-          <li> Farbe: {{ car.colour }}</li>
-          <li> Kategorie: {{ car.category }}</li>
+          <li *ngIf="car.year"> Baujahr: {{ car.year }}</li>
+          <li *ngIf="car.colour"> Farbe: {{ car.colour }}</li>
+          <li *ngIf="car.category"> Kategorie: {{ car.category }}</li>
         </ul>
         <ul class="lead">
-          <li> Kilometerstand: {{ car.km_driven }} km</li>
-          <li> Leistung: {{ car.ps }} PS</li>
-          <li> Kraftstoffart: {{ car.fuel_type }}</li>
+          <li *ngIf="car.km_driven"> Kilometerstand: {{ car.km_driven }} km</li>
+          <li *ngIf="car.ps"> Leistung: {{ car.ps }} PS</li>
+          <li *ngIf="car.fuel_type"> Kraftstoffart: {{ car.fuel_type }}</li>
         </ul>
         <button type="button" class="btn btn-primary" (click)="toOffer(car.id)">Zum Angebot</button>
       </div>

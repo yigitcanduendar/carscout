@@ -17,26 +17,26 @@ export class ProposalComponent implements OnInit {
   constructor(private restApiService: TodoRestApiService, private messageService: MessageProviderService, private router: Router) {
   }
 
-  public manufacturer: string;
-  public modell: string;
-  public ps: string;
-  public year: string;
-  public km_driven: string;
-  public colour: string;
-  public seats: string;
-  public description: string;
-  public category: string;
-  public fuel_type: string;
+  public manufacturer = '';
+  public modell = '';
+  public ps = '';
+  public year = '';
+  public km_driven = '';
+  public colour = '';
+  public seats = '';
+  public description = '';
+  public category = '';
+  public fuel_type = '';
   public interiorsArray: Array<String>;
-  public interiors: String;
-  public price: string;
-  public number_of_doors: string;
+  public interiors = '';
+  public price = '';
+  public number_of_doors = '';
   public registration_date: Date;
-  public transmission: string;
+  public transmission = '';
   public safetiesArray: Array<String>;
-  public safeties: String;
+  public safeties = '';
   public extrasArray: Array<String>;
-  public extras: String;
+  public extras = '';
 
   public klimaanlage: boolean;
   public bluetooth: boolean;
@@ -81,7 +81,7 @@ export class ProposalComponent implements OnInit {
    * Hilfsmethode um ein Array in ein String zu machen.
    * @param data
    */
-  private arrayToString(data): String {
+  private arrayToString(data): string {
     if (data.length > 0) {
       let newData = '';
       if (data.length > 0) {
@@ -95,7 +95,7 @@ export class ProposalComponent implements OnInit {
       }
       return newData;
     }
-    data = undefined;
+    data = null;
     return data;
   }
 
@@ -109,12 +109,19 @@ export class ProposalComponent implements OnInit {
     this.safeties = this.arrayToString(this.safetiesArray);
     this.extrasArray = this.getValuesExtras();
     this.extras = this.arrayToString(this.extrasArray);
-    if (this.carArray.manufacturer === undefined || this.carArray.modell === undefined) {
+    /** Überprüfung, ob die gegebenen Daten ausgewählt oder befüllt wurden. */
+    if (
+      this.carArray.manufacturer === '' ||
+      this.carArray.modell === '' ||
+      this.carArray.year === '' ||
+      this.carArray.price === '' ||
+      this.carArray.fuel_type === ''
+    ) {
       this.messageService.display('Bitte erst die Felder auswählen die ein * vor dem Input-Feld haben!', MessageType.warning);
       this.router.navigate(['/addCar']);
     } else {
-      this.setCarIntoTable(this.carArray);
       this.router.navigate(['']);
+      this.setCarIntoTable(this.carArray);
     }
   }
 
