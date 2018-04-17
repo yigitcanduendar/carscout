@@ -1,0 +1,19 @@
+<div class="jumbotron">
+    <h1>{{selectedCar.modell}} {{selectedCar.manufacturer}} </h1>
+    <div>IMAGE PLACEHOLDER</div>
+    <div>
+        <p>Hersteller : {{selectedCar.year}} | Leistung : {selectedCar.ps}}</p>
+        <p>Modell : {{selectedCar.year}} | Kilometerstand : {selectedCar.km_driven}}</p>
+        <p>Preis : <span class="badge" STYLE="color: black; font-size: 19pt">{{selectedCar.price}}€</span> | Baujahr : {selectedCar.year}}</p>
+    </div>
+    <div>
+        <p>Erstzulassung : {{selectedCar.year}}</p>
+        <p>Farbe: {{selectedCar.colour}}</p>
+        <p>Kategorie: {{selectedCar.category}}</p>
+        <p>Fahrzeugstand: {{selectedCar.state}}</p>
+    </div>
+    <p>
+        <button type="button" (click)="setAsFavourite()" class="btn btn-default">Favorisieren</button>
+    <!-- <button type="button" [disabled]="isLoggedIn()" onclick="resetAsFavourite()" class="btn btn-default">Entfavorisieren</button> -->
+    </p>
+</div>

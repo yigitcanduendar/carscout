@@ -10,7 +10,7 @@
     "./app/model/Car.ts",
     "Car.ts",
     "./app/model/user.ts",
-    "User.ts",
+    "user.ts",
     "**/*.ts"
   ],
   "exclude": [

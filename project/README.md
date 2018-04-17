@@ -45,3 +45,12 @@ Oder siehe LoginComponent unter save(); !!!
 ## MD5 
 
 npm install 
+
+#### Consolen
+## Backend Starten
+##  => gulp
+##  => npm start
+
+## Frontend Starten
+##  => npm start
+##  => ng test --code-coverage

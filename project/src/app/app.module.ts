@@ -18,10 +18,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { TodoRestApiService } from './services/todo-rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
+import { AngebotDetailComponent } from './components/angebot-detail/angebot-detail.component'
 import { ProposalComponent } from './components/proposal/proposal.component';
-import { SearchServiceService } from './services/search-service.service';
 import { ResultPageComponent } from './components/result-page/result-page.component';
 import { SearchComponent } from './components/search/search.component';
+import { SearchServiceService } from './services/search-service.service';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SearchComponent } from './components/search/search.component';
     PrivacyPolicyComponent,
     LogoutComponent,
     RegisterComponent,
+    AngebotDetailComponent,
     ProposalComponent,
     ResultPageComponent,
     SearchComponent

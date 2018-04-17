@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProposalComponent } from './proposal.component';
+import { AngebotDetailComponent } from './angebot-detail.component';
 import { AppModule } from '../../app.module';
 
-describe('ProposalComponent', () => {
-  let component: ProposalComponent;
-  let fixture: ComponentFixture<ProposalComponent>;
+describe('AngebotDetailComponent', () => {
+  let component: AngebotDetailComponent;
+  let fixture: ComponentFixture<AngebotDetailComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -15,12 +15,12 @@ describe('ProposalComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProposalComponent);
+    fixture = TestBed.createComponent(AngebotDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component.fhz).toBeNull();
   });
 });

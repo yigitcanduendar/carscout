@@ -11,7 +11,8 @@
     ]
   },
   "files": [
-    "test.ts"
+    "test.ts",
+    "../src/app/model/user.ts"
   ],
   "include": [
     "**/*.spec.ts",

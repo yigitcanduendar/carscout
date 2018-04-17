@@ -10,26 +10,27 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
-  ngOnInit(): void {
-  }
- 
+export class RegisterComponent {
+
+
   constructor(private messageService: MessageProviderService,private rest :TodoRestApiService,private router: Router) {
   }
 
   public benutzer: User = new User();
   public cb_agb: boolean = false;
-  public password2: string = "";
+  public pw2: string = "";
 
   submit(){
     if(this.inputIsValid()){
       this.rest.insertNewUser(this.benutzer);
+      this.benutzer = null;
+      this.pw2 = "";
       this.messageService.display("Erfolgreich registriert!", MessageType.success);
       this.router.navigate(['/login']);
     }
   }
 
-  inputIsValid() {
+  inputIsValid():boolean {
     if (this.benutzer.username == null || this.benutzer.username == "") {
       this.messageService.display("Bitte geben sie ein Benutzernamen ein.", MessageType.warning);
       return false;
@@ -38,20 +39,25 @@ export class RegisterComponent implements OnInit {
       this.messageService.display("Bitte geben sie ein gültige E-Mail Adresse ein.", MessageType.warning);
       return false;
     }
-    if (this.benutzer.password == null || this.benutzer.password == "") {
+    if (this.benutzer.pw == null || this.benutzer.pw == "") {
       this.messageService.display("Bitte geben sie ein Passwort ein.", MessageType.warning);
       return false;
     }
-    if (this.password2 == null || this.password2 == "") {
+    if (this.pw2 == null || this.pw2 == "") {
       this.messageService.display("Bitte wiederholen sie Ihr Passwort.", MessageType.warning);
       return false;
     }
-    if (this.benutzer.username.length <= 3 || this.benutzer.email.length <= 4 || this.benutzer.password.length <= 4) {
+
+    return true;
+  }
+
+  showMessage(){
+    if (this.benutzer.username.length <= 3 || this.benutzer.email.length <= 4 || this.benutzer.pw.length <= 4) {
       this.messageService.display("Bitte überprüfen Sie Ihre eingaben!", MessageType.warning);
       return false;
     } 
-    if (this.benutzer.password != this.password2) {
-      this.messageService.display("Bitte überprüfen Sie Ihre eingaben!" + '<br/>' + "-Passwörter Stimmen nicht überein", MessageType.warning);
+    if (this.benutzer.pw != this.pw2) {
+      this.messageService.display("Bitte überprüfen Sie Ihre eingaben!" + '<br/>' + "- Passwörter Stimmen nicht überein", MessageType.warning);
       return false;
     } 
     if (!this.cb_agb) {
