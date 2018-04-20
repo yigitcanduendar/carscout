@@ -8,9 +8,9 @@ describe('ProposalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProposalComponent ]
+      declarations: [ProposalComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -23,9 +23,5 @@ describe('ProposalComponent', () => {
     expect(component).toBeTruthy();
   });
 
-it('should have an offer id equally to 0 or higher after findFreeOfferID', () => {
-    component.findFreeOfferID();
-    expect(component.getOfferID()).toBeGreaterThanOrEqual(0);
-  });
 
 });

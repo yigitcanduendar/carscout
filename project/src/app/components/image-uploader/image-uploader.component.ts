@@ -11,7 +11,10 @@ import { MessageType } from '../../model/messagetype.enum';
 })
 export class ImageUploaderComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(newOffer: boolean) {
+    this.newOffer = newOffer;
+  }
 
   ngOnInit() {
   }
@@ -19,9 +22,11 @@ export class ImageUploaderComponent implements OnInit {
   private underUploadLimit: boolean = true;
   private MAXIMUM_NUMBER_OF_PICTURES: number = 5;
   private selectedFile: File;
+  private allImages: File[];
   private static offerID: number = 0;
   private messageService: MessageProviderService;
   private offerRouter: OfferRouter
+  private newOffer: boolean = false;
 
   public fileChangeEvent($event) {
     this.underUploadLimit = (this.pictureNr <= this.MAXIMUM_NUMBER_OF_PICTURES);
@@ -35,8 +40,8 @@ export class ImageUploaderComponent implements OnInit {
     return this.selectedFile;
   }
 
-   setSelectedImageFile(file: File) {
-     this.selectedFile = file;
+  setSelectedImageFile(file: File) {
+    this.selectedFile = file;
   }
 
   setMaximumNumberOfPictures(number: number) {
@@ -51,16 +56,33 @@ export class ImageUploaderComponent implements OnInit {
     this.offerID = id;
   }
 
-  public getPictureNr(){
+  public getPictureNr() {
     return this.pictureNr;
   }
 
+  public getAllImages(): File[] {
+    return this.allImages;
+  }
+
   onSubmit() {
-    if (OfferRouter.saveImageForOffer(ImageUploaderComponent.offerID, this.pictureNr, this.selectedFile).toString()==="200 Ok. Image saved succesfully") {
-      this.pictureNr++;
+
+    // wenn es ein neues Angebot ist, sollen weitere Bilder angehangen werden,  sammelt Bild für Insert von Offer
+    if (this.newOffer) {
+      if (this.underUploadLimit) {
+        this.allImages[this.pictureNr - 1] = this.selectedFile;
+        this.selectedFile = null;
+        this.pictureNr++;
+      }
     } else {
-      this.messageService.display("Bild konnte nicht hochgeladen werden!", MessageType.warning);
+      let message: string = OfferRouter.saveImageForOffer(ImageUploaderComponent.offerID, this.pictureNr, this.selectedFile).toString();
+      if (message === "200 Ok. Image saved succesfully") {
+        this.pictureNr++;
+      } else {
+        this.messageService.display(message, MessageType.warning);
+      }
     }
+
+
 
   }
 }

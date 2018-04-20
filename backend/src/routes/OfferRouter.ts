@@ -16,13 +16,12 @@ export class OfferRouter {
   async getAll(req: Request, res: Response, next: NextFunction) {
     let offers = await OfferDAO.getAll();
     return offers;
-
   }
 
   init() {
     this.router.get('/', this.getAll);
   }
-  
+
   /**
    * Prüft die übergebenen Variablen, gibt bei Fehlern String zurück oder wenn
    * in Ordnung speichert ein Bild per OfferDAO in der Datenbank ab und gibt 200 Ok als String zurück
@@ -53,7 +52,7 @@ export class OfferRouter {
     } else {
       return "400 Bad Request. File nicht vorhanden /  nicht lesbar ";
     }
-    
+
     let fileAsBase64String: String;
     let fileReader: FileReader;
     fileReader.readAsDataURL(file);

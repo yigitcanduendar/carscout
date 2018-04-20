@@ -1,8 +1,10 @@
 import { Offer } from './../../model/Offer';
-import { OfferDAO } from './../../../../../backend/src/dao/OfferDAO';
-import { OfferRouter } from './../../../../../backend/src/routes/OfferRouter';
+import { TodoRestApiService } from '../../services/todo-rest-api.service'
 import { ImageUploaderComponent } from './../image-uploader/image-uploader.component';
 import { Component, OnInit } from '@angular/core';
+import { MessageType } from '../../model/messagetype.enum';
+import { MessageProviderService } from '../../services/messageprovider.service';
+import { Router } from "@angular/router/router";
 
 @Component({
   selector: 'app-proposal',
@@ -11,35 +13,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProposalComponent implements OnInit {
 
-  private offerID: number = 0;
-  private offerRouter: OfferRouter;
-  constructor() { }
+  private offer: Offer;
+  constructor(private messageService: MessageProviderService, private restApiService: TodoRestApiService, private router: Router) { }
 
   ngOnInit() {
+  }
 
-    this.findFreeOfferID();
-    ImageUploaderComponent.setOfferID(this.offerID);
+  inputIsValid(): boolean {
+    return true;
   }
 
 
-  getOfferID(): number {
-    return this.offerID;
-  }
 
-  /**
-   *  offerID wird bestimmt per Iteration über alle Offers,
-   * findet durch Vergleich den höchsten ID Wert, der schon vergeben ist,
-   *  nimmt die id + 1 an,
-   */
-
-  public findFreeOfferID() {
-
-    let offers: Offer[] = OfferDAO.getAllAsOfferArray();
-    for (let offer of offers) {
-      if (this.offerID < offer.id) {
-        this.offerID = offer.id + 1;
-      }
-    }
-  }
 
 }
