@@ -30,7 +30,7 @@
                     <a *ngIf="cookieService.get('online') == undefined" href="/register">Registrieren</a>
                 </li>
                 <li>
-                    <a *ngIf="cookieService.get('online') == undefined" href="/addCar">Angebotserstellung</a>
+                    <a *ngIf="cookieService.get('online')" href="/addCar">Angebotserstellung</a>
                 </li>
             </ul>
             <app-search></app-search>

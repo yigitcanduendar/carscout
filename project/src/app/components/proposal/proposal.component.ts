@@ -6,6 +6,7 @@ import * as express from 'express';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { MessageType } from '../../model/messagetype.enum';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie';
 
 @Component({
   selector: 'app-proposal',
@@ -14,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class ProposalComponent implements OnInit {
 
-  constructor(private restApiService: TodoRestApiService, private messageService: MessageProviderService, private router: Router) {
+  constructor(private cookieService: CookieService, private restApiService: TodoRestApiService, private messageService: MessageProviderService, private router: Router) {
   }
 
   public manufacturer = '';
@@ -119,10 +120,17 @@ export class ProposalComponent implements OnInit {
     ) {
       this.messageService.display('Bitte erst die Felder auswählen die ein * vor dem Input-Feld haben!', MessageType.warning);
       this.router.navigate(['/addCar']);
+      console.log(this.cookieService.get('user'));
     } else {
       this.router.navigate(['']);
       this.setCarIntoTable(this.carArray);
+      this.saveOffer();
     }
+  }
+
+  private saveOffer() {
+    const username = this.cookieService.get('user');
+    this.restApiService.setOffer(username);
   }
 
   /**

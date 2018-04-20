@@ -11,6 +11,7 @@ export class LogoutComponent implements OnInit {
 
   constructor(private cookieService: CookieService, private router: Router) {
     this.cookieService.remove('online');
+    this.cookieService.remove('user');
     this.router.navigate(['']);
   }
 
