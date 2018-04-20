@@ -17,6 +17,7 @@ export class Car {
         public interiors: String,
         public safeties: String,
         public extras: String,
-        public trader: string
+        public trader: string,
+        public username?: string
     ) { }
 }

@@ -68,6 +68,7 @@ export class TodoRestApiService {
   public setCar(car: Car) {
     const body = new URLSearchParams();
     body.set('setCar', JSON.stringify(car));
+    console.log(body.toString(), this.options);
     this.http.post('api/cars/setCar/', body.toString(), this.options).
       subscribe(res => {
         console.log(res);

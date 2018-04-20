@@ -13,40 +13,26 @@ export class OfferDAO {
     }
 
     /**
-     * funktion zum Speichern von Bildern für Angebote.
-     * Benötigt id des Angebots aus DB, BildNummer (1-5), Base64 Stringform des Bildes, Bildtyp (jpg, bmp, png, usw)
+     * Holt den derzeitigen User der eingeloggt ist.
+     * @param username 
      */
-    static async saveImageForOffer(offer_id: number, pictureNr: String, image_base64: String, image_type: String) {
-
+    static async getCurrentUserId(currentUserName) {
         let db = await sqlite.open(OfferDAO.dbFile);
-        try {
-            await db.run('INSERT INTO Offers (picture' + pictureNr + ' , picture' + pictureNr + '_type) VALUES(' + image_base64 + ', ' + image_type + ') '
-                + 'WHERE id=' + offer_id);
-        }
-        catch (e) {
-            console.log("Fehler bei SQL Insert für Bilder Speichern: " + e)
-            db.close();
-            return false;
-        }
+        let user = await db.get('Select * from Users Where username == ' + currentUserName);
         db.close();
-        return true;
+        return user;
     }
 
-    static async getCurrentUserId(username) {
+    /**
+     * Setzt die Offer mit dem derzeitig eingeloggten User.
+     * @param currentUserName 
+     */
+    static async setOffer(currentUserName: string, car_id) {
+        let user_id = this.getCurrentUserId(currentUserName);
+        console.log(user_id);
         let db = await sqlite.open(OfferDAO.dbFile);
-        let id = await db.get('Select id from Users Where username==' + username);
+        let offer = await db.run("INSERT INTO Offers (user_id, car_id) VALUES('" + user_id + "','" + 1 + "')");
         db.close();
-        console.log(id);
-        return id;
-    }
-
-    static async setOffer(username: string) {
-        const id = this.getCurrentUserId(username);
-        console.log(id);
-        let db = await sqlite.open(OfferDAO.dbFile);
-        let car = await db.run("INSERT INTO Offers (user_id) VALUES('" + id + "')");
-        db.close();
-
-        return car;
+        return offer;
     }
 }

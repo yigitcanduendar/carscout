@@ -11,7 +11,6 @@ export class OfferRouter {
   }
 
   async getAll(req: Request, res: Response, next: NextFunction) {
-    console.log('ffe');
     let offers = await OfferDAO.getAll();
     console.log(JSON.stringify(offers));
     if (offers) {

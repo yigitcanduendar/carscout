@@ -28,7 +28,6 @@ class App {
 
   // Configure API endpoints.
   private routes(): void {
-    console.log("routes geladen");
     this.express.use('/offers', OfferRouter);
     this.express.use('/cars', CarRouter);
     this.express.use('/users', UserRouter);

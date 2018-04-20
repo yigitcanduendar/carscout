@@ -15,7 +15,7 @@ export class UserDAO {
 
     static async getUser(username: string): Promise<User> {
         let db = await sqlite.open(UserDAO.dbFile);
-        let user = await db.get(`select * from Users where username = ?`, username);
+        let user = await db.get(`select * from Users where username ==`, username);
         db.close();
         return user;
     }

@@ -120,7 +120,8 @@ export class ProposalComponent implements OnInit {
     ) {
       this.messageService.display('Bitte erst die Felder auswählen die ein * vor dem Input-Feld haben!', MessageType.warning);
       this.router.navigate(['/addCar']);
-      console.log(this.cookieService.get('user'));
+      this.setCarIntoTable(this.carArray);
+      this.saveOffer();
     } else {
       this.router.navigate(['']);
       this.setCarIntoTable(this.carArray);
@@ -278,7 +279,8 @@ export class ProposalComponent implements OnInit {
       interiors: this.interiors,
       safeties: this.safeties,
       extras: this.extras,
-      trader: this.trader
+      trader: this.trader,
+      username: this.cookieService.get('user')
     };
   }
 
