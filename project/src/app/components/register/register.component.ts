@@ -13,15 +13,15 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
 
 
-  constructor(private messageService: MessageProviderService,private rest :TodoRestApiService,private router: Router) {
+  constructor(private messageService: MessageProviderService, private rest: TodoRestApiService, private router: Router) {
   }
 
   public benutzer: User = new User();
   public cb_agb: boolean = false;
   public pw2: string = "";
 
-  submit(){
-    if(this.inputIsValid()){
+  submit() {
+    if (this.inputIsValid()) {
       this.rest.insertNewUser(this.benutzer);
       this.benutzer = null;
       this.pw2 = "";
@@ -30,7 +30,7 @@ export class RegisterComponent {
     }
   }
 
-  inputIsValid():boolean {
+  inputIsValid(): boolean {
     if (this.benutzer.username == null || this.benutzer.username == "") {
       this.messageService.display("Bitte geben sie ein Benutzernamen ein.", MessageType.warning);
       return false;
@@ -47,24 +47,23 @@ export class RegisterComponent {
       this.messageService.display("Bitte wiederholen sie Ihr Passwort.", MessageType.warning);
       return false;
     }
-
     return true;
   }
 
-  showMessage(){
+  showMessage() {
     if (this.benutzer.username.length <= 3 || this.benutzer.email.length <= 4 || this.benutzer.pw.length <= 4) {
       this.messageService.display("Bitte überprüfen Sie Ihre eingaben!", MessageType.warning);
       return false;
-    } 
+    }
     if (this.benutzer.pw != this.pw2) {
       this.messageService.display("Bitte überprüfen Sie Ihre eingaben!" + '<br/>' + "- Passwörter Stimmen nicht überein", MessageType.warning);
       return false;
-    } 
+    }
     if (!this.cb_agb) {
       this.messageService.display("Bitte aktzeptieren Sie die AGB!", MessageType.warning);
       return false;
-    } 
-    if(this.rest.users.filter((e) => e.username == this.benutzer.username).length > 0){
+    }
+    if (this.rest.users.filter((e) => e.username == this.benutzer.username).length > 0) {
       this.messageService.display("Der Benutzernamen ist bereits vergeben.", MessageType.warning);
       return false;
     }
