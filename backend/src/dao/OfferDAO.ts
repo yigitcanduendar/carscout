@@ -1,5 +1,4 @@
 import { Offer } from '../model/Offer';
-import { User } from '../../../project/src/app/model/user';
 const sqlite = require('sqlite-async');
 
 export class OfferDAO {
@@ -37,11 +36,13 @@ export class OfferDAO {
         let db = await sqlite.open(OfferDAO.dbFile);
         let id = await db.get('Select id from Users Where username==' + username);
         db.close();
+        console.log(id);
         return id;
     }
 
     static async setOffer(username: string) {
         const id = this.getCurrentUserId(username);
+        console.log(id);
         let db = await sqlite.open(OfferDAO.dbFile);
         let car = await db.run("INSERT INTO Offers (user_id) VALUES('" + id + "')");
         db.close();

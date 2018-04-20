@@ -44,5 +44,5 @@ export class CarRouter {
   }
 }
 
-const carRoutes = new CarRouter();
-export default carRoutes.router;
+// const carRoutes = new CarRouter();
+export default new CarRouter().router;

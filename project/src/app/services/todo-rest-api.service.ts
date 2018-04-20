@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Car } from '../model/Car';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../model/User';
+import { Offer } from '../model/Offer';
 
 @Injectable()
 export class TodoRestApiService {
@@ -14,6 +15,7 @@ export class TodoRestApiService {
   private carDataCache: Car[] = [];
   private singleCarDataCach: Car = null;
   private userDataCache: User[] = [];
+  private offerDataCache: Offer[] = [];
 
   private refreshAllCars() {
     this.http.get('api/cars').subscribe((data: Car[]) => {
@@ -36,6 +38,15 @@ export class TodoRestApiService {
   private refreshUsers() {
     this.http.get('api/users').subscribe((data: User[]) => {
       this.userDataCache = data;
+    },
+      err => {
+        console.log(err);
+      });
+  }
+
+  private refreshOffers() {
+    this.http.get('api/offers').subscribe((data: Offer[]) => {
+      this.offerDataCache = data;
     },
       err => {
         console.log(err);
@@ -81,6 +92,11 @@ export class TodoRestApiService {
   constructor(private http: HttpClient) {
     this.refreshAllCars();
     this.refreshUsers();
+    this.refreshOffers();
+  }
+
+  get offers(): Offer[] {
+    return this.offerDataCache;
   }
 
   get users(): User[] {

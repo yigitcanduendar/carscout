@@ -11,8 +11,15 @@ export class OfferRouter {
   }
 
   async getAll(req: Request, res: Response, next: NextFunction) {
+    console.log('ffe');
     let offers = await OfferDAO.getAll();
-    return offers;
+    console.log(JSON.stringify(offers));
+    if (offers) {
+      res.status(200).send(JSON.stringify(offers));
+    }
+    else {
+      res.status(402).send('nix gefunden');
+    }
   }
 
   async setOffer(req: Request, res: Response, next: NextFunction) {
@@ -25,5 +32,5 @@ export class OfferRouter {
   }
 }
 
-const offerRoutes = new OfferRouter();
-export default offerRoutes.router;
+// const offerRoutes = new OfferRouter();
+export default new OfferRouter().router;
