@@ -1,11 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SearchComponent } from './search.component';
-import {CookieService} from 'ngx-cookie';
-import {MessageProviderService} from '../../services/messageprovider.service';
-import {TodoRestApiService} from '../../services/todo-rest-api.service';
-import {Car} from '../../model/car';
-import {AppModule} from '../../app.module';
+import { CookieService } from 'ngx-cookie';
+import { MessageProviderService } from '../../services/messageprovider.service';
+import { TodoRestApiService } from '../../services/todo-rest-api.service';
+import { Car } from '../../model/car';
+import { AppModule } from '../../app.module';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -16,9 +15,10 @@ describe('SearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ AppModule]
+      imports: [AppModule],
+      providers: [TodoRestApiService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -35,7 +35,7 @@ describe('SearchComponent', () => {
   });
 
   it('get allCars should return one element', () => {
-    spyOnProperty(restService,'cars').and.returnValue([new Car(0, 'Benz', 'GLA', 2333, 2018, '12.5L/100km', 34, 'black', 5, '', 'Geländewagen', 'Benzin', 'Gut', '2500 VB', 'Wie neu')]);
+    spyOnProperty(restService, 'cars').and.returnValue([new Car('', '', '', '', '', '', '', '', "", '', '', '', null, '', '', '', '', '')]);
     expect(restService.cars.length).toEqual(1);
   });
 

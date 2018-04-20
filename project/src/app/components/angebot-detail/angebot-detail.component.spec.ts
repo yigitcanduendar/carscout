@@ -16,7 +16,8 @@ describe('AngebotDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [AppModule]
+      imports: [AppModule],
+      providers: [TodoRestApiService, MessageProviderService]
     })
       .compileComponents();
   }));
@@ -29,7 +30,7 @@ describe('AngebotDetailComponent', () => {
     restService = TestBed.get(TodoRestApiService);
 
     fixture.detectChanges();
-    spyOn(restService, 'selectedCar').and.returnValue(new Car(0, "", "", 2, 2, "", 2, "", 2, "", "", "", "", "", ""));
+    spyOn(restService, 'selectedCar').and.returnValue(new Car('', '', '', '', '', '', '', '', "", '', '', '', null, '', '', '', '', ''));
 
   });
 

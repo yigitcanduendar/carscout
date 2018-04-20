@@ -22,7 +22,8 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [AppModule]
+      imports: [AppModule],
+      providers: [TodoRestApiService]
     })
       .compileComponents();
   }));
