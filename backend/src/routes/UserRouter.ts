@@ -36,7 +36,7 @@ export class UserRouter {
     }
 
     async insertNewUser(req: Request, res: Response, next: NextFunction) {
-       await UserDAO.insertNewUser( JSON.parse(req.body.newUser));
+        await UserDAO.insertNewUser(JSON.parse(req.body.newUser));
     }
 
     init() {
@@ -46,5 +46,5 @@ export class UserRouter {
     }
 }
 
-const userRoutes = new UserRouter();
-export default userRoutes.router;
+// const userRoutes = new UserRouter();
+export default new UserRouter().router;

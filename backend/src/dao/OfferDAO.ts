@@ -7,7 +7,7 @@ export class OfferDAO {
 
     static async getAll() {
         let db = await sqlite.open(OfferDAO.dbFile);
-        let offers = await db.all("SELECT * FROM offers");
+        let offers = await db.all("SELECT * FROM Offers");
         db.close();
         return offers;
     }
@@ -20,7 +20,7 @@ export class OfferDAO {
 
         let db = await sqlite.open(OfferDAO.dbFile);
         try {
-            await db.run('INSERT INTO offers (picture' + pictureNr + ' , picture' + pictureNr + '_type) VALUES(' + image_base64 + ', ' + image_type + ') '
+            await db.run('INSERT INTO Offers (picture' + pictureNr + ' , picture' + pictureNr + '_type) VALUES(' + image_base64 + ', ' + image_type + ') '
                 + 'WHERE id=' + offer_id);
         }
         catch (e) {
@@ -30,5 +30,23 @@ export class OfferDAO {
         }
         db.close();
         return true;
+    }
+
+    static async getCurrentUserId(username) {
+        let db = await sqlite.open(OfferDAO.dbFile);
+        let id = await db.get('Select id from Users Where username==' + username);
+        db.close();
+        console.log(id);
+        return id;
+    }
+
+    static async setOffer(username: string) {
+        const id = this.getCurrentUserId(username);
+        console.log(id);
+        let db = await sqlite.open(OfferDAO.dbFile);
+        let car = await db.run("INSERT INTO Offers (user_id) VALUES('" + id + "')");
+        db.close();
+
+        return car;
     }
 }

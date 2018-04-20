@@ -13,19 +13,19 @@ export class UserDAO {
         return users;
     }
 
-    static async getUser(username : string): Promise<User> {
+    static async getUser(username: string): Promise<User> {
         let db = await sqlite.open(UserDAO.dbFile);
         let user = await db.get(`select * from Users where username = ?`, username);
         db.close();
         return user;
     }
 
-    static async insertNewUser(newUser : User){       
+    static async insertNewUser(newUser: User) {
         let db = await sqlite.open(UserDAO.dbFile);
 
-        let user = await db.run("INSERT INTO Users (username, email, pw) VALUES('"+newUser.username+"','"+newUser.email+"','"+Md5.hashStr(newUser.pw)+"')");
+        let user = await db.run("INSERT INTO Users (username, email, pw) VALUES('" + newUser.username + "','" + newUser.email + "','" + Md5.hashStr(newUser.pw) + "')");
         db.close();
-        
-    return user;
+
+        return user;
     }
 }

@@ -1,14 +1,16 @@
 <form class="form-horizontal">
   <fieldset>
 
+    <div class="alert alert-warning" role="alert">Alle Felder mit * sind Pflichtfelder!</div>
+
     <!-- Form Name -->
     <legend>Angebotserstellung</legend>
 
     <!-- Hersteller -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="selectbasic">Hersteller</label>
+      <label class="col-md-4 control-label" for="selectbasic">* Hersteller</label>
       <div class="col-md-4">
-        <select id="selectBrand" name="selectBrand" class="form-control">
+        <select id="selectBrand" name="selectBrand" class="form-control" [(ngModel)]="manufacturer">
           <option value="leer"></option>
           <option value="Acura">Acura</option>
           <option value="Alfa Romeo">Alfa Romeo</option>
@@ -85,9 +87,9 @@
 
     <!-- Modell -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="modell">Modell</label>
+      <label class="col-md-4 control-label" for="modell">* Modell</label>
       <div class="col-md-4">
-        <input id="modell" name="modell" class="form-control input-md" type="text">
+        <input id="modell" name="modell" class="form-control input-md" type="text" [(ngModel)]="modell">
 
       </div>
     </div>
@@ -96,7 +98,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="fahrzeugtyp">Fahrzeugtyp</label>
       <div class="col-md-4">
-        <select id="fahrzeugtyp" name="fahrzeugtyp" class="form-control">
+        <select id="fahrzeugtyp" name="fahrzeugtyp" class="form-control" [(ngModel)]="category">
           <option value="leer"></option>
           <option value="cabrio">Cabrio</option>
           <option value="limousine">Limousine</option>
@@ -115,25 +117,25 @@
       <label class="col-md-4 control-label" for="radios">Anzahl Sitze</label>
       <div class="col-md-4">
         <label class="radio-inline" for="radios-0">
-          <input name="sitze" id="radios-0" value="1" type="radio" checked> 1
+          <input name="sitze" id="radios-0" value="1" type="radio" [(ngModel)]="seats"> 1
         </label>
         <label class="radio-inline" for="radios-1">
-          <input name="sitze" id="radios-1" value="2" type="radio"> 2
+          <input name="sitze" id="radios-1" value="2" type="radio" [(ngModel)]="seats"> 2
         </label>
         <label class="radio-inline" for="radios-2">
-          <input name="sitze" id="radios-2" value="3" type="radio"> 3
+          <input name="sitze" id="radios-2" value="3" type="radio" [(ngModel)]="seats"> 3
         </label>
         <label class="radio-inline" for="radios-3">
-          <input name="sitze" id="radios-3" value="4" type="radio"> 4
+          <input name="sitze" id="radios-3" value="4" type="radio" [(ngModel)]="seats"> 4
         </label>
         <label class="radio-inline" for="radios-4">
-          <input name="sitze" id="radios-4" value="5" type="radio"> 5
+          <input name="sitze" id="radios-4" value="5" type="radio" [(ngModel)]="seats"> 5
         </label>
         <label class="radio-inline" for="radios-5">
-          <input name="sitze" id="radios-5" value="6" type="radio"> 6
+          <input name="sitze" id="radios-5" value="6" type="radio" [(ngModel)]="seats"> 6
         </label>
         <label class="radio-inline" for="radios-6">
-          <input name="sitze" id="radios-6" value="7" type="radio"> 7
+          <input name="sitze" id="radios-6" value="7" type="radio" [(ngModel)]="seats"> 7
         </label>
       </div>
     </div>
@@ -143,13 +145,13 @@
       <label class="col-md-4 control-label" for="radios">Anzahl Türen</label>
       <div class="col-md-4">
         <label class="radio-inline" for="radios-0">
-          <input name="tueren" id="radios-0" value="2/3" type="radio" checked> 2/3
+          <input name="tueren" id="radios-0" value="2/3" type="radio" [(ngModel)]="number_of_doors"> 2/3
         </label>
         <label class="radio-inline" for="radios-1">
-          <input name="tueren" id="radios-1" value="4/5" type="radio"> 4/5
+          <input name="tueren" id="radios-1" value="4/5" type="radio" [(ngModel)]="number_of_doors"> 4/5
         </label>
         <label class="radio-inline" for="radios-1">
-          <input name="tueren" id="radios-2" value="6/7" type="radio"> 6/7
+          <input name="tueren" id="radios-2" value="6/7" type="radio" [(ngModel)]="number_of_doors"> 6/7
         </label>
 
       </div>
@@ -157,10 +159,10 @@
 
     <!-- Baujahr -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="q">Baujahr</label>
+      <label class="col-md-4 control-label" for="q">* Baujahr</label>
       <div class="col-md-4">
         <input id="baujahr" name="baujahr" placeholder="Baujahr" class="form-control input-md" type="number" min="1900" max="2099"
-          step="1" value="2018">
+          step="1" value="2018" [(ngModel)]="year">
       </div>
     </div>
 
@@ -168,7 +170,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="q">Erstzulassung</label>
       <div class="col-md-4">
-        <input id="erstzulassung" name="erstzulassung" class="form-control input-md" type="date">
+        <input id="erstzulassung" name="erstzulassung" class="form-control input-md" type="date" [(ngModel)]="registration_date">
       </div>
     </div>
 
@@ -176,8 +178,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="kilometer">Kilometerstand</label>
       <div class="col-md-4">
-        <input id="kilometer" name="kilometer" class="form-control input-md" type="number" step="1000">
-
+        <input id="kilometer" name="kilometer" class="form-control input-md" type="number" step="1000" [(ngModel)]="km_driven">
       </div>
     </div>
 
@@ -185,25 +186,25 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="Leistung">Leistung</label>
       <div class="col-md-4">
-        <input id="Leistung" name="Leistung" class="form-control input-md" type="text">
+        <input id="Leistung" name="Leistung" class="form-control input-md" type="text" [(ngModel)]="ps">
 
       </div>
     </div>
 
     <!-- Preis -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="Preis">Preis</label>
+      <label class="col-md-4 control-label" for="Preis">* Preis</label>
       <div class="col-md-4">
-        <input id="Preis" name="Preis" class="form-control input-md" type="text">
+        <input id="Preis" name="Preis" class="form-control input-md" type="text" [(ngModel)]="price">
 
       </div>
     </div>
 
     <!-- Kraftstoffart -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="Kraftstoff">Kraftstoffart</label>
+      <label class="col-md-4 control-label" for="Kraftstoff">* Kraftstoffart</label>
       <div class="col-md-4">
-        <select id="Kraftstoff" name="Kraftstoff" class="form-control">
+        <select id="Kraftstoff" name="Kraftstoff" class="form-control" [(ngModel)]="fuel_type">
           <option value="leer"></option>
           <option value="Benzin">Benzin</option>
           <option value="Diesel">Diesel</option>
@@ -218,7 +219,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="Getriebe">Getriebe</label>
       <div class="col-md-4">
-        <select id="Getriebe" name="Getriebe" class="form-control">
+        <select id="Getriebe" name="Getriebe" class="form-control" [(ngModel)]="transmission">
           <option value="leer"></option>
           <option value="Schaltgetriebe">Schaltgetriebe</option>
           <option value="Automatik">Automatik</option>
@@ -231,7 +232,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="Farbe">Farbe</label>
       <div class="col-md-4">
-        <select id="Farbe" name="Farbe" class="form-control">
+        <select id="Farbe" name="Farbe" class="form-control" [(ngModel)]="colour">
           <option value="leer"></option>
           <option value="beige">beige</option>
           <option value="schwarz">schwarz</option>
@@ -253,99 +254,100 @@
       <div class="col-md-4">
         <div class="checkbox">
           <label for="Innenausstattung-0">
-            <input name="Innenausstattung" id="Innenausstattung-0" value="Klimaanlage" type="checkbox"> Klimaanlage
+            <input name="Innenausstattung" id="Innenausstattung-0" value="Klimaanlage" type="checkbox" [(ngModel)]="klimaanlage"> Klimaanlage
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-1">
-            <input name="Innenausstattung" id="Innenausstattung-1" value="Bluetooth" type="checkbox"> Bluetooth
+            <input name="Innenausstattung" id="Innenausstattung-1" value="Bluetooth" type="checkbox" [(ngModel)]="bluetooth"> Bluetooth
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-2">
-            <input name="Innenausstattung" id="Innenausstattung-2" value="Elektr. Seitenspiegel" type="checkbox"> Elektr. Seitenspiegel
+            <input name="Innenausstattung" id="Innenausstattung-2" value="Elektr. Seitenspiegel" type="checkbox" [(ngModel)]="seitenspiegel"> Elektr. Seitenspiegel
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-3">
-            <input name="Innenausstattung" id="Innenausstattung-3" value="Regensensor" type="checkbox"> Regensensor
+            <input name="Innenausstattung" id="Innenausstattung-3" value="Regensensor" type="checkbox" [(ngModel)]="regensensor"> Regensensor
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-4">
-            <input name="Innenausstattung" id="Innenausstattung-4" value="Sitzheizung" type="checkbox"> Sitzheizung
+            <input name="Innenausstattung" id="Innenausstattung-4" value="Sitzheizung" type="checkbox" [(ngModel)]="sitzheizung"> Sitzheizung
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-5">
-            <input name="Innenausstattung" id="Innenausstattung-5" value="Tempomat" type="checkbox"> Tempomat
+            <input name="Innenausstattung" id="Innenausstattung-5" value="Tempomat" type="checkbox" [(ngModel)]="tempomat"> Tempomat
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-6">
-            <input name="Innenausstattung" id="Innenausstattung-6" value="Bordcomputer" type="checkbox"> Bordcomputer
+            <input name="Innenausstattung" id="Innenausstattung-6" value="Bordcomputer" type="checkbox" [(ngModel)]="bordcomputer"> Bordcomputer
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-7">
-            <input name="Innenausstattung" id="Innenausstattung-7" value="Elektr. Sitzeinstellung" type="checkbox"> Elektr. Sitzeinstellung
+            <input name="Innenausstattung" id="Innenausstattung-7" value="Elektr. Sitzeinstellung" type="checkbox" [(ngModel)]="sitzeinstellung"> Elektr. Sitzeinstellung
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-8">
-            <input name="Innenausstattung" id="Innenausstattung-8" value="MP3-Schnittstelle" type="checkbox"> MP3-Schnittstelle
+            <input name="Innenausstattung" id="Innenausstattung-8" value="MP3-Schnittstelle" type="checkbox" [(ngModel)]="mp3"> MP3-Schnittstelle
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-9">
-            <input name="Innenausstattung" id="Innenausstattung-9" value="Schiebedach" type="checkbox"> Schiebedach
+            <input name="Innenausstattung" id="Innenausstattung-9" value="Schiebedach" type="checkbox" [(ngModel)]="schiebedach"> Schiebedach
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-10">
-            <input name="Innenausstattung" id="Innenausstattung-10" value="Tuner/Radio" type="checkbox"> Tuner/Radio
+            <input name="Innenausstattung" id="Innenausstattung-10" value="Tuner/Radio" type="checkbox" [(ngModel)]="radio"> Tuner/Radio
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-11">
-            <input name="Innenausstattung" id="Innenausstattung-11" value="CD-Spieler" type="checkbox"> CD-Spieler
+            <input name="Innenausstattung" id="Innenausstattung-11" value="CD-Spieler" type="checkbox" [(ngModel)]="cd"> CD-Spieler
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-12">
-            <input name="Innenausstattung" id="Innenausstattung-12" value="Freisprecheinrichtung" type="checkbox"> Freisprecheinrichtung
+            <input name="Innenausstattung" id="Innenausstattung-12" value="Freisprecheinrichtung" type="checkbox" [(ngModel)]="freisprecheinrichtung"> Freisprecheinrichtung
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-13">
-            <input name="Innenausstattung" id="Innenausstattung-13" value="Multifunktionslenkrad" type="checkbox"> Multifunktionslenkrad
+            <input name="Innenausstattung" id="Innenausstattung-13" value="Multifunktionslenkrad" type="checkbox" [(ngModel)]="multifunktionslenkrad"> Multifunktionslenkrad
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-14">
-            <input name="Innenausstattung" id="Innenausstattung-14" value="Servolenkung" type="checkbox"> Servolenkung
+            <input name="Innenausstattung" id="Innenausstattung-14" value="Servolenkung" type="checkbox" [(ngModel)]="servolenkung"> Servolenkung
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-15">
-            <input name="Innenausstattung" id="Innenausstattung-15" value="Standheizung" type="checkbox"> Standheizung
+            <input name="Innenausstattung" id="Innenausstattung-15" value="Standheizung" type="checkbox" [(ngModel)]="standheizung"> Standheizung
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-16">
-            <input name="Innenausstattung" id="Innenausstattung-16" value="Zentralverriegelung" type="checkbox"> Zentralverriegelung
+            <input name="Innenausstattung" id="Innenausstattung-16" value="Zentralverriegelung" type="checkbox" [(ngModel)]="zentralverriegelung"> Zentralverriegelung
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-17">
-            <input name="Innenausstattung" id="Innenausstattung-17" value="Elektr. Fensterheber" type="checkbox"> Elektr. Fensterheber
+            <input name="Innenausstattung" id="Innenausstattung-17" value="Elektr. Fensterheber" type="checkbox" [(ngModel)]="fensterheber"> Elektr. Fensterheber
           </label>
         </div>
         <div class="checkbox">
           <label for="Innenausstattung-18">
-            <input name="Innenausstattung" id="Innenausstattung-18" value="Navigationssystem" type="checkbox"> Navigationssystem
+            <input name="Innenausstattung" id="Innenausstattung-18" value="Navigationssystem" type="checkbox" [(ngModel)]="navigation"> Navigationssystem
           </label>
         </div>
+
       </div>
     </div>
 
@@ -355,52 +357,52 @@
       <div class="col-md-4">
         <div class="checkbox">
           <label for="Sicherheit-0">
-            <input name="Sicherheit" id="Sicherheit-0" value="ABS" type="checkbox"> ABS
+            <input name="Sicherheit" id="Sicherheit-0" value="ABS" type="checkbox" [(ngModel)]="abs"> ABS
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-1">
-            <input name="Sicherheit" id="Sicherheit-1" value="ESP" type="checkbox"> ESP
+            <input name="Sicherheit" id="Sicherheit-1" value="ESP" type="checkbox" [(ngModel)]="esp"> ESP
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-2">
-            <input name="Sicherheit" id="Sicherheit-2" value="Nebelscheinwerfer" type="checkbox"> Nebelscheinwerfer
+            <input name="Sicherheit" id="Sicherheit-2" value="Nebelscheinwerfer" type="checkbox" [(ngModel)]="nebelscheinwerfer"> Nebelscheinwerfer
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-3">
-            <input name="Sicherheit" id="Sicherheit-3" value="Abstandstempomat" type="checkbox"> Abstandstempomat
+            <input name="Sicherheit" id="Sicherheit-3" value="Abstandstempomat" type="checkbox" [(ngModel)]="abstandstempomat"> Abstandstempomat
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-4">
-            <input name="Sicherheit" id="Sicherheit-4" value="Kurvenlicht" type="checkbox"> Kurvenlicht
+            <input name="Sicherheit" id="Sicherheit-4" value="Kurvenlicht" type="checkbox" [(ngModel)]="kurvenlicht"> Kurvenlicht
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-5">
-            <input name="Sicherheit" id="Sicherheit-5" value="Allradantrieb" type="checkbox"> Allradantrieb
+            <input name="Sicherheit" id="Sicherheit-5" value="Allradantrieb" type="checkbox" [(ngModel)]="allradantrieb"> Allradantrieb
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-6">
-            <input name="Sicherheit" id="Sicherheit-6" value="LED-Scheinwerfer" type="checkbox"> LED-Scheinwerfer
+            <input name="Sicherheit" id="Sicherheit-6" value="LED-Scheinwerfer" type="checkbox" [(ngModel)]="led_scheinwerfer"> LED-Scheinwerfer
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-7">
-            <input name="Sicherheit" id="Sicherheit-7" value="Xenonscheinwerfer" type="checkbox"> Xenonscheinwerfer
+            <input name="Sicherheit" id="Sicherheit-7" value="Xenonscheinwerfer" type="checkbox" [(ngModel)]="xenonscheinwerfer"> Xenonscheinwerfer
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-8">
-            <input name="Sicherheit" id="Sicherheit-8" value="Spurhalteassistent" type="checkbox"> Spurhalteassistent
+            <input name="Sicherheit" id="Sicherheit-8" value="Spurhalteassistent" type="checkbox" [(ngModel)]="spurhalteassistent"> Spurhalteassistent
           </label>
         </div>
         <div class="checkbox">
           <label for="Sicherheit-9">
-            <input name="Sicherheit" id="Sicherheit-9" value="Tagfahrlicht" type="checkbox"> Tagfahrlicht
+            <input name="Sicherheit" id="Sicherheit-9" value="Tagfahrlicht" type="checkbox" [(ngModel)]="tagfahrlicht"> Tagfahrlicht
           </label>
         </div>
       </div>
@@ -412,22 +414,22 @@
       <div class="col-md-4">
         <div class="checkbox">
           <label for="Extras-0">
-            <input name="Extras" id="Extras-0" value="Sportsitze" type="checkbox"> Sportsitze
+            <input name="Extras" id="Extras-0" value="Sportsitze" type="checkbox" [(ngModel)]="sportsitze"> Sportsitze
           </label>
         </div>
         <div class="checkbox">
           <label for="Extras-1">
-            <input name="Extras" id="Extras-1" value="Sportfahrwerk" type="checkbox"> Sportfahrwerk
+            <input name="Extras" id="Extras-1" value="Sportfahrwerk" type="checkbox" [(ngModel)]="sportfahrwerk"> Sportfahrwerk
           </label>
         </div>
         <div class="checkbox">
           <label for="Extras-2">
-            <input name="Extras" id="Extras-2" value="Anhängerkupplung" type="checkbox"> Anhängerkupplung
+            <input name="Extras" id="Extras-2" value="Anhängerkupplung" type="checkbox" [(ngModel)]="anhaengerkupplung"> Anhängerkupplung
           </label>
         </div>
         <div class="checkbox">
           <label for="Extras-3">
-            <input name="Extras" id="Extras-3" value="Panorama-Dach" type="checkbox"> Panorama-Dach
+            <input name="Extras" id="Extras-3" value="Panorama-Dach" type="checkbox" [(ngModel)]="panorama_dach"> Panorama-Dach
           </label>
         </div>
       </div>
@@ -439,12 +441,12 @@
       <div class="col-md-4">
         <div class="radio">
           <label for="Anbieter-0">
-            <input name="Anbieter" id="Anbieter-0" value="Händler" checked="checked" type="radio"> Händler
+            <input name="Anbieter" id="Anbieter-0" value="Händler" type="radio" [(ngModel)]="trader"> Händler
           </label>
         </div>
         <div class="radio">
           <label for="Anbieter-1">
-            <input name="Anbieter" id="Anbieter-1" value="Privat" type="radio"> Privat
+            <input name="Anbieter" id="Anbieter-1" value="Privat" type="radio" [(ngModel)]="trader"> Privat
           </label>
         </div>
       </div>
@@ -454,7 +456,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="Zusatz">Zusatz</label>
       <div class="col-md-4">
-        <textarea class="form-control" id="Zusatz" name="Zusatz"></textarea>
+        <textarea class="form-control" id="Zusatz" name="Zusatz" [(ngModel)]="description"></textarea>
       </div>
     </div>
 
@@ -470,7 +472,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="singlebutton"></label>
       <div class="col-md-4">
-        <button id="singlebutton" name="singlebutton" class="btn btn-success">Angebot erstellen</button>
+        <button id="singlebutton" name="singlebutton" class="btn btn-success" (click)="saveCar()">Angebot erstellen</button>
       </div>
     </div>
 

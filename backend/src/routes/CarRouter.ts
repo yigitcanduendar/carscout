@@ -2,7 +2,6 @@ import { Router, Request, Response, NextFunction } from 'express';
 import { Car } from '../model/Car';
 import { CarDAO } from '../dao/CarDAO';
 
-
 export class CarRouter {
   router: Router
 
@@ -22,6 +21,10 @@ export class CarRouter {
     }
   }
 
+  async setCar(req: Request, res: Response, next: NextFunction) {
+    await CarDAO.setCar(JSON.parse(req.body.setCar));
+  }
+
   async getById(req: Request, res: Response, next: NextFunction) {
     console.log(req.params.id);
     let car = await CarDAO.getCarById(req.params.id);
@@ -36,9 +39,10 @@ export class CarRouter {
 
   init() {
     this.router.get('/', this.getAll);
+    this.router.post('/setCar', this.setCar);
     this.router.get('/:id', this.getById)
   }
 }
 
-const carRoutes = new CarRouter();
-export default carRoutes.router;
+// const carRoutes = new CarRouter();
+export default new CarRouter().router;
