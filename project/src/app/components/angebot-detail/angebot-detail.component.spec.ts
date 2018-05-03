@@ -30,21 +30,35 @@ describe('AngebotDetailComponent', () => {
     restService = TestBed.get(TodoRestApiService);
 
     fixture.detectChanges();
-    spyOn(restService, 'selectedCar').and.returnValue(new Car('', '', '', '', '', '', '', '', "", '', '', '', null, '', '', '', '', ''));
 
   });
 
   it('should create', () => {
+
+    spyOn(restService, "selectedCar").and.returnValue(new Car('', '', '', '', '', '', '', '', '', '', '', '', null, '', '', '', '', ''));
+    spyOnProperty(component, 'selectedCar').and.returnValue(new Car('', '', '', '', '', '', '', '', '', '', '', '', null, '', '', '', '', ''));
     expect(component).toBeTruthy();
   });
 
   it('should display when login is false', () => {
-
+    spyOnProperty(component, 'selectedCar').and.returnValue(new Car('', '', '', '', '', '', '', '', '', '', '', '', null, '', '', '', '', ''));
     spyOn(msgService, 'display');
     spyOn(cookieService, 'get').and.returnValue(undefined);
+    spyOnProperty(component, "isLoggedIn").and.returnValue(false);
     component.setAsFavourite();
     expect(msgService.display).toHaveBeenCalled();
   });
+
+  it('should display when login is true', () => {
+    spyOnProperty(component, 'selectedCar').and.returnValue(new Car('', '', '', '', '', '', '', '', '', '', '', '', null, '', '', '', '', ''));
+    spyOn(msgService, 'display');
+    spyOn(cookieService, 'get').and.returnValue(undefined);
+    spyOnProperty(component, "isLoggedIn").and.returnValue(true);
+    component.setAsFavourite();
+    expect(msgService.display).toHaveBeenCalled();
+  });
+
+
 
 
 });
