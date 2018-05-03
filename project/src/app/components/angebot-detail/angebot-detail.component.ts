@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {Input} from '@angular/core/src/metadata/directives';
-import {Car} from '../../model/car';
-import {Router} from '@angular/router';
-import {TodoRestApiService} from '../../services/todo-rest-api.service';
-import {ActivatedRoute} from '@angular/router';
-import {CookieService} from 'ngx-cookie';
-import {MessageProviderService} from '../../services/messageprovider.service';
-import {MessageType} from '../../model/messagetype.enum';
+import { Component, OnInit } from '@angular/core';
+import { Input } from '@angular/core/src/metadata/directives';
+import { Car } from '../../model/car';
+import { Router } from '@angular/router';
+import { TodoRestApiService } from '../../services/todo-rest-api.service';
+import { ActivatedRoute } from '@angular/router';
+import { CookieService } from 'ngx-cookie';
+import { MessageProviderService } from '../../services/messageprovider.service';
+import { MessageType } from '../../model/messagetype.enum';
 
 @Component({
   selector: 'app-angebot-detail',
