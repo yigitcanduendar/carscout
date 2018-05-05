@@ -12,7 +12,6 @@ export class OfferRouter {
 
   async getAll(req: Request, res: Response, next: NextFunction) {
     let offers = await OfferDAO.getAll();
-    console.log(JSON.stringify(offers));
     if (offers) {
       res.status(200).send(JSON.stringify(offers));
     }
@@ -22,6 +21,7 @@ export class OfferRouter {
   }
 
   async setOffer(req: Request, res: Response, next: NextFunction) {
+    console.log(JSON.parse(req.body.setOffer));
     await OfferDAO.setOffer(JSON.parse(req.body.setOffer));
   }
 

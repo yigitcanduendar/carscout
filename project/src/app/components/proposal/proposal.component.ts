@@ -120,19 +120,17 @@ export class ProposalComponent implements OnInit {
     ) {
       this.messageService.display('Bitte erst die Felder auswählen die ein * vor dem Input-Feld haben!', MessageType.warning);
       this.router.navigate(['/addCar']);
-      this.setCarIntoTable(this.carArray);
-      this.saveOffer();
     } else {
       this.router.navigate(['']);
       this.setCarIntoTable(this.carArray);
-      this.saveOffer();
     }
   }
 
-  private saveOffer() {
-    const username = this.cookieService.get('user');
-    this.restApiService.setOffer(username);
-  }
+  //private saveOffer() {
+  //const username = this.cookieService.get('user');
+  //const car_id = this.restApiService.setCar()
+  //this.restApiService.setOffer(username, car_id);
+  //}
 
   /**
    * Prüft, ob eine Checkbox für Extras ausgewählt wurde und füllt diese mit den entsprechenden Werten.

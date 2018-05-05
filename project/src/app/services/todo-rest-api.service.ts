@@ -68,7 +68,6 @@ export class TodoRestApiService {
   public setCar(car: Car) {
     const body = new URLSearchParams();
     body.set('setCar', JSON.stringify(car));
-    console.log(body.toString(), this.options);
     this.http.post('api/cars/setCar/', body.toString(), this.options).
       subscribe(res => {
         console.log(res);
@@ -78,9 +77,10 @@ export class TodoRestApiService {
         });
   }
 
-  public setOffer(username: string) {
+  public setOffer(username: string, car_id) {
     const body = new URLSearchParams();
     body.set('setOffer', JSON.stringify(username));
+    body.set('setOffer', JSON.stringify(car_id));
     this.http.post('api/offers/setOffer/', body.toString(), this.options).
       subscribe(res => {
         console.log(res);

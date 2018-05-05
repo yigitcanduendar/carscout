@@ -25,8 +25,6 @@ export class UserRouter {
 
     async getUser(req: Request, res: Response, next: NextFunction) {
         let user = await UserDAO.getUser(req.params.username);
-
-        console.log(JSON.stringify(user));
         if (user) {
             res.status(200).send(JSON.stringify(user));
         }

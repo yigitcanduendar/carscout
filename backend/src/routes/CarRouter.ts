@@ -12,7 +12,6 @@ export class CarRouter {
 
   async getAll(req: Request, res: Response, next: NextFunction) {
     let cars = await CarDAO.getAll();
-    console.log(JSON.stringify(cars));
     if (cars) {
       res.status(200).send(JSON.stringify(cars));
     }
