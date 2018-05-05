@@ -49,7 +49,7 @@ export class AngebotDetailComponent implements OnInit {
     if (this.isLoggedIn == false) {
       this.msgservice.display('Sie müssen eingelogt sein, um Angebote zu Favorisieren.', MessageType.warning);
     } else {
-      this.msgservice.display('Angebot Favorisiert!.', MessageType.success);
+      this.msgservice.display('Angebot Favorisiert!', MessageType.success);
     }
   }
 }
