@@ -52,6 +52,7 @@ export class SearchComponent implements OnInit {
         };
         results.push(this.result);
         this.searchService.setResult(results);
+        this.messageService.display('Es wurde etwas für "' + this.searchText + '"' + ' wurde gefunden!', MessageType.success);
       } else if (results.length === 0) {
         this.messageService.display('Kein Ergebnis zu "' + this.searchText + '" gefunden!', MessageType.warning);
         this.searchService.setResult(this.allCars);

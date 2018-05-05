@@ -20,14 +20,8 @@ export class OfferRouter {
     }
   }
 
-  async setOffer(req: Request, res: Response, next: NextFunction) {
-    console.log(JSON.parse(req.body.setOffer));
-    await OfferDAO.setOffer(JSON.parse(req.body.setOffer));
-  }
-
   init() {
     this.router.get('/', this.getAll);
-    this.router.post('/setOffer', this.setOffer);
   }
 }
 

@@ -123,14 +123,9 @@ export class ProposalComponent implements OnInit {
     } else {
       this.router.navigate(['']);
       this.setCarIntoTable(this.carArray);
+      location.reload();
     }
   }
-
-  //private saveOffer() {
-  //const username = this.cookieService.get('user');
-  //const car_id = this.restApiService.setCar()
-  //this.restApiService.setOffer(username, car_id);
-  //}
 
   /**
    * Prüft, ob eine Checkbox für Extras ausgewählt wurde und füllt diese mit den entsprechenden Werten.

@@ -77,19 +77,6 @@ export class TodoRestApiService {
         });
   }
 
-  public setOffer(username: string, car_id) {
-    const body = new URLSearchParams();
-    body.set('setOffer', JSON.stringify(username));
-    body.set('setOffer', JSON.stringify(car_id));
-    this.http.post('api/offers/setOffer/', body.toString(), this.options).
-      subscribe(res => {
-        console.log(res);
-      },
-        err => {
-          console.log("Error occured!");
-        });
-  }
-
   constructor(private http: HttpClient) {
     this.refreshAllCars();
     this.refreshUsers();

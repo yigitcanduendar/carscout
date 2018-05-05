@@ -25,7 +25,8 @@ export class CarDAO {
     }
 
     /**
-     * Setzt die Offer mit dem derzeitig eingeloggten User.
+     * Musste leider hier gemacht werden, da ich die car_id beim abspeichern brauchte (siehe setCar()).
+     * 
      * @param currentUserName 
      */
     static async setOffer(currentUserName: string, car_id: number) {
