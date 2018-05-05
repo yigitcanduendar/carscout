@@ -25,7 +25,10 @@ const routes: Routes = [
   { path: 'proposal', component: ProposalComponent },
   { path: 'results', component: ResultPageComponent },
   { path: 'addCar', component: ProposalComponent },
-  { path: 'cars/:id', component: AngebotDetailComponent },
+  { path: 'cars/:id', component: AngebotDetailComponent }
+
+
+
 ];
 // Ende---------------------------------------------------
 

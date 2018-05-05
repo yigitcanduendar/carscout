@@ -18,8 +18,8 @@ export class AngebotDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private cookieService: CookieService, private rest: TodoRestApiService, private msgservice: MessageProviderService) {
     this.route.params.subscribe(params => {
-      console.log("id: " + params["id"])
-      this.rest.refreshSelectedCar(+params["id"]);
+      console.log('id: ' + params['id']);
+      this.rest.refreshSelectedCar(+params['id']);
     });
 
   }
@@ -37,18 +37,19 @@ export class AngebotDetailComponent implements OnInit {
   }
 
   get isLoggedIn() {
-    if (this.cookieService.get("online") == undefined) {
+    if (this.cookieService.get('online') == undefined) {
       return false;
     }
     else {
       return true;
     }
   }
+
   public setAsFavourite() {
     if (this.isLoggedIn == false) {
-      this.msgservice.display("Sie müssen eingelogt sein, um Angebote zu Favorisieren.", MessageType.warning);
+      this.msgservice.display('Sie müssen eingelogt sein, um Angebote zu Favorisieren.', MessageType.warning);
     } else {
-      this.msgservice.display("Angebot Favorisiert!.", MessageType.success);
+      this.msgservice.display('Angebot Favorisiert!.', MessageType.success);
     }
   }
 }

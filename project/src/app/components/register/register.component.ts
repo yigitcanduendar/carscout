@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
 
-
   constructor(private messageService: MessageProviderService, private rest: TodoRestApiService, private router: Router) {
   }
 
@@ -47,7 +46,6 @@ export class RegisterComponent {
       this.messageService.display("Bitte wiederholen sie Ihr Passwort.", MessageType.warning);
       return false;
     }
-
     return true;
   }
 
