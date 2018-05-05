@@ -25,9 +25,7 @@ export class CarRouter {
   }
 
   async getById(req: Request, res: Response, next: NextFunction) {
-    console.log(req.params.id);
     let car = await CarDAO.getCarById(req.params.id);
-    console.log(JSON.stringify(car));
     if (car) {
       res.status(200).send(JSON.stringify(car));
     }

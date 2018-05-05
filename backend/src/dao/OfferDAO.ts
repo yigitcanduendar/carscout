@@ -7,8 +7,13 @@ export class OfferDAO {
 
     static async getAll() {
         let db = await sqlite.open(OfferDAO.dbFile);
-        let offers = await db.all("SELECT * FROM Offers");
-        db.close();
-        return offers;
+        try {
+            let offers = await db.all("SELECT * FROM Offers");
+            db.close();
+            return offers;
+        } catch (e) {
+            console.log("Got an error!", e);
+            throw e;
+        }
     }
 }

@@ -13,8 +13,6 @@ export class UserRouter {
 
     async getAll(req: Request, res: Response, next: NextFunction) {
         let users = await UserDAO.getAll();
-
-        console.log(users);
         if (users) {
             res.status(200).send(JSON.stringify(users));
         }
