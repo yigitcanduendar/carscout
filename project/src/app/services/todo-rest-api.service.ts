@@ -78,16 +78,22 @@ export class TodoRestApiService {
 
   public setFavorite(data) {
     const body = new URLSearchParams();
-    console.log(JSON.stringify(data));
     body.set('setFavorite', JSON.stringify(data));
-    console.log(body.toString());
     this.http.post('api/users/setFavorite/', body.toString(), this.options).
       subscribe(res => {
         console.log(res);
       },
         err => {
-          console.log("Error occured!");
+          console.log("setFavourite klappt nicht " + err);
         });
+  }
+
+  public getFavouriteCarsFromUser() {
+    return this.users;
+  }
+
+  public countFavourites() {
+    return 2;
   }
 
   constructor(private http: HttpClient) {
@@ -111,16 +117,16 @@ export class TodoRestApiService {
   get selectedCar(): Car {
     return this.singleCarDataCach;
   }
- 
-  get contactEmailFromOffer(): String{
+
+  get contactEmailFromOffer(): String {
     return this.users.filter((e) => e.username == this.selectedCar.username)[0].email;
   }
 
-  get usernameFromOffer(): String{
+  get usernameFromOffer(): String {
     return this.selectedCar.username;
   }
 
-  get vendorTypeFromOffer(): String{
+  get vendorTypeFromOffer(): String {
     return this.selectedCar.trader;
   }
 }

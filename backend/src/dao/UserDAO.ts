@@ -1,5 +1,6 @@
 import { User } from '../model/User';
 import { Md5 } from 'ts-md5/dist/md5';
+import { async } from '@angular/core/testing';
 const sqlite = require('sqlite-async');
 
 export class UserDAO {
@@ -29,8 +30,14 @@ export class UserDAO {
         return user;
     }
 
+    static async getCarsWatchedFromUser(username: string) {
+        let db = await sqlite.open(UserDAO.dbFile);
+        let user = await db.get(`select id, cars_watched from Users where username==`, username);
+        db.close();
+        return user;
+    }
+
     static async setFavorite(data) {
-        console.log(data);
-        // Favorit hinzufügen auf den User und mit car_id in cars_watched
+        console.log("IZZ DA");
     }
 }

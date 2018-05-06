@@ -23,6 +23,7 @@ import { ProposalComponent } from './components/proposal/proposal.component';
 import { ResultPageComponent } from './components/result-page/result-page.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchServiceService } from './services/search-service.service';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SearchServiceService } from './services/search-service.service';
     AngebotDetailComponent,
     ProposalComponent,
     ResultPageComponent,
-    SearchComponent
+    SearchComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,6 @@ export class AngebotDetailComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private cookieService: CookieService, private rest: TodoRestApiService, private msgservice: MessageProviderService) {
 
     this.route.params.subscribe(params => {
-      console.log('id: ' + params['id']);
       this.rest.refreshSelectedCar(params['id']);
     });
 
@@ -47,15 +46,15 @@ export class AngebotDetailComponent implements OnInit {
     }
   }
 
-  get vendorContactEmail(){
+  get vendorContactEmail() {
     return this.rest.contactEmailFromOffer;
   }
 
-  get vendorUsername(){
+  get vendorUsername() {
     return this.rest.usernameFromOffer;
   }
 
-  get vendorType(){
+  get vendorType() {
     return this.rest.vendorTypeFromOffer;
   }
 
