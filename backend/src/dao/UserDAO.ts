@@ -30,6 +30,7 @@ export class UserDAO {
     }
 
     static async setFavorite(data) {
+        console.log(data);
         // Favorit hinzufügen auf den User und mit car_id in cars_watched
     }
 }

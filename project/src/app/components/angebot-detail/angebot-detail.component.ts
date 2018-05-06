@@ -51,9 +51,11 @@ export class AngebotDetailComponent implements OnInit {
     if (this.isLoggedIn === false) {
       this.msgservice.display('Sie müssen eingelogt sein, um Angebote zu Favorisieren.', MessageType.warning);
     } else {
-      console.log(this.selectedCar);
-      const username = this.cookieService.get('user');
-      this.rest.setFavorite(this.selectedCar, username);
+      const data: Object = {
+        selectedCar: this.selectedCar,
+        username: this.cookieService.get('user')
+      };
+      this.rest.setFavorite(data);
       this.isFavorite = 1;
       this.msgservice.display('Angebot Favorisiert!', MessageType.success);
     }
