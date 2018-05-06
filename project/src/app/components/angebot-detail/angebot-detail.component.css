@@ -2,11 +2,3 @@
     width: 50%;
     flex: 1;
 }
-.offer-detail-main-information-container{
-    width: 50%;
-    float: right;
-    flex: 1;
-}
-.offer-detail-information-container{
-    display: flex; 
-}

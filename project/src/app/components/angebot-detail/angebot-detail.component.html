@@ -1,108 +1,108 @@
 <div class="panel panel-default" style="margin-top: 20px;">
     <div class="panel-heading">
-        <h3>{{selectedCar.modell}} {{selectedCar.manufacturer}}
-            <span class="label label-success">{{selectedCar.price}}€</span>
-        </h3>
+        <h3>{{selectedCar.modell}} {{selectedCar.manufacturer}} <span class="label label-success">{{selectedCar.price}}€</span></h3>
     </div>
 
     <div class="panel-body">
         <div class="offer-detail-information-container">
             <div class="offer-detail-image-container">IMAGE PLACEHOLDER</div>
-            <div class="offer-detail-main-information-container">
-                hier kommen die allgemeinen Informationen sowie die Händlerdaten hin.
-            </div>
         </div>
 
         <hr class="featurette-divider">
 
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-2">
-                    <b>Hersteller</b>
+        <div class="row">
+            <div class="col-sm-8">
+                <h4>Technische Daten</h4>
+                <hr class="featurette-divider">
+                <div class="row">
+                    <div class="col-sm-3"><b>Hersteller</b></div>
+                    <div class="col-sm-4">{{selectedCar.manufacturer}}</div>
                 </div>
-                <div class="col-sm-3">{{selectedCar.year}}</div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    <b>Leistung</b>
+                <div class="row">
+                    <div class="col-sm-3"><b>Leistung</b></div>
+                    <div class="col-sm-4">{{selectedCar.ps}}</div>
                 </div>
-                <div class="col-sm-3">{{selectedCar.ps}}</div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    <b>Modell</b>
                 </div>
-                <div class="col-sm-3">{{selectedCar.year}}</div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    <b>Kilometerstand</b>
+                <div class="row">
+                    <div class="col-sm-3"><b>Modell</b></div>
+                    <div class="col-sm-4">{{selectedCar.modell}}</div>
                 </div>
-                <div class="col-sm-3">{{selectedCar.km_driven}}</div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    <b>Baujahr</b>
                 </div>
-                <div class="col-sm-3">{{selectedCar.year}}</div>
-            </div>
+                <div class="row">
+                    <div class="col-sm-3"><b>Kilometerstand</b></div>
+                    <div class="col-sm-4">{{selectedCar.km_driven}}</div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><b>Baujahr</b></div>
+                    <div class="col-sm-4">{{selectedCar.year}}</div>
+                </div>
+                </div>
+    
+                <br/>
+                <br/>
+    
+                <div class="row">
+                    <div class="col-sm-3"><b>Erstzulassung</b></div>
+                    <div class="col-sm-4">{{selectedCar.registration_date}}</div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><b>Farbe</b></div>
+                    <div class="col-sm-4">{{selectedCar.colour}}</div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><b>Kategorie</b></div>
+                    <div class="col-sm-4">{{selectedCar.category}}</div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><b>Verbrauch TBD</b></div>
+                    <div class="col-sm-4">{{selectedCar.category}}</div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><b>Anzahl der Türen</b></div>
+                    <div class="col-sm-4">{{selectedCar.number_of_doors}}</div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><b>Fahrzeugzustand TBD</b></div>
+                    <div class="col-sm-4">{{selectedCar.category}}</div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><b>Kraftstoffart</b></div>
+                    <div class="col-sm-4">{{selectedCar.fuel_type}}</div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><b>Beschreibung</b></div>
+                    <div class="col-sm-4">{{selectedCar.description}}</div>
+                </div>
+                </div>
+                </div>
+            
+            <div class="col-sm-4">
+                <h4>Verkäuferinformationen</h4>
+                <hr class="featurette-divider">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{vendorUsername}} <br/>
+                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{vendorContactEmail}} <br/>
+                <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> {{vendorType}} <br/>
+                <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>  <br/>
 
-            <br/>
-            <br/>
-
-            <div class="row">
-                <div class="col-sm-2">
-                    <b>Erstzulassung</b>
-                </div>
-                <div class="col-sm-3">{{selectedCar.year}}</div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    <b>Farbe</b>
-                </div>
-                <div class="col-sm-3">{{selectedCar.colour}}</div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    <b>Kategorie</b>
-                </div>
-                <div class="col-sm-3">{{selectedCar.category}}</div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    <b>Verbrauch</b>
-                </div>
-                <div class="col-sm-3">{{selectedCar.category}}</div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    <b>Anzahl der Türen</b>
-                </div>
-                <div class="col-sm-3">{{selectedCar.category}}</div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    <b>Fahrzeugzustand</b>
-                </div>
-                <div class="col-sm-3">{{selectedCar.category}}</div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    <b>Kraftstoffart</b>
-                </div>
-                <div class="col-sm-3">{{selectedCar.category}}</div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    <b>Beschreibung</b>
-                </div>
-                <div class="col-sm-3">{{selectedCar.category}}</div>
+                
             </div>
         </div>
+           
+            
+           
+
     </div>
 
     <div class="panel-footer" style="text-align:right">
-        <button type="button" (click)="setAsFavourite()" class="btn btn-default pull-left">
+        <button type="button" (click)="toMainPage()" class="btn btn-default pull-left">
             <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
         </button>
         <button type="button" class="btn btn-default">Verkäufer kontaktieren TBD

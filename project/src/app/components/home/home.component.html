@@ -1,26 +1,28 @@
-<ul>
-  <li *ngFor="let car of cars">
-    <div class="row featurette">
-      <div class="col-md-5">
-        <img class="featurette-image img-fluid mx-auto" width="100%" height="250" src="assets/images/amg_c.jpg" alt="Generic placeholder image">
+<div style="margin-top:10px">
+  <ul>
+    <li *ngFor="let car of cars">
+      <div class="row featurette">
+        <div class="col-md-5">
+          <img class="featurette-image img-fluid mx-auto" width="100%" height="250" src="assets/images/amg_c.jpg" alt="Generic placeholder image">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">{{ car.modell }} {{ car.manufacturer }}
+            <span class="text-muted price" *ngIf="car.price">{{ car.price }} €</span>
+          </h2>
+          <ul class="lead infoBox">
+            <li *ngIf="car.year"> Baujahr: {{ car.year }}</li>
+            <li *ngIf="car.colour"> Farbe: {{ car.colour }}</li>
+            <li *ngIf="car.category"> Kategorie: {{ car.category }}</li>
+          </ul>
+          <ul class="lead">
+            <li *ngIf="car.km_driven"> Kilometerstand: {{ car.km_driven }} km</li>
+            <li *ngIf="car.ps"> Leistung: {{ car.ps }} PS</li>
+            <li *ngIf="car.fuel_type"> Kraftstoffart: {{ car.fuel_type }}</li>
+          </ul>
+          <button type="button" class="btn btn-primary" (click)="toOffer(car.id)">Zum Angebot</button>
+        </div>
       </div>
-      <div class="col-md-7">
-        <h2 class="featurette-heading">{{ car.modell }} {{ car.manufacturer }}
-          <span class="text-muted price" *ngIf="car.price">{{ car.price }} €</span>
-        </h2>
-        <ul class="lead infoBox">
-          <li *ngIf="car.year"> Baujahr: {{ car.year }}</li>
-          <li *ngIf="car.colour"> Farbe: {{ car.colour }}</li>
-          <li *ngIf="car.category"> Kategorie: {{ car.category }}</li>
-        </ul>
-        <ul class="lead">
-          <li *ngIf="car.km_driven"> Kilometerstand: {{ car.km_driven }} km</li>
-          <li *ngIf="car.ps"> Leistung: {{ car.ps }} PS</li>
-          <li *ngIf="car.fuel_type"> Kraftstoffart: {{ car.fuel_type }}</li>
-        </ul>
-        <button type="button" class="btn btn-primary" (click)="toOffer(car.id)">Zum Angebot</button>
-      </div>
-    </div>
-    <hr class="featurette-divider">
-  </li>
-</ul>
+      <hr class="featurette-divider">
+    </li>
+  </ul>
+</div>
