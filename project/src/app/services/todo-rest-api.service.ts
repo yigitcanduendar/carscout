@@ -96,8 +96,18 @@ export class TodoRestApiService {
   }
 
   get selectedCar(): Car {
-    // console.log('cacheStart' + JSON.stringify(this.singleCarDataCach) + 'cacheEnd');
     return this.singleCarDataCach;
   }
+ 
+  get contactEmailFromOffer(): String{
+    return this.users.filter((e) => e.username == this.selectedCar.username)[0].email;
+  }
 
+  get usernameFromOffer(): String{
+    return this.selectedCar.username;
+  }
+
+  get vendorTypeFromOffer(): String{
+    return this.selectedCar.trader;
+  }
 }

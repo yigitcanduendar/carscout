@@ -16,7 +16,7 @@ import { MessageType } from '../../model/messagetype.enum';
 
 export class AngebotDetailComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private cookieService: CookieService, private rest: TodoRestApiService, private msgservice: MessageProviderService) {
+  constructor(private router: Router, private route: ActivatedRoute, private cookieService: CookieService, private rest: TodoRestApiService, private msgservice: MessageProviderService) {
     this.route.params.subscribe(params => {
       console.log('id: ' + params['id']);
       this.rest.refreshSelectedCar(+params['id']);
@@ -45,11 +45,28 @@ export class AngebotDetailComponent implements OnInit {
     }
   }
 
+  get vendorContactEmail(){
+    return this.rest.contactEmailFromOffer;
+  }
+
+  get vendorUsername(){
+    return this.rest.usernameFromOffer;
+  }
+
+  get vendorType(){
+    return this.rest.vendorTypeFromOffer;
+  }
+
+
   public setAsFavourite() {
     if (this.isLoggedIn == false) {
       this.msgservice.display('Sie müssen eingelogt sein, um Angebote zu Favorisieren.', MessageType.warning);
     } else {
       this.msgservice.display('Angebot Favorisiert!', MessageType.success);
     }
+  }
+
+  public toMainPage(carId: number) {
+    this.router.navigate(['/']);
   }
 }
