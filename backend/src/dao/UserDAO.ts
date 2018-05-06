@@ -28,4 +28,8 @@ export class UserDAO {
 
         return user;
     }
+
+    static async setFavorite(data) {
+        // Favorit hinzufügen auf den User und mit car_id in cars_watched
+    }
 }

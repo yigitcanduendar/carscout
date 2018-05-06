@@ -28,7 +28,6 @@ export class TodoRestApiService {
   public refreshSelectedCar(id: number) {
     this.http.get('api/cars/' + id).subscribe((data: Car) => {
       this.singleCarDataCach = data;
-      // console.log('testdata:' + JSON.stringify(data));
     },
       err => {
         console.log(err);
@@ -69,6 +68,22 @@ export class TodoRestApiService {
     const body = new URLSearchParams();
     body.set('setCar', JSON.stringify(car));
     this.http.post('api/cars/setCar/', body.toString(), this.options).
+      subscribe(res => {
+        console.log(res);
+      },
+        err => {
+          console.log("Error occured!");
+        });
+  }
+
+  public setFavorite(selectedCar, username) {
+    const body = new URLSearchParams();
+    const data = [];
+    data.push(selectedCar);
+    data.push(username);
+
+    body.set('setFavorite', JSON.stringify(data));
+    this.http.post('api/users/setFavorite/', body.toString(), this.options).
       subscribe(res => {
         console.log(res);
       },

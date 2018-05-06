@@ -1,13 +1,15 @@
 <div class="panel panel-default" style="margin-top: 20px;">
     <div class="panel-heading">
-        <h3>{{selectedCar.modell}} {{selectedCar.manufacturer}} <span class="label label-success">{{selectedCar.price}}€</span></h3>
+        <h3>{{selectedCar.modell}} {{selectedCar.manufacturer}}
+            <span class="label label-success">{{selectedCar.price}}€</span>
+        </h3>
     </div>
 
     <div class="panel-body">
         <div class="offer-detail-information-container">
             <div class="offer-detail-image-container">IMAGE PLACEHOLDER</div>
             <div class="offer-detail-main-information-container">
-                hier kommen die allgemeinen Informationen sowie die Händlerdaten hin. 
+                hier kommen die allgemeinen Informationen sowie die Händlerdaten hin.
             </div>
         </div>
 
@@ -15,23 +17,33 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-sm-2"><b>Hersteller</b></div>
+                <div class="col-sm-2">
+                    <b>Hersteller</b>
+                </div>
                 <div class="col-sm-3">{{selectedCar.year}}</div>
             </div>
             <div class="row">
-                <div class="col-sm-2"><b>Leistung</b></div>
+                <div class="col-sm-2">
+                    <b>Leistung</b>
+                </div>
                 <div class="col-sm-3">{{selectedCar.ps}}</div>
             </div>
             <div class="row">
-                <div class="col-sm-2"><b>Modell</b></div>
+                <div class="col-sm-2">
+                    <b>Modell</b>
+                </div>
                 <div class="col-sm-3">{{selectedCar.year}}</div>
             </div>
             <div class="row">
-                <div class="col-sm-2"><b>Kilometerstand</b></div>
+                <div class="col-sm-2">
+                    <b>Kilometerstand</b>
+                </div>
                 <div class="col-sm-3">{{selectedCar.km_driven}}</div>
             </div>
             <div class="row">
-                <div class="col-sm-2"><b>Baujahr</b></div>
+                <div class="col-sm-2">
+                    <b>Baujahr</b>
+                </div>
                 <div class="col-sm-3">{{selectedCar.year}}</div>
             </div>
 
@@ -39,51 +51,70 @@
             <br/>
 
             <div class="row">
-                <div class="col-sm-2"><b>Erstzulassung</b></div>
+                <div class="col-sm-2">
+                    <b>Erstzulassung</b>
+                </div>
                 <div class="col-sm-3">{{selectedCar.year}}</div>
             </div>
             <div class="row">
-                <div class="col-sm-2"><b>Farbe</b></div>
+                <div class="col-sm-2">
+                    <b>Farbe</b>
+                </div>
                 <div class="col-sm-3">{{selectedCar.colour}}</div>
             </div>
             <div class="row">
-                <div class="col-sm-2"><b>Kategorie</b></div>
+                <div class="col-sm-2">
+                    <b>Kategorie</b>
+                </div>
                 <div class="col-sm-3">{{selectedCar.category}}</div>
             </div>
             <div class="row">
-                <div class="col-sm-2"><b>Verbrauch</b></div>
+                <div class="col-sm-2">
+                    <b>Verbrauch</b>
+                </div>
                 <div class="col-sm-3">{{selectedCar.category}}</div>
             </div>
             <div class="row">
-                <div class="col-sm-2"><b>Anzahl der Türen</b></div>
+                <div class="col-sm-2">
+                    <b>Anzahl der Türen</b>
+                </div>
                 <div class="col-sm-3">{{selectedCar.category}}</div>
             </div>
             <div class="row">
-                <div class="col-sm-2"><b>Fahrzeugzustand</b></div>
+                <div class="col-sm-2">
+                    <b>Fahrzeugzustand</b>
+                </div>
                 <div class="col-sm-3">{{selectedCar.category}}</div>
             </div>
             <div class="row">
-                <div class="col-sm-2"><b>Kraftstoffart</b></div>
+                <div class="col-sm-2">
+                    <b>Kraftstoffart</b>
+                </div>
                 <div class="col-sm-3">{{selectedCar.category}}</div>
             </div>
             <div class="row">
-                <div class="col-sm-2"><b>Beschreibung</b></div>
+                <div class="col-sm-2">
+                    <b>Beschreibung</b>
+                </div>
                 <div class="col-sm-3">{{selectedCar.category}}</div>
             </div>
         </div>
     </div>
-        
+
     <div class="panel-footer" style="text-align:right">
         <button type="button" (click)="setAsFavourite()" class="btn btn-default pull-left">
             <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
         </button>
         <button type="button" class="btn btn-default">Verkäufer kontaktieren TBD
             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-        </button> 
-        <button type="button" (click)="setAsFavourite()" class="btn btn-default">Favorisieren
+        </button>
+        <button type="button" *ngIf="isFavorite == 0" (click)="setAsFavourite()" class="btn btn-default">Favorisieren
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        </button>
+        <button type="button" *ngIf="isFavorite == 1" (click)="deleteAsFavourite()" class="btn btn-default">Favorit entfernen
             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
         </button>
         <!-- <button type="button" [disabled]="isLoggedIn()" onclick="resetAsFavourite()" class="btn btn-default">Entfavorisieren</button> -->
     </div>
-   
+
 </div>
