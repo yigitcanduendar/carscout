@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
+import { TodoRestApiService } from './services/todo-rest-api.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,10 @@ import { CookieService } from 'ngx-cookie';
 export class AppComponent {
   title = 'app';
 
-  constructor(public cookieService: CookieService) {
+  constructor(public cookieService: CookieService, private rest: TodoRestApiService) {
+  }
+
+  get countFavourites() {
+    return this.rest.countFavourites();
   }
 }

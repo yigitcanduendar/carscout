@@ -60,9 +60,15 @@ export class OfferRouter {
     let fileReader: FileReader;
     fileReader.readAsDataURL(file);
     fileAsBase64String = fileReader.result;
+<<<<<<< HEAD
    // if (!OfferDAO.saveImagesForOffer(offer_id, pictureNrString, fileAsBase64String, file.type)) {
   //    return "400 BadRequest. Speichern schlug fehl.";
   //  }
+=======
+    if (!OfferDAO.saveImagesForOffer(offer_id, pictureNrString, fileAsBase64String, file.type)) {
+      return "400 BadRequest. Speichern schlug fehl.";
+    }
+>>>>>>> 03c79b38c2d020e4fb13d4273453c355a0ea4696
     return "200 Ok. Image saved succesfully";
   }
 }
