@@ -14,6 +14,6 @@ export class AppComponent {
   }
 
   get countFavourites() {
-    return this.rest.countFavourites();
+    return this.rest.countFavourites(this.cookieService.get('user'));
   }
 }

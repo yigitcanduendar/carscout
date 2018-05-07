@@ -37,7 +37,7 @@ export class CarRouter {
   init() {
     this.router.get('/', this.getAll);
     this.router.post('/setCar', this.setCar);
-    this.router.get('/:id', this.getById)
+    this.router.get('/:id', this.getById);
   }
 }
 

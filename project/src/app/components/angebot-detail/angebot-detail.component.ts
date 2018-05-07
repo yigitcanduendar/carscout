@@ -25,7 +25,7 @@ export class AngebotDetailComponent implements OnInit {
   }
 
   get isFavorite() {
-    let isFavourite = this.rest.getFavouriteCarsFromUser(this.cookieService.get('user'), this.selectedCar);
+    let isFavourite = this.rest.getFavouriteFromUser(this.cookieService.get('user'), this.selectedCar);
     return isFavourite;
   }
 
