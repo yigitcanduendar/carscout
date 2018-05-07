@@ -13,7 +13,6 @@ export class FavoritesComponent implements OnInit {
 
   get cars() {
     const users = this.rest.users;
-    console.log(users);
     let user = this.rest.users.find(x => x.username == this.cookieService.get('user'));
     let carsWatchedString = user.cars_watched;
     let carsWatchedArray = carsWatchedString.split(',');
@@ -21,13 +20,7 @@ export class FavoritesComponent implements OnInit {
     carsWatchedArray.forEach(id => {
       cars.push(this.rest.cars.find(car => car.id == id));
     });
-    console.log(cars);
     return cars;
-  }
-
-  public test() {
-    const users = this.rest.;
-    console.log(users);
   }
 
   ngOnInit() {
