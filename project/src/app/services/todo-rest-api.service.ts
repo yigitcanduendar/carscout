@@ -76,8 +76,9 @@ export class TodoRestApiService {
         });
   }
 
-  public setFavorite(data) {
+  public setFavorite(car, username) {
     const body = new URLSearchParams();
+    const data = [username, car.id];
     body.set('setFavorite', JSON.stringify(data));
     this.http.post('api/users/setFavorite/', body.toString(), this.options).
       subscribe(res => {

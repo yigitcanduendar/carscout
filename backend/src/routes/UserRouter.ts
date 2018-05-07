@@ -36,7 +36,7 @@ export class UserRouter {
     }
 
     async setFavorite(req: Request, res: Response, next: NextFunction) {
-        await UserDAO.setFavorite(JSON.parse(req.body.data));
+        await UserDAO.setFavorite(JSON.parse(req.body.setFavorite));
     }
 
     init() {
