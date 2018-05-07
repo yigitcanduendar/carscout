@@ -1,3 +1,6 @@
+import { Offer } from './../../model/Offer';
+import { TodoRestApiService } from '../../services/todo-rest-api.service'
+import { ImageUploaderComponent } from './../image-uploader/image-uploader.component';
 import { Component, OnInit } from '@angular/core';
 import { Car } from '../../model/car';
 import { TodoRestApiService } from '../../services/todo-rest-api.service';
@@ -288,5 +291,12 @@ export class ProposalComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  inputIsValid(): boolean {
+    return true;
+  }
+
+
+
 
 }

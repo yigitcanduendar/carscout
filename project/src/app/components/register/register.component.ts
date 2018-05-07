@@ -10,9 +10,11 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
-
-  constructor(private messageService: MessageProviderService, private rest: TodoRestApiService, private router: Router) {
+export class RegisterComponent implements OnInit {
+  ngOnInit(): void {
+  }
+ 
+  constructor(private messageService: MessageProviderService) {
   }
 
   public benutzer: User = new User();
@@ -51,9 +53,9 @@ export class RegisterComponent {
 
   showMessage() {
     if (this.benutzer.username.length <= 3 || this.benutzer.email.length <= 4 || this.benutzer.pw.length <= 4) {
-      this.messageService.display("Bitte überprüfen Sie Ihre eingaben!", MessageType.warning);
+      this.messageService.display("Bitte überprüfen Sie Ihre Eingaben! Username, Email oder Passwort zu kurz (<=4 Zeichen). ", MessageType.warning);
       return false;
-    }
+      this.messageService.display("Bitte überprüfen Sie Ihre Eingaben!" + '<br/>' + "-Passwörter Stimmen nicht überein", MessageType.warning);
     if (this.benutzer.pw != this.pw2) {
       this.messageService.display("Bitte überprüfen Sie Ihre eingaben!" + '<br/>' + "- Passwörter Stimmen nicht überein", MessageType.warning);
       return false;

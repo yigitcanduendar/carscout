@@ -38,7 +38,8 @@ import { SearchServiceService } from './services/search-service.service';
     AngebotDetailComponent,
     ProposalComponent,
     ResultPageComponent,
-    SearchComponent
+    SearchComponent,
+    ImageUploaderComponent
   ],
   imports: [
     BrowserModule,
