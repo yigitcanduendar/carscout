@@ -23,7 +23,7 @@ import { ProposalComponent } from './components/proposal/proposal.component';
 import { ResultPageComponent } from './components/result-page/result-page.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchServiceService } from './services/search-service.service';
-import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +40,7 @@ import { ImageUploaderComponent } from './components/image-uploader/image-upload
     ProposalComponent,
     ResultPageComponent,
     SearchComponent,
-<<<<<<< HEAD
-=======
     FavoritesComponent
-    ImageUploaderComponent
->>>>>>> 03c79b38c2d020e4fb13d4273453c355a0ea4696
   ],
   imports: [
     BrowserModule,

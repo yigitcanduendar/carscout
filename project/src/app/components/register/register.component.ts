@@ -10,18 +10,13 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-<<<<<<< HEAD
-export class RegisterComponent implements OnInit {
-  ngOnInit(): void {
-  }
- 
-  constructor(private router: Router, private rest: TodoRestApiService, private messageService: MessageProviderService) {
-=======
-export class RegisterComponent {
 
-  constructor(private messageService: MessageProviderService, private rest: TodoRestApiService, private router: Router) {
->>>>>>> 03c79b38c2d020e4fb13d4273453c355a0ea4696
-  }
+export class RegisterComponent implements OnInit { 
+  constructor(private router: Router, private rest: TodoRestApiService, private messageService: MessageProviderService) {
+}
+
+ngOnInit(): void {
+}
 
   public benutzer: User = new User();
   public cb_agb: boolean = false;
