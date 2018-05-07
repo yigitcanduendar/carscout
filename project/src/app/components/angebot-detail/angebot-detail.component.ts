@@ -74,6 +74,7 @@ export class AngebotDetailComponent implements OnInit {
       this.msgservice.display('Sie müssen eingelogt sein, um Angebote zu Favorisieren.', MessageType.warning);
     } else {
       this.isFavorite = 0;
+      this.rest.deleteAsFavourite(this.selectedCar, this.cookieService.get('user'));
       this.msgservice.display('Angebot ist aus den Favoriten entfernt!', MessageType.success);
     }
   }

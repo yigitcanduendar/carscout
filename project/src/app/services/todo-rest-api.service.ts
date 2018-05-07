@@ -88,6 +88,18 @@ export class TodoRestApiService {
           console.log("setFavourite klappt nicht " + err);
         });
   }
+  public deleteAsFavourite(car, username) {
+    const body = new URLSearchParams();
+    const data = [username, car.id];
+    body.set('deleteAsFavourite', JSON.stringify(data));
+    this.http.post('api/users/deleteAsFavourite/', body.toString(), this.options).
+      subscribe(res => {
+        console.log(res);
+      },
+        err => {
+          console.log("deleteAsFavourite klappt nicht " + err);
+        });
+  }
 
   public getFavouriteCarsFromUser() {
     return this.users;

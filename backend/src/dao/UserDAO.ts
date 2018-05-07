@@ -48,6 +48,32 @@ export class UserDAO {
         return user;
     }
 
+    static async deleteFavourite(data) {
+        let cars_watched = await this.getFavoritesFromUser(data[0]);
+        let newCarsWatched;
+        console.log(cars_watched);
+        if (cars_watched) {
+            newCarsWatched = cars_watched.split(',').map(item => parseInt(item));
+        } else {
+            return;
+        }
+
+        var index = newCarsWatched.indexOf(data[1], 0);
+        if (index > -1) {
+            newCarsWatched.splice(index, 1);
+        }
+
+
+        newCarsWatched = newCarsWatched.join(",");
+        console.log(newCarsWatched);
+
+        // LÖSCHEN AUS DB
+        let db = await sqlite.open(UserDAO.dbFile);
+        //let user = await db.run();
+        db.close();
+        //return user;
+    }
+
     static async getFavoritesFromUser(username): Promise<string> {
         let db = await sqlite.open(UserDAO.dbFile);
         let carsWatched = await db.get("SELECT cars_watched FROM Users WHERE username = '" + username + "'");
