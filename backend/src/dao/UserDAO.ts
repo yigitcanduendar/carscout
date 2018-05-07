@@ -48,7 +48,7 @@ export class UserDAO {
         return user;
     }
 
-    static async deleteFavourite(data) {
+    static async deleteAsFavourite(data) {
         let cars_watched = await this.getFavoritesFromUser(data[0]);
         let newCarsWatched;
 
@@ -70,7 +70,7 @@ export class UserDAO {
         db.close();
     }
 
-    static async getFavoritesFromUser(username): Promise<string> {
+    static async getFavoritesFromUser(username) {
         let db = await sqlite.open(UserDAO.dbFile);
         let carsWatched = await db.get("SELECT cars_watched FROM Users WHERE username = '" + username + "'");
         db.close();

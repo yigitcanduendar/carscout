@@ -39,7 +39,7 @@ export class UserRouter {
         await UserDAO.setFavorite(JSON.parse(req.body.setFavorite));
     }
     async deleteAsFavourite(req: Request, res: Response, next: NextFunction) {
-        await UserDAO.deleteFavourite(JSON.parse(req.body.deleteAsFavourite));
+        await UserDAO.deleteAsFavourite(JSON.parse(req.body.deleteAsFavourite));
     }
 
     init() {

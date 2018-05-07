@@ -17,7 +17,6 @@ import { MessageType } from '../../model/messagetype.enum';
 export class AngebotDetailComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private cookieService: CookieService, private rest: TodoRestApiService, private msgservice: MessageProviderService) {
-
     this.route.params.subscribe(params => {
       this.rest.refreshSelectedCar(params['id']);
       this.rest.refreshOfferRelatedToSelectedCar(params['id']);
@@ -26,16 +25,15 @@ export class AngebotDetailComponent implements OnInit {
 
   get isFavorite() {
     let isFavourite = this.rest.getFavouriteFromUser(this.cookieService.get('user'), this.selectedCar);
+    console.log(isFavourite);
     return isFavourite;
   }
 
   get selectedCar(): Car {
-    //console.log('newModell' + JSON.stringify(this.rest.selectedCar));
     return this.rest.selectedCar;
   }
 
   get relatedOffer() {
-  console.log(this.rest.offerRelatedToCar);
     return this.rest.offerRelatedToCar;
   }
 
@@ -72,7 +70,6 @@ export class AngebotDetailComponent implements OnInit {
       this.msgservice.display('Sie müssen eingeloggt sein, um Angebote zu Favourisieren.', MessageType.warning);
     } else if (!this.isFavorite) {
       this.rest.setFavorite(this.selectedCar, this.cookieService.get('user'));
-      this.msgservice.display('Angebot Favourisiert!', MessageType.success);
       location.reload();
     }
   }
@@ -82,7 +79,6 @@ export class AngebotDetailComponent implements OnInit {
       this.msgservice.display('Sie müssen eingeloggt sein, um Angebote zu Entfavourisieren.', MessageType.warning);
     } else if (this.isFavorite) {
       this.rest.deleteAsFavourite(this.selectedCar, this.cookieService.get('user'));
-      this.msgservice.display('Angebot ist aus den Favouriten entfernt!', MessageType.success);
       location.reload();
     }
   }

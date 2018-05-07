@@ -1,0 +1,13 @@
+.featurette-divider {
+    border-color: grey;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+.infoBox {
+    display: inline-block;
+    float: left;
+    margin-right: 60px;
+}

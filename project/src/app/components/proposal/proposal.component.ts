@@ -34,7 +34,7 @@ export class ProposalComponent implements OnInit {
   public interiors = '';
   public price = '';
   public number_of_doors = '';
-  public registration_date: Date;
+  public registration_date = '';
   public transmission = '';
   public safetiesArray: Array<String>;
   public safeties = '';
