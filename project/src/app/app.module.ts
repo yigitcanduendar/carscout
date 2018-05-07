@@ -23,6 +23,7 @@ import { ProposalComponent } from './components/proposal/proposal.component';
 import { ResultPageComponent } from './components/result-page/result-page.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchServiceService } from './services/search-service.service';
+import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 
 @NgModule({
   declarations: [
