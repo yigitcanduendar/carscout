@@ -21,13 +21,17 @@ export class AngebotDetailComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.rest.refreshSelectedCar(params['id']);
+      this.rest.refreshOfferRelatedToSelectedCar(params['id']);
     });
-
   }
 
   get selectedCar(): Car {
     //console.log('newModell' + JSON.stringify(this.rest.selectedCar));
     return this.rest.selectedCar;
+  }
+
+  get relatedOffer() {
+    return this.rest.offerRelatedToCar;
   }
 
   ngOnInit(): void {
@@ -57,7 +61,6 @@ export class AngebotDetailComponent implements OnInit {
   get vendorType() {
     return this.rest.vendorTypeFromOffer;
   }
-
 
   public setAsFavourite() {
     if (this.isLoggedIn === false) {

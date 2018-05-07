@@ -14,6 +14,7 @@ export class TodoRestApiService {
 
   private carDataCache: Car[] = [];
   private singleCarDataCach: Car = null;
+  private singleOfferRelatedToCarDataCach: Offer = null;
   private userDataCache: User[] = [];
   private offerDataCache: Offer[] = [];
 
@@ -25,9 +26,19 @@ export class TodoRestApiService {
         console.log(err);
       });
   }
+
   public refreshSelectedCar(id: number) {
     this.http.get('api/cars/' + id).subscribe((data: Car) => {
       this.singleCarDataCach = data;
+    },
+      err => {
+        console.log(err);
+      });
+  }
+
+  public refreshOfferRelatedToSelectedCar(carId: String) {
+    this.http.get('api/offers/'+ carId).subscribe((data: Offer) => {
+      this.singleOfferRelatedToCarDataCach = data;
     },
       err => {
         console.log(err);
@@ -116,6 +127,10 @@ export class TodoRestApiService {
 
   get selectedCar(): Car {
     return this.singleCarDataCach;
+  }
+
+  get offerRelatedToCar(): Offer {
+    return this.singleOfferRelatedToCarDataCach;
   }
 
   get contactEmailFromOffer(): String {

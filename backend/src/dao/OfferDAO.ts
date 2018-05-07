@@ -17,6 +17,18 @@ export class OfferDAO {
         }
     }
 
+     static async getOfferRelatedToCar(cardId: string): Promise<Offer> {
+        console.log("DA");
+        let db = await sqlite.open(OfferDAO.dbFile);
+        try {
+            let offer = await db.all('SELECT * FROM Offers Where car_id =='+ cardId);
+            db.close();
+            return offer;
+        } catch (e) {
+            console.log("Got an error!", e);
+        }
+    }
+
     /**
     * Funktion zum Speichern von Bildern für Angebote.
     * Benötigt id des Angebots aus DB, BildNummern als Array, welche eingefügt / überschrieben werden sollen (1-5), Base64 Stringformen der Bilder (als Array) , Bildtypen (jpg, bmp, png, usw) (als Array)
