@@ -1,3 +1,5 @@
+import { Offer } from './../../model/Offer';
+import { ImageUploaderComponent } from './../image-uploader/image-uploader.component';
 import { Component, OnInit } from '@angular/core';
 import { Car } from '../../model/car';
 import { TodoRestApiService } from '../../services/todo-rest-api.service';
@@ -15,6 +17,7 @@ import { CookieService } from 'ngx-cookie';
 })
 export class ProposalComponent implements OnInit {
 
+  private offer: Offer;
   constructor(private cookieService: CookieService, private restApiService: TodoRestApiService, private messageService: MessageProviderService, private router: Router) {
   }
 
@@ -288,5 +291,12 @@ export class ProposalComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  inputIsValid(): boolean {
+    return true;
+  }
+
+
+
 
 }

@@ -1,0 +1,15 @@
+<html>
+<div> </div>
+<form #yourForm="ngForm" (ngSubmit)="onSubmit()">
+
+  <input type="file" #fileupload [(ngModel)]="myFile" name="myFile" (change)="fileChangeEvent($event)" />
+  <ul>
+    <li *ngFor="let image of allImages">
+      <div> Bildname: {{ image.name }}, Größe: {{ image.size}}</div>
+    </li>
+  </ul>
+  <button *ngIf="underUploadLimit" type="submit">Bild Uploaden</button>
+</form>
+<div> </div>
+
+</html>

@@ -31,6 +31,7 @@ class App {
     this.express.use('/offers', OfferRouter);
     this.express.use('/cars', CarRouter);
     this.express.use('/users', UserRouter);
+    this.express.use('/offers', OfferRouter);
   }
 
 }
