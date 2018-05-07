@@ -1,5 +1,4 @@
 import { Offer } from './../../model/Offer';
-import { ImageUploaderComponent } from './../image-uploader/image-uploader.component';
 import { Component, OnInit } from '@angular/core';
 import { Car } from '../../model/car';
 import { TodoRestApiService } from '../../services/todo-rest-api.service';
