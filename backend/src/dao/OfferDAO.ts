@@ -18,12 +18,11 @@ export class OfferDAO {
     }
 
      static async getOfferRelatedToCar(cardId: string): Promise<Offer> {
-        console.log("DA");
         let db = await sqlite.open(OfferDAO.dbFile);
         try {
             let offer = await db.all('SELECT * FROM Offers Where car_id =='+ cardId);
             db.close();
-            return offer;
+            return offer[0];
         } catch (e) {
             console.log("Got an error!", e);
         }

@@ -22,7 +22,6 @@ export class OfferRouter {
   }
   
   async getOfferRelatedToCar(req: Request, res: Response, next: NextFunction) {
-    console.log("ASD");
     let offer = await OfferDAO.getOfferRelatedToCar(req.params.carId);
     if (offer) {
       res.status(200).send(JSON.stringify(offer));
@@ -34,7 +33,7 @@ export class OfferRouter {
 
   init() {
     this.router.get('/', this.getAll);
-    this.router.get('/carId', this.getOfferRelatedToCar);
+    this.router.get('/:carId', this.getOfferRelatedToCar);
   }
 
 }

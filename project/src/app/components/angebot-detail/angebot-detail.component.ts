@@ -31,6 +31,7 @@ export class AngebotDetailComponent implements OnInit {
   }
 
   get relatedOffer() {
+  console.log(this.rest.offerRelatedToCar);
     return this.rest.offerRelatedToCar;
   }
 
