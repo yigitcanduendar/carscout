@@ -14,7 +14,6 @@ export class OfferDAO {
             return offers;
         } catch (e) {
             console.log("Got an error!", e);
-            throw e;
         }
     }
 

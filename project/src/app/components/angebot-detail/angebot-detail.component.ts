@@ -16,16 +16,17 @@ import { MessageType } from '../../model/messagetype.enum';
 
 export class AngebotDetailComponent implements OnInit {
 
+  public isFavorite = 0;
   constructor(private router: Router, private route: ActivatedRoute, private cookieService: CookieService, private rest: TodoRestApiService, private msgservice: MessageProviderService) {
+
     this.route.params.subscribe(params => {
-      console.log('id: ' + params['id']);
-      this.rest.refreshSelectedCar(+params['id']);
+      this.rest.refreshSelectedCar(params['id']);
     });
 
   }
 
   get selectedCar(): Car {
-    console.log('newModell' + JSON.stringify(this.rest.selectedCar));
+    //console.log('newModell' + JSON.stringify(this.rest.selectedCar));
     return this.rest.selectedCar;
   }
 
@@ -45,24 +46,39 @@ export class AngebotDetailComponent implements OnInit {
     }
   }
 
-  get vendorContactEmail(){
+  get vendorContactEmail() {
     return this.rest.contactEmailFromOffer;
   }
 
-  get vendorUsername(){
+  get vendorUsername() {
     return this.rest.usernameFromOffer;
   }
 
-  get vendorType(){
+  get vendorType() {
     return this.rest.vendorTypeFromOffer;
   }
 
 
   public setAsFavourite() {
-    if (this.isLoggedIn == false) {
+    if (this.isLoggedIn === false) {
       this.msgservice.display('Sie müssen eingelogt sein, um Angebote zu Favorisieren.', MessageType.warning);
     } else {
+      const data: Object = {
+        selectedCar: this.selectedCar,
+        username: this.cookieService.get('user')
+      };
+      this.rest.setFavorite(data);
+      this.isFavorite = 1;
       this.msgservice.display('Angebot Favorisiert!', MessageType.success);
+    }
+  }
+
+  public deleteAsFavourite() {
+    if (this.isLoggedIn === false) {
+      this.msgservice.display('Sie müssen eingelogt sein, um Angebote zu Favorisieren.', MessageType.warning);
+    } else {
+      this.isFavorite = 0;
+      this.msgservice.display('Angebot ist aus den Favoriten entfernt!', MessageType.success);
     }
   }
 

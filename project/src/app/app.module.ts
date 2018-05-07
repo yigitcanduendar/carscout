@@ -40,6 +40,7 @@ import { ImageUploaderComponent } from './components/image-uploader/image-upload
     ProposalComponent,
     ResultPageComponent,
     SearchComponent,
+    FavoritesComponent
     ImageUploaderComponent
   ],
   imports: [
