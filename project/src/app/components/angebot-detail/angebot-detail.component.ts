@@ -16,13 +16,17 @@ import { MessageType } from '../../model/messagetype.enum';
 
 export class AngebotDetailComponent implements OnInit {
 
-  public isFavorite = 0;
   constructor(private router: Router, private route: ActivatedRoute, private cookieService: CookieService, private rest: TodoRestApiService, private msgservice: MessageProviderService) {
 
     this.route.params.subscribe(params => {
       this.rest.refreshSelectedCar(params['id']);
     });
 
+  }
+
+  get isFavorite() {
+    let isFavourite = this.rest.getFavouriteCarsFromUser(this.cookieService.get('user'), this.selectedCar);
+    return isFavourite;
   }
 
   get selectedCar(): Car {
@@ -61,21 +65,21 @@ export class AngebotDetailComponent implements OnInit {
 
   public setAsFavourite() {
     if (this.isLoggedIn === false) {
-      this.msgservice.display('Sie müssen eingelogt sein, um Angebote zu Favorisieren.', MessageType.warning);
-    } else {
+      this.msgservice.display('Sie müssen eingeloggt sein, um Angebote zu Favourisieren.', MessageType.warning);
+    } else if (!this.isFavorite) {
       this.rest.setFavorite(this.selectedCar, this.cookieService.get('user'));
-      this.isFavorite = 1;
-      this.msgservice.display('Angebot Favorisiert!', MessageType.success);
+      this.msgservice.display('Angebot Favourisiert!', MessageType.success);
+      location.reload();
     }
   }
 
   public deleteAsFavourite() {
     if (this.isLoggedIn === false) {
-      this.msgservice.display('Sie müssen eingelogt sein, um Angebote zu Favorisieren.', MessageType.warning);
-    } else {
-      this.isFavorite = 0;
+      this.msgservice.display('Sie müssen eingeloggt sein, um Angebote zu Entfavourisieren.', MessageType.warning);
+    } else if (this.isFavorite) {
       this.rest.deleteAsFavourite(this.selectedCar, this.cookieService.get('user'));
-      this.msgservice.display('Angebot ist aus den Favoriten entfernt!', MessageType.success);
+      this.msgservice.display('Angebot ist aus den Favouriten entfernt!', MessageType.success);
+      location.reload();
     }
   }
 

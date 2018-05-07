@@ -4,6 +4,7 @@ import { Car } from '../model/Car';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../model/User';
 import { Offer } from '../model/Offer';
+import { User } from '../model/user';
 
 @Injectable()
 export class TodoRestApiService {
@@ -101,10 +102,16 @@ export class TodoRestApiService {
         });
   }
 
-  public getFavouriteCarsFromUser() {
-    return this.users;
+  public getFavouriteCarsFromUser(username, car) {
+    let user = this.users.find(x => x.username == username);
+    let carsWatchedString = user.cars_watched;
+    let carsWatchedArray = carsWatchedString.split(',');
+
+    let isFavourite = carsWatchedArray.find(x => x == car.id);
+    if (isFavourite) return true; else return false;
   }
 
+  // Muss noch angepasst werden
   public countFavourites() {
     return 2;
   }

@@ -51,7 +51,7 @@ export class UserDAO {
     static async deleteFavourite(data) {
         let cars_watched = await this.getFavoritesFromUser(data[0]);
         let newCarsWatched;
-        console.log(cars_watched);
+
         if (cars_watched) {
             newCarsWatched = cars_watched.split(',').map(item => parseInt(item));
         } else {
@@ -63,15 +63,11 @@ export class UserDAO {
             newCarsWatched.splice(index, 1);
         }
 
-
         newCarsWatched = newCarsWatched.join(",");
-        console.log(newCarsWatched);
-
-        // LÖSCHEN AUS DB
+        // Updaten in DB
         let db = await sqlite.open(UserDAO.dbFile);
-        //let user = await db.run();
+        db.run("UPDATE Users SET cars_watched = '" + newCarsWatched + "' WHERE username ='" + data[0] + "'");
         db.close();
-        //return user;
     }
 
     static async getFavoritesFromUser(username): Promise<string> {
