@@ -130,7 +130,7 @@
         <button type="button" class="btn btn-default">Verkäufer kontaktieren TBD
             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
         </button>
-        <button type="button" *ngIf="isFavorite == 0" (click)="d()" class="btn btn-default">Favorisieren
+        <button type="button" *ngIf="isFavorite == 0" (click)="setAsFavourite()" class="btn btn-default">Favorisieren
             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
         </button>
         <button type="button" *ngIf="isFavorite == 1" (click)="deleteAsFavourite()" class="btn btn-default">Favorit entfernen
