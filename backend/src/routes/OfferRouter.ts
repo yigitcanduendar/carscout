@@ -20,9 +20,20 @@ export class OfferRouter {
       res.status(402).send('nix gefunden');
     }
   }
+  
+  async getOfferRelatedToCar(req: Request, res: Response, next: NextFunction) {
+    let offer = await OfferDAO.getOfferRelatedToCar(req.params.carId);
+    if (offer) {
+      res.status(200).send(JSON.stringify(offer));
+    }
+    else {
+      res.status(402).send('nix gefunden');
+    }
+  }
 
   init() {
     this.router.get('/', this.getAll);
+    this.router.get('/:carId', this.getOfferRelatedToCar);
   }
 
 }
