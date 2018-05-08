@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
       this.pw2 = "";
       this.messageService.display("Erfolgreich registriert!", MessageType.success);
       this.router.navigate(['/login']);
+      location.reload();
     }
   }
 

@@ -124,16 +124,16 @@ export class TodoRestApiService {
         carsWatchedString = null;
       }
     });
+
     if (carsWatchedString.length > 1) {
       carsWatchedArray = carsWatchedString.split(',');
-    } else if (carsWatchedString.length === 0) {
+    } else if (carsWatchedString.length < 2) {
       carsWatchedArray = [carsWatchedString];
     } else {
       return isFavourite;
     }
     carsWatchedArray.forEach(car_watched_id => {
       if (car_watched_id.toString() == car.id) {
-        console.log(car_watched_id === car.id);
         isFavourite = true;
       }
     });
@@ -144,7 +144,7 @@ export class TodoRestApiService {
   // Muss noch angepasst werden
   public countFavourites(username) {
     let carsWatchedString: string = '';
-    let carsWatchedArray: number[] = [];
+    let carsWatchedArray = [];
     this.users.forEach(user => {
       if (user.username === username) {
         carsWatchedString = user.cars_watched.toString();
@@ -160,6 +160,8 @@ export class TodoRestApiService {
       carsWatchedString.split(',').forEach(intstring => {
         carsWatchedArray.push(parseInt(intstring))
       });
+    } else if (carsWatchedString.length < 2) {
+      carsWatchedArray = [carsWatchedString]
     }
 
     return carsWatchedArray.length;

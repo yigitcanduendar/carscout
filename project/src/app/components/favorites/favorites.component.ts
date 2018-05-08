@@ -14,15 +14,26 @@ export class FavoritesComponent implements OnInit {
 
   get cars() {
     const users = this.rest.users;
-    let user = this.rest.users.find(x => x.username == this.cookieService.get('user'));
-    let carsWatchedString = user.cars_watched.toString();
-    if (carsWatchedString.length === 0)
-      return null;
-    let carsWatchedArray = carsWatchedString.split(',');
     const cars = [];
-    carsWatchedArray.forEach(id => {
-      cars.push(this.rest.cars.find(car => car.id == id));
+    let cars_watched;
+    this.rest.users.forEach(user => {
+      if (user.username == this.cookieService.get('user')) {
+        cars_watched = user.cars_watched;
+      }
     });
+    let carsWatchedString: string = cars_watched;
+    if (carsWatchedString.length === 0) {
+      return null;
+    }
+
+    if (carsWatchedString.length > 1) {
+      let carsWatchedArray = carsWatchedString.split(',');
+      carsWatchedArray.forEach(id => {
+        cars.push(this.rest.cars.find(car => car.id == id));
+      });
+    }
+    cars.push(this.rest.cars.find(car => car.id == carsWatchedString))
+
     return cars;
   }
 

@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
 
   public toOffer(carId: number) {
     this.router.navigate(['/cars/' + carId]);
+    location.reload();
   }
 
   ngOnInit() {
