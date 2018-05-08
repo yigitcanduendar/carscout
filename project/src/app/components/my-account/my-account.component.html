@@ -7,7 +7,8 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="basic-addon2">E-Mail</label>
       <div class="col-md-4">
-        <input type="text" name="email" class="form-control" aria-describedby="basic-addon2" [(ngModel)]="email">
+        <p>Jetzige Email-Adresse: {{oldMail}}</p>
+        <input type="text" name="email" class="form-control" aria-describedby="basic-addon2" [(ngModel)]="benutzer.email">
       </div>
     </div>
 
@@ -17,7 +18,7 @@
       <label class="col-md-4 control-label" for="passwordinput">Passwort</label>
       <div class="col-md-4">
         <input id="passwordinput" name="passwordinput" placeholder="Mind. 5 zeichen" type="password" class="form-control input-md"
-          [(ngModel)]="password">
+          [(ngModel)]="benutzer.pw">
       </div>
     </div>
 
@@ -34,7 +35,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="basic-addon2"></label>
       <div class="col-md-4">
-        <button id="singlebutton" name="singlebutton" class="btn btn-primary" (click)="saveUserData()">Speichern</button>
+        <button id="singlebutton" name="singlebutton" class="btn btn-primary" (click)="submit()">Speichern</button>
       </div>
     </div>
   </fieldset>

@@ -11,12 +11,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 
-export class RegisterComponent implements OnInit { 
+export class RegisterComponent implements OnInit {
   constructor(private router: Router, private rest: TodoRestApiService, private messageService: MessageProviderService) {
-}
+  }
 
-ngOnInit(): void {
-}
+  ngOnInit(): void {
+  }
 
   public benutzer: User = new User();
   public cb_agb: boolean = false;
@@ -24,7 +24,7 @@ ngOnInit(): void {
 
   submit() {
     if (this.inputIsValid()) {
-      this.rest.insertNewUser(this.benutzer);
+      //this.rest.insertNewUser(this.benutzer);
       this.benutzer = null;
       this.pw2 = "";
       this.messageService.display("Erfolgreich registriert!", MessageType.success);
