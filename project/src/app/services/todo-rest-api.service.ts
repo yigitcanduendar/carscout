@@ -71,9 +71,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-      err => {
-        console.log("Error occured!");
-      });
+        err => {
+          console.log("Error occured!");
+        });
   }
 
   public setCar(car: Car) {
@@ -83,9 +83,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-      err => {
-        console.log("Error occured!");
-      });
+        err => {
+          console.log("Error occured!");
+        });
   }
 
   public setFavorite(car, username) {
@@ -96,9 +96,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-      err => {
-        console.log("setFavourite klappt nicht " + err);
-      });
+        err => {
+          console.log("setFavourite klappt nicht " + err);
+        });
   }
   public deleteAsFavourite(car, username) {
     const body = new URLSearchParams();
@@ -108,9 +108,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-      err => {
-        console.log("deleteAsFavourite klappt nicht " + err);
-      });
+        err => {
+          console.log("deleteAsFavourite klappt nicht " + err);
+        });
   }
 
   public getFavouriteFromUser(username, car) {
@@ -125,15 +125,18 @@ export class TodoRestApiService {
   // Muss noch angepasst werden
   public countFavourites(username) {
     let user = this.users.find(x => x.username == username);
-    let carsWatchedString = user.cars_watched;
-    if (carsWatchedString.length === 0)
-      return 0;
+    let carsWatchedString: string = '';
     let carsWatchedArray: number[] = [];
-    carsWatchedString.split(',').forEach(intstring => {
-      carsWatchedArray.push(parseInt(intstring))
-    });
-    console.log('carsWatchedString: ' + carsWatchedString);
-    console.log('carsWatchedArray: ' + carsWatchedString);
+    if (user.cars_watched) {
+      carsWatchedString = user.cars_watched;
+    }
+    if (carsWatchedString.length === 0) {
+      return 0;
+    } else {
+      carsWatchedString.split(',').forEach(intstring => {
+        carsWatchedArray.push(parseInt(intstring))
+      });
+    }
 
     return carsWatchedArray.length;
   }

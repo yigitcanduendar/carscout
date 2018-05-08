@@ -38,9 +38,11 @@ export class UserDAO {
     }
 
     static async setFavorite(data) {
-        let cars_watched = await this.getFavoritesFromUser(data[0]);
+        let cars_watched: string = await this.getFavoritesFromUser(data[0]);
 
-        data[1] = cars_watched + ',' + data[1];
+        if (cars_watched.length > 0) {
+            data[1] = cars_watched + ',' + data[1];
+        }
 
         let db = await sqlite.open(UserDAO.dbFile);
         let user = await db.run("UPDATE Users SET cars_watched = '" + data[1] + "' WHERE username ='" + data[0] + "'");
