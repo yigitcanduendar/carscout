@@ -8,6 +8,8 @@ import { MessageProviderService } from '../../services/messageprovider.service';
 import { MessageType } from '../../model/messagetype.enum';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
+import * as fs from "fs";
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-proposal',
@@ -294,8 +296,19 @@ export class ProposalComponent implements OnInit {
   inputIsValid(): boolean {
     return true;
   }
+  public onFileChange(event) {
+    let reader = new FileReader();
+    if (event.target.files && event.target.files.length > 0) {
+      let file = event.target.files[0];
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.fileData = reader.result;
+      };
 
+    }
 
+  }
 
+  public fileData: string;
 
 }

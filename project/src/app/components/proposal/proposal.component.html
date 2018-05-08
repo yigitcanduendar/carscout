@@ -464,10 +464,10 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="pictures">Bilder</label>
       <div class="col-md-4">
-        <input id="pictures" name="pictures" class="input-file" type="file">
+        <input id="pictures" name="pictures" class="input-file" multiple="true" type="file" (change)="onFileChange($event)" ngModel>
       </div>
     </div>
-
+    <img [src]="fileData" />
     <!-- Erstellen Button -->
     <div class="form-group">
       <label class="col-md-4 control-label" for="singlebutton"></label>

@@ -15,6 +15,8 @@ export class FavoritesComponent implements OnInit {
     const users = this.rest.users;
     let user = this.rest.users.find(x => x.username == this.cookieService.get('user'));
     let carsWatchedString = user.cars_watched;
+    if (carsWatchedString.length === 0)
+      return null;
     let carsWatchedArray = carsWatchedString.split(',');
     const cars = [];
     carsWatchedArray.forEach(id => {

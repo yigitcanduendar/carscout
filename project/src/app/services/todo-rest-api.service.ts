@@ -4,6 +4,7 @@ import { Car } from '../model/Car';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../model/User';
 import { Offer } from '../model/Offer';
+import { element } from 'protractor';
 
 @Injectable()
 export class TodoRestApiService {
@@ -37,7 +38,7 @@ export class TodoRestApiService {
   }
 
   public refreshOfferRelatedToSelectedCar(carId: String) {
-    this.http.get('api/offers/'+ carId).subscribe((data: Offer) => {
+    this.http.get('api/offers/' + carId).subscribe((data: Offer) => {
       this.singleOfferRelatedToCarDataCach = data;
     },
       err => {
@@ -70,9 +71,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-        err => {
-          console.log("Error occured!");
-        });
+      err => {
+        console.log("Error occured!");
+      });
   }
 
   public setCar(car: Car) {
@@ -82,9 +83,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-        err => {
-          console.log("Error occured!");
-        });
+      err => {
+        console.log("Error occured!");
+      });
   }
 
   public setFavorite(car, username) {
@@ -95,9 +96,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-        err => {
-          console.log("setFavourite klappt nicht " + err);
-        });
+      err => {
+        console.log("setFavourite klappt nicht " + err);
+      });
   }
   public deleteAsFavourite(car, username) {
     const body = new URLSearchParams();
@@ -107,9 +108,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-        err => {
-          console.log("deleteAsFavourite klappt nicht " + err);
-        });
+      err => {
+        console.log("deleteAsFavourite klappt nicht " + err);
+      });
   }
 
   public getFavouriteFromUser(username, car) {
@@ -125,7 +126,15 @@ export class TodoRestApiService {
   public countFavourites(username) {
     let user = this.users.find(x => x.username == username);
     let carsWatchedString = user.cars_watched;
-    let carsWatchedArray = carsWatchedString.split(',');
+    if (carsWatchedString.length === 0)
+      return 0;
+    let carsWatchedArray: number[] = [];
+    carsWatchedString.split(',').forEach(intstring => {
+      carsWatchedArray.push(parseInt(intstring))
+    });
+    console.log('carsWatchedString: ' + carsWatchedString);
+    console.log('carsWatchedArray: ' + carsWatchedString);
+
     return carsWatchedArray.length;
   }
 
