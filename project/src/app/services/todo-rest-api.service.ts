@@ -114,7 +114,7 @@ export class TodoRestApiService {
   }
 
   public getFavouriteFromUser(username, car: Car) {
-    let carsWatchedString: string = '';
+    let carsWatchedString;
     let carsWatchedArray = [];
     let isFavourite = false;
     this.users.forEach(user => {
@@ -132,10 +132,12 @@ export class TodoRestApiService {
       return isFavourite;
     }
     carsWatchedArray.forEach(car_watched_id => {
-      if (car_watched_id === car.id) {
+      if (car_watched_id.toString() == car.id) {
+        console.log(car_watched_id === car.id);
         isFavourite = true;
       }
     });
+
     return isFavourite;
   }
 
