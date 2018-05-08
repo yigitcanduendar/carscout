@@ -113,26 +113,50 @@ export class TodoRestApiService {
         });
   }
 
-  public getFavouriteFromUser(username, car) {
-    let user = this.users.find(x => x.username == username);
-    let carsWatchedString = user.cars_watched;
-    let carsWatchedArray = carsWatchedString.split(',');
+  public getFavouriteFromUser(username, car: Car) {
+    let carsWatchedString;
+    let carsWatchedArray = [];
+    let isFavourite = false;
+    this.users.forEach(user => {
+      if (user.username === username) {
+        carsWatchedString = user.cars_watched.toString();
+      } else {
+        carsWatchedString = null;
+      }
+    });
+    if (carsWatchedString.length > 1) {
+      carsWatchedArray = carsWatchedString.split(',');
+    } else if (carsWatchedString.length === 0) {
+      carsWatchedArray = [carsWatchedString];
+    } else {
+      return isFavourite;
+    }
+    carsWatchedArray.forEach(car_watched_id => {
+      if (car_watched_id.toString() == car.id) {
+        console.log(car_watched_id === car.id);
+        isFavourite = true;
+      }
+    });
 
-    let isFavourite = carsWatchedArray.find(x => x == car.id);
-    if (isFavourite) return true; else return false;
+    return isFavourite;
   }
 
   // Muss noch angepasst werden
   public countFavourites(username) {
-    let user = this.users.find(x => x.username == username);
     let carsWatchedString: string = '';
     let carsWatchedArray: number[] = [];
-    if (user.cars_watched) {
-      carsWatchedString = user.cars_watched;
-    }
-    if (carsWatchedString.length === 0) {
+    this.users.forEach(user => {
+      if (user.username === username) {
+        carsWatchedString = user.cars_watched.toString();
+      }
+      if (!user.cars_watched) {
+        carsWatchedString = null;
+      }
+    });
+
+    if (carsWatchedString === null) {
       return 0;
-    } else {
+    } else if (carsWatchedString.length > 1) {
       carsWatchedString.split(',').forEach(intstring => {
         carsWatchedArray.push(parseInt(intstring))
       });

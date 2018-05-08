@@ -38,8 +38,8 @@ export class UserDAO {
     }
 
     static async setFavorite(data) {
-        let cars_watched: string = await this.getFavoritesFromUser(data[0]);
-
+        let cars_watched = await this.getFavoritesFromUser(data[0]);
+        cars_watched = cars_watched.toString();
         if (cars_watched.length > 0) {
             data[1] = cars_watched + ',' + data[1];
         }
@@ -53,10 +53,13 @@ export class UserDAO {
     static async deleteAsFavourite(data) {
         let cars_watched = await this.getFavoritesFromUser(data[0]);
         let newCarsWatched;
-
-        if (cars_watched) {
+        cars_watched = cars_watched.toString();
+        if (cars_watched.length > 0) {
             newCarsWatched = cars_watched.split(',').map(item => parseInt(item));
-        } else {
+        } else if (cars_watched.length < 1) {
+            newCarsWatched = cars_watched;
+        }
+        else {
             return;
         }
 

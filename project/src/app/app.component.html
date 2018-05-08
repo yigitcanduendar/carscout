@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li>
-                    <a *ngIf="cookieService.get('online')" href="/">
+                    <a *ngIf="cookieService.get('online')" href="/myAccount">
                         <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
                         Mein Account ({{cookieService.get('user')}})
                     </a>
@@ -57,7 +57,7 @@
                     <a *ngIf="cookieService.get('online')" href="/favoriten">
                         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                         Favoriten
-                        <span class="label label-success">{{ countFavourites }}</span>
+                        <span *ngIf="countFavourites" class="label label-success">{{ countFavourites }}</span>
                     </a>
                 </li>
             </ul>

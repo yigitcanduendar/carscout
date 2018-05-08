@@ -1,32 +1,44 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoRestApiService } from '../../services/todo-rest-api.service';
+import { CookieService } from 'ngx-cookie';
+import { Router } from '@angular/router';
 import { User } from '../../model/user';
+import { element } from 'protractor';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { MessageType } from '../../model/messagetype.enum';
-import { TodoRestApiService } from "../../services/todo-rest-api.service";
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-my-account',
+  templateUrl: './my-account.component.html',
+  styleUrls: ['./my-account.component.css']
 })
+export class MyAccountComponent implements OnInit {
 
-export class RegisterComponent implements OnInit {
-  constructor(private router: Router, private rest: TodoRestApiService, private messageService: MessageProviderService) {
+  constructor(private rest: TodoRestApiService, private cookieService: CookieService, private router: Router, private messageService: MessageProviderService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   public benutzer: User = new User();
-  public cb_agb: boolean = false;
-  public pw2: string = "";
+  public password2: string = '';
+  public oldMail: string;
+
+  public getOldMail() {
+    let oldMail = '';
+    this.rest.users.forEach(user => {
+      if (user.username == this.cookieService.get('user')) {
+        oldMail = user.email;
+      }
+    });
+    this.oldMail = oldMail;
+  }
 
   submit() {
     if (this.inputIsValid()) {
-      //this.rest.insertNewUser(this.benutzer);
+      this.rest.insertNewUser(this.benutzer);
       this.benutzer = null;
-      this.pw2 = "";
+      this.password2 = "";
       this.messageService.display("Erfolgreich registriert!", MessageType.success);
       this.router.navigate(['/login']);
     }
@@ -45,7 +57,7 @@ export class RegisterComponent implements OnInit {
       this.messageService.display("Bitte geben sie ein Passwort ein.", MessageType.warning);
       return false;
     }
-    if (this.pw2 == null || this.pw2 == "") {
+    if (this.password2 == null || this.password2 == "") {
       this.messageService.display("Bitte wiederholen sie Ihr Passwort.", MessageType.warning);
       return false;
     }
@@ -57,12 +69,8 @@ export class RegisterComponent implements OnInit {
       this.messageService.display("Bitte überprüfen Sie Ihre Eingaben! Username, Email oder Passwort zu kurz (<=4 Zeichen). ", MessageType.warning);
       return false;
     }
-    if (this.benutzer.pw != this.pw2) {
+    if (this.benutzer.pw != this.password2) {
       this.messageService.display("Bitte überprüfen Sie Ihre eingaben!" + '<br/>' + "- Passwörter Stimmen nicht überein", MessageType.warning);
-      return false;
-    }
-    if (!this.cb_agb) {
-      this.messageService.display("Bitte aktzeptieren Sie die AGB!", MessageType.warning);
       return false;
     }
     if (this.rest.users.filter((e) => e.username == this.benutzer.username).length > 0) {
@@ -71,4 +79,5 @@ export class RegisterComponent implements OnInit {
     }
     return true;
   }
+
 }
