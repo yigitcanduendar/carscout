@@ -32,12 +32,48 @@ export class UserDAO {
 
     static async getCarsWatchedFromUser(username: string) {
         let db = await sqlite.open(UserDAO.dbFile);
-        let user = await db.get(`select id, cars_watched from Users where username==`, username);
+        let data = await db.get("SELECT id,cars_watched FROM Users WHERE username = '" + username + "'");
+        db.close();
+        return data;
+    }
+
+    static async setFavorite(data) {
+        let cars_watched = await this.getFavoritesFromUser(data[0]);
+
+        data[1] = cars_watched + ',' + data[1];
+
+        let db = await sqlite.open(UserDAO.dbFile);
+        let user = await db.run("UPDATE Users SET cars_watched = '" + data[1] + "' WHERE username ='" + data[0] + "'");
         db.close();
         return user;
     }
 
-    static async setFavorite(data) {
-        console.log("IZZ DA");
+    static async deleteAsFavourite(data) {
+        let cars_watched = await this.getFavoritesFromUser(data[0]);
+        let newCarsWatched;
+
+        if (cars_watched) {
+            newCarsWatched = cars_watched.split(',').map(item => parseInt(item));
+        } else {
+            return;
+        }
+
+        var index = newCarsWatched.indexOf(data[1], 0);
+        if (index > -1) {
+            newCarsWatched.splice(index, 1);
+        }
+
+        newCarsWatched = newCarsWatched.join(",");
+        // Updaten in DB
+        let db = await sqlite.open(UserDAO.dbFile);
+        db.run("UPDATE Users SET cars_watched = '" + newCarsWatched + "' WHERE username ='" + data[0] + "'");
+        db.close();
+    }
+
+    static async getFavoritesFromUser(username) {
+        let db = await sqlite.open(UserDAO.dbFile);
+        let carsWatched = await db.get("SELECT cars_watched FROM Users WHERE username = '" + username + "'");
+        db.close();
+        return carsWatched.cars_watched;
     }
 }

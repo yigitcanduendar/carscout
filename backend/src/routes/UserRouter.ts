@@ -36,7 +36,10 @@ export class UserRouter {
     }
 
     async setFavorite(req: Request, res: Response, next: NextFunction) {
-        await UserDAO.setFavorite(JSON.parse(req.body.data));
+        await UserDAO.setFavorite(JSON.parse(req.body.setFavorite));
+    }
+    async deleteAsFavourite(req: Request, res: Response, next: NextFunction) {
+        await UserDAO.deleteAsFavourite(JSON.parse(req.body.deleteAsFavourite));
     }
 
     init() {
@@ -44,6 +47,7 @@ export class UserRouter {
         this.router.get('/:username', this.getUser);
         this.router.post('/newUser', this.insertNewUser);
         this.router.post('/setFavorite', this.setFavorite);
+        this.router.post('/deleteAsFavourite', this.deleteAsFavourite)
     }
 }
 

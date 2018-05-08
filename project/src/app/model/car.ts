@@ -12,7 +12,7 @@ export class Car {
         public fuel_type: string,
         public price: string,
         public number_of_doors: string,
-        public registration_date: Date,
+        public registration_date: string,
         public transmission: string,
         public interiors: String,
         public safeties: String,
