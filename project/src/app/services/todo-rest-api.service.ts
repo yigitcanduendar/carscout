@@ -119,17 +119,14 @@ export class TodoRestApiService {
     let isFavourite = false;
     this.users.forEach(user => {
       if (user.username === username) {
-        carsWatchedString = user.cars_watched;
+        carsWatchedString = user.cars_watched.toString();
       } else {
         carsWatchedString = null;
       }
     });
-    console.log(carsWatchedString);
     if (carsWatchedString.length > 1) {
       carsWatchedArray = carsWatchedString.split(',');
     } else if (carsWatchedString.length === 0) {
-
-      console.log('in if ' + carsWatchedString);
       carsWatchedArray = [carsWatchedString];
     } else {
       return isFavourite;
@@ -148,7 +145,7 @@ export class TodoRestApiService {
     let carsWatchedArray: number[] = [];
     this.users.forEach(user => {
       if (user.username === username) {
-        carsWatchedString = user.cars_watched;
+        carsWatchedString = user.cars_watched.toString();
       }
       if (!user.cars_watched) {
         carsWatchedString = null;
