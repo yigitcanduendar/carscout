@@ -24,6 +24,7 @@ import { ResultPageComponent } from './components/result-page/result-page.compon
 import { SearchComponent } from './components/search/search.component';
 import { SearchServiceService } from './services/search-service.service';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { MyAccountComponent } from './components/my-account/my-account.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
     ProposalComponent,
     ResultPageComponent,
     SearchComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    MyAccountComponent
   ],
   imports: [
     BrowserModule,

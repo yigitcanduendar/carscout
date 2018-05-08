@@ -38,8 +38,8 @@ export class UserDAO {
     }
 
     static async setFavorite(data) {
-        let cars_watched: string = await this.getFavoritesFromUser(data[0]);
-
+        let cars_watched = await this.getFavoritesFromUser(data[0]);
+        cars_watched = cars_watched.toString();
         if (cars_watched.length > 0) {
             data[1] = cars_watched + ',' + data[1];
         }
