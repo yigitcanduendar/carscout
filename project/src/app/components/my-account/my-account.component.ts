@@ -6,6 +6,7 @@ import { User } from '../../model/user';
 import { element } from 'protractor';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { MessageType } from '../../model/messagetype.enum';
+import { Car } from '../../model/car';
 
 @Component({
   selector: 'app-my-account',
@@ -70,6 +71,35 @@ export class MyAccountComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  get cars(): Car[] {
+    const cars: Car[] = [];
+    const username: string = this.cookieService.get('user');
+    const carIDs = [];
+
+    this.rest.offers.forEach(offer => {
+      let currentOffer = offer;
+      if (username == currentOffer['username']) {
+        carIDs.push(currentOffer['car_id']);
+      }
+    });
+
+    this.rest.cars.forEach(car => {
+      let currentCar = car;
+      carIDs.forEach(id => {
+        let currentID = id;
+        if (currentID == currentCar.id) {
+          cars.push(currentCar);
+        }
+      });
+    });
+
+    return cars;
+  }
+
+  public toOffer(carId: number) {
+    this.router.navigateByUrl('/cars/' + carId);
   }
 
 }

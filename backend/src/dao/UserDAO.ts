@@ -32,7 +32,6 @@ export class UserDAO {
 
     static async updateUser(newUser: User) {
         let db = await sqlite.open(UserDAO.dbFile);
-        console.log(newUser);
         let user = await db.run("UPDATE Users SET email = '" + newUser.email + "', pw = '" + Md5.hashStr(newUser.pw) + "' WHERE username = '" + newUser.username + "'");
         db.close();
 
