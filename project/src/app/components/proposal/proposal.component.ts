@@ -125,8 +125,8 @@ export class ProposalComponent implements OnInit {
       this.messageService.display('Bitte erst die Felder auswählen die ein * vor dem Input-Feld haben!', MessageType.warning);
       this.router.navigate(['/addCar']);
     } else {
-      this.router.navigate(['']);
       this.setCarIntoTable(this.carArray);
+      this.router.navigateByUrl('');
       location.reload();
     }
   }

@@ -19,7 +19,7 @@ export class TodoRestApiService {
   private userDataCache: User[] = [];
   private offerDataCache: Offer[] = [];
 
-  private refreshAllCars() {
+  public refreshAllCars() {
     this.http.get('api/cars').subscribe((data: Car[]) => {
       this.carDataCache = data;
     },
@@ -195,7 +195,7 @@ export class TodoRestApiService {
     return this.singleOfferRelatedToCarDataCach;
   }
 
-  get contactEmailFromOffer(): String {
+  get contactEmailFromOffer() {
     return this.users.filter((e) => e.username == this.selectedCar.username)[0].email;
   }
 

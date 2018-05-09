@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TodoRestApiService } from '../../services/todo-rest-api.service';
 import { CookieService } from 'ngx-cookie';
 import { Router } from '@angular/router';
+import { Car } from '../../model/car';
 
 @Component({
   selector: 'app-favorites',
@@ -10,11 +11,12 @@ import { Router } from '@angular/router';
 })
 export class FavoritesComponent implements OnInit {
 
-  constructor(private rest: TodoRestApiService, private cookieService: CookieService, private router: Router) { }
+  constructor(private rest: TodoRestApiService, private cookieService: CookieService, private router: Router) {
+  }
 
-  get cars() {
+  get cars(): Car[] {
     const users = this.rest.users;
-    const cars = [];
+    const cars: Car[] = [];
     let cars_watched: string = '';
     this.rest.users.forEach(user => {
       if (user.username == this.cookieService.get('user')) {
@@ -36,6 +38,7 @@ export class FavoritesComponent implements OnInit {
     if (carsWatchedString.length < 2) {
       cars.push(this.rest.cars.find(car => car.id == carsWatchedString))
     }
+
     return cars;
   }
 

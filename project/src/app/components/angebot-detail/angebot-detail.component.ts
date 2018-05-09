@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { MessageType } from '../../model/messagetype.enum';
+import { User } from '../../model/user';
 
 @Component({
   selector: 'app-angebot-detail',

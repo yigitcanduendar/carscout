@@ -43,7 +43,6 @@ export class UserDAO {
         if (cars_watched.length > 0) {
             data[1] = cars_watched + ',' + data[1];
         }
-        console.log(data);
         let db = await sqlite.open(UserDAO.dbFile);
         let user = await db.run("UPDATE Users SET cars_watched = '" + data[1] + "' WHERE username ='" + data[0] + "'");
         db.close();
