@@ -30,6 +30,15 @@ export class UserDAO {
         return user;
     }
 
+    static async updateUser(newUser: User) {
+        let db = await sqlite.open(UserDAO.dbFile);
+        console.log(newUser);
+        let user = await db.run("UPDATE Users SET email = '" + newUser.email + "', pw = '" + Md5.hashStr(newUser.pw) + "' WHERE username = '" + newUser.username + "'");
+        db.close();
+
+        return user;
+    }
+
     static async getCarsWatchedFromUser(username: string) {
         let db = await sqlite.open(UserDAO.dbFile);
         let data = await db.get("SELECT id,cars_watched FROM Users WHERE username = '" + username + "'");

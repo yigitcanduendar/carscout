@@ -22,33 +22,29 @@ export class MyAccountComponent implements OnInit {
 
   public benutzer: User = new User();
   public password2: string = '';
-  public oldMail: string;
 
-  public getOldMail() {
+  get oldMail() {
     let oldMail = '';
     this.rest.users.forEach(user => {
-      if (user.username == this.cookieService.get('user')) {
-        oldMail = user.email;
+      let currentUser = user;
+
+      if (currentUser.username == this.cookieService.get('user')) {
+        oldMail = currentUser.email;
       }
     });
-    this.oldMail = oldMail;
+    return oldMail;
   }
 
   submit() {
+    this.benutzer.username = this.cookieService.get('user');
     if (this.inputIsValid()) {
-      this.rest.insertNewUser(this.benutzer);
-      this.benutzer = null;
-      this.password2 = "";
-      this.messageService.display("Erfolgreich registriert!", MessageType.success);
-      this.router.navigate(['/login']);
+      this.rest.updateUserData(this.benutzer);
+      this.messageService.display("Deine Benutzerdaten wurden geändert!", MessageType.success);
+      location.reload();
     }
   }
 
   inputIsValid(): boolean {
-    if (this.benutzer.username == null || this.benutzer.username == "") {
-      this.messageService.display("Bitte geben sie ein Benutzernamen ein.", MessageType.warning);
-      return false;
-    }
     if (this.benutzer.email == null || this.benutzer.email == "") {
       this.messageService.display("Bitte geben sie ein gültige E-Mail Adresse ein.", MessageType.warning);
       return false;
@@ -65,16 +61,12 @@ export class MyAccountComponent implements OnInit {
   }
 
   showMessage() {
-    if (this.benutzer.username.length <= 3 || this.benutzer.email.length <= 4 || this.benutzer.pw.length <= 4) {
+    if (this.benutzer.email.length <= 4 || this.benutzer.pw.length <= 4) {
       this.messageService.display("Bitte überprüfen Sie Ihre Eingaben! Username, Email oder Passwort zu kurz (<=4 Zeichen). ", MessageType.warning);
       return false;
     }
     if (this.benutzer.pw != this.password2) {
       this.messageService.display("Bitte überprüfen Sie Ihre eingaben!" + '<br/>' + "- Passwörter Stimmen nicht überein", MessageType.warning);
-      return false;
-    }
-    if (this.rest.users.filter((e) => e.username == this.benutzer.username).length > 0) {
-      this.messageService.display("Der Benutzernamen ist bereits vergeben.", MessageType.warning);
       return false;
     }
     return true;

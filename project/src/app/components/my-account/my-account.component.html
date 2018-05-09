@@ -5,9 +5,11 @@
     <legend>Mein Konto</legend>
 
     <div class="form-group">
-      <label class="col-md-4 control-label" for="basic-addon2">E-Mail</label>
+      <label class="col-md-4 control-label" for="basic-addon2">E-Mail ändern</label>
       <div class="col-md-4">
-        <p>Jetzige Email-Adresse: {{oldMail}}</p>
+        <p>Jetzige Email-Adresse:
+          <b>{{oldMail}}</b>
+        </p>
         <input type="text" name="email" class="form-control" aria-describedby="basic-addon2" [(ngModel)]="benutzer.email">
       </div>
     </div>
@@ -15,7 +17,7 @@
 
     <!-- Password input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="passwordinput">Passwort</label>
+      <label class="col-md-4 control-label" for="passwordinput">Neues Passwort</label>
       <div class="col-md-4">
         <input id="passwordinput" name="passwordinput" placeholder="Mind. 5 zeichen" type="password" class="form-control input-md"
           [(ngModel)]="benutzer.pw">
@@ -24,7 +26,7 @@
 
     <!-- Password Wdh. input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="passwordinput2">Passwort wiederholen</label>
+      <label class="col-md-4 control-label" for="passwordinput2">Neues Passwort wiederholen</label>
       <div class="col-md-4">
         <input id="passwordinput2" name="passwordinput2" placeholder="Mind. 5 zeichen" type="password" class="form-control input-md"
           [(ngModel)]="password2">

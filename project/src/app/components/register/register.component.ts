@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
 
   submit() {
     if (this.inputIsValid()) {
-      //this.rest.insertNewUser(this.benutzer);
+      this.rest.insertNewUser(this.benutzer);
       this.benutzer = null;
       this.pw2 = "";
       this.messageService.display("Erfolgreich registriert!", MessageType.success);
