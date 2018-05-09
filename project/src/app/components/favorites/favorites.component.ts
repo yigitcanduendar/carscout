@@ -15,14 +15,15 @@ export class FavoritesComponent implements OnInit {
   get cars() {
     const users = this.rest.users;
     const cars = [];
-    let cars_watched = null;
+    let cars_watched: string = '';
     this.rest.users.forEach(user => {
       if (user.username == this.cookieService.get('user')) {
-        cars_watched = user.cars_watched;
+        let currentUser = user;
+        cars_watched = currentUser.cars_watched;
       }
     });
-    let carsWatchedString: string = cars_watched;
-    if (carsWatchedString.length === 0) {
+    let carsWatchedString: string = cars_watched.toString();
+    if (carsWatchedString.length == 0) {
       return null;
     }
 
