@@ -114,14 +114,12 @@ export class TodoRestApiService {
   }
 
   public getFavouriteFromUser(username, car: Car) {
-    let carsWatchedString;
+    let carsWatchedString: string = '';
     let carsWatchedArray = [];
     let isFavourite = false;
     this.users.forEach(user => {
       if (user.username === username) {
         carsWatchedString = user.cars_watched.toString();
-      } else {
-        carsWatchedString = null;
       }
     });
 
@@ -132,12 +130,12 @@ export class TodoRestApiService {
     } else {
       return isFavourite;
     }
+
     carsWatchedArray.forEach(car_watched_id => {
-      if (car_watched_id.toString() == car.id) {
+      if (car_watched_id == car.id) {
         isFavourite = true;
       }
     });
-
     return isFavourite;
   }
 
@@ -149,12 +147,12 @@ export class TodoRestApiService {
       if (user.username === username) {
         carsWatchedString = user.cars_watched.toString();
       }
-      if (!user.cars_watched) {
-        carsWatchedString = null;
+      if (user.cars_watched == '') {
+        carsWatchedString = '';
       }
     });
 
-    if (carsWatchedString === null) {
+    if (carsWatchedString.length < 1) {
       return 0;
     } else if (carsWatchedString.length > 1) {
       carsWatchedString.split(',').forEach(intstring => {

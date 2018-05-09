@@ -19,7 +19,7 @@
             <li *ngIf="car.ps"> Leistung: {{ car.ps }} PS</li>
             <li *ngIf="car.fuel_type"> Kraftstoffart: {{ car.fuel_type }}</li>
           </ul>
-          <button type="button" class="btn btn-primary" (click)="toOffer(car.id)">Zum Angebot</button>
+          <button type="button" class="btn btn-primary" (click)="toOffer(car.id)" routerLink="/toOffer/car.id" routerLinkActive="active">Zum Angebot</button>
         </div>
       </div>
       <hr class="featurette-divider">

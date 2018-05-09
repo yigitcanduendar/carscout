@@ -25,6 +25,7 @@ import { SearchComponent } from './components/search/search.component';
 import { SearchServiceService } from './services/search-service.service';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
+import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
   declarations: [

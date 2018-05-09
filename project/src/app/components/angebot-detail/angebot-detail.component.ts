@@ -37,10 +37,6 @@ export class AngebotDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // fhz = this.rest.selectedCar();
-    // this.router.params
-    //   .switchMap((params: Params) => this.rest.getHero(+params['id']))
-    //   .subscribe(hero => this.fhz = hero);
   }
 
   get isLoggedIn() {
@@ -82,7 +78,4 @@ export class AngebotDetailComponent implements OnInit {
     }
   }
 
-  public toMainPage(carId: number) {
-    this.router.navigate(['/']);
-  }
 }

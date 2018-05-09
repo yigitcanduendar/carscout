@@ -15,7 +15,7 @@ export class FavoritesComponent implements OnInit {
   get cars() {
     const users = this.rest.users;
     const cars = [];
-    let cars_watched;
+    let cars_watched = null;
     this.rest.users.forEach(user => {
       if (user.username == this.cookieService.get('user')) {
         cars_watched = user.cars_watched;
@@ -32,13 +32,14 @@ export class FavoritesComponent implements OnInit {
         cars.push(this.rest.cars.find(car => car.id == id));
       });
     }
-    cars.push(this.rest.cars.find(car => car.id == carsWatchedString))
-
+    if (carsWatchedString.length < 2) {
+      cars.push(this.rest.cars.find(car => car.id == carsWatchedString))
+    }
     return cars;
   }
 
   public toOffer(carId: number) {
-    this.router.navigate(['/cars/' + carId]);
+    this.router.navigateByUrl('/cars/' + carId);
   }
 
   ngOnInit() {
