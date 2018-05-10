@@ -14,6 +14,7 @@ import { ProposalComponent } from '../components/proposal/proposal.component';
 import { ResultPageComponent } from '../components/result-page/result-page.component';
 import { FavoritesComponent } from '../components/favorites/favorites.component';
 import { MyAccountComponent } from '../components/my-account/my-account.component';
+import { NotFoundComponent } from '../components/not-found/not-found.component';
 
 // Routing-----------------------------------------------
 const routes: Routes = [
@@ -29,7 +30,9 @@ const routes: Routes = [
   { path: 'addCar', component: ProposalComponent },
   { path: 'cars/:id', component: AngebotDetailComponent },
   { path: 'favoriten', component: FavoritesComponent },
-  { path: 'myAccount', component: MyAccountComponent }
+  { path: 'myAccount', component: MyAccountComponent },
+  {path: '404', component: NotFoundComponent},
+  {path: '**', redirectTo: '/404'}
 
 
 

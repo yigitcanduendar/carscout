@@ -26,6 +26,7 @@ import { SearchServiceService } from './services/search-service.service';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { RouterModule, Routes } from '@angular/router';
     ResultPageComponent,
     SearchComponent,
     FavoritesComponent,
-    MyAccountComponent
+    MyAccountComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
