@@ -1,6 +1,5 @@
 import { User } from '../model/User';
 import { Md5 } from 'ts-md5/dist/md5';
-import { async } from '@angular/core/testing';
 const sqlite = require('sqlite-async');
 
 export class UserDAO {
