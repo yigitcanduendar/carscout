@@ -218,4 +218,18 @@ export class TodoRestApiService {
   get vendorTypeFromOffer(): String {
     return this.selectedCar.trader;
   }
+
+  public getImageBySelectCar(id): string {
+    let imagePath: string = '';
+    this.offers.forEach(offer => {
+      let currentOffer = offer;
+      let carID = currentOffer.car_id;
+      if (carID == id) {
+        console.log(offer);
+
+        imagePath = currentOffer.picture1;
+      }
+    });
+    return imagePath;
+  }
 }

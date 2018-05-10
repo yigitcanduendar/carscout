@@ -1,7 +1,7 @@
 export class Offer {
     constructor(
         id: number,
-        car_id: String,
+        car_id: string,
         user_id: String,
         description: String,
         contact: String,

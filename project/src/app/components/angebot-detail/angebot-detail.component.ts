@@ -79,4 +79,10 @@ export class AngebotDetailComponent implements OnInit {
     }
   }
 
+  get imagePath(): string {
+    let imagePath: string = this.rest.getImageBySelectCar(this.selectedCar.id);
+    //ersetzen mit imagePath;
+    return "assets/images/amg_c.jpg";
+  }
+
 }
