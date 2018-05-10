@@ -298,10 +298,6 @@ export class ProposalComponent implements OnInit {
   ngOnInit() {
   }
 
-  inputIsValid(): boolean {
-    return true;
-  }
-
   public onFileChangePicture1(event) {
     let reader = new FileReader();
     if (event.target.files && event.target.files.length > 0) {

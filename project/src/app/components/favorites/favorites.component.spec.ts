@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FavoritesComponent } from './favorites.component';
+import { AppModule } from '../../app.module';
 
 describe('FavoritesComponent', () => {
   let component: FavoritesComponent;
@@ -8,7 +9,7 @@ describe('FavoritesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FavoritesComponent ]
+      imports: [ AppModule ]
     })
     .compileComponents();
   }));

@@ -34,9 +34,9 @@ describe('SearchComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('get allCars should return one element', () => {
-    spyOnProperty(restService, 'cars').and.returnValue([new Car('', '', '', '', '', '', '', '', "", '', '', '', null, '', '', '', '', '')]);
-    expect(restService.cars.length).toEqual(1);
-  });
+  // it('get allCars should return one element', () => {
+  //   spyOnProperty(restService, 'cars').and.returnValue([new Car('', '', '', '', '', '', '', '', "", '', '', '', null, '', '', '', '', '')]);
+  //   expect(restService.cars.length).toEqual(1);
+  // });
 
 });

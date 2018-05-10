@@ -12,7 +12,9 @@
   },
   "files": [
     "test.ts",
-    "../src/app/model/user.ts"
+    "../src/app/model/user.ts",
+    "../src/app/model/car.ts"
+    
   ],
   "include": [
     "**/*.spec.ts",

@@ -5,7 +5,6 @@ import { AppModule } from '../../app.module';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { CookieService } from 'ngx-cookie';
 import { TodoRestApiService } from '../../services/todo-rest-api.service';
-import { Car } from '../../model/car';
 
 describe('ProposalComponent', () => {
   let component: ProposalComponent;
@@ -35,26 +34,34 @@ describe('ProposalComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('carArray should be undefined', () => {
 
-    spyOn(msgService, 'display');
-    spyOn(restService, 'setCar');
-   //let car= spyOnProperty(component, 'carArray').and.returnValue(new Car('', '', '', '', '', '', '', '', '', '', '', '', null, '', '', '', '', ''))
-
-    //component.saveCar();
-
-    expect(this.carArray).toBeUndefined();
-  });
 
   it('msgService.Display should have been called', () => {
 
     spyOn(msgService, 'display');
-    spyOn(restService, 'setOffer');
-    spyOn(restService, 'setCar')
+    spyOn(restService, 'setCar');
 
     component.saveCar();
 
     expect(msgService.display).toHaveBeenCalled();
+  });
+
+
+  it('setCarIntoTable should have been called', () => {
+
+    spyOn(msgService, 'display');
+    spyOn(restService, 'setCar');
+    spyOn(component, 'setCarIntoTable');
+
+    component.carArray.manufacturer = 'opel';
+    component.carArray.modell = 'opel';
+    component.carArray.year = 'opel';
+    component.carArray.price = 'opel';
+    component.carArray.fuel_type = 'opel';
+
+    component.saveCar();
+
+    expect(component.setCarIntoTable).toHaveBeenCalled();
   });
 
   it('setCar should have been called', () => {
@@ -62,6 +69,20 @@ describe('ProposalComponent', () => {
     component.setCarIntoTable(null);
     expect(restService.setCar).toHaveBeenCalled();
   });
+
+  it('onFileChangePicture1 should have been called', () => {
+    component.onFileChangePicture1(null);
+    expect(component.onFileChangePicture1).toHaveBeenCalled();
+  });
+  it('onFileChangePicture2 should have been called', () => {
+    component.onFileChangePicture2(null);
+    expect(component.onFileChangePicture2).toHaveBeenCalled();
+  });
+  it('onFileChangePicture3 should have been called', () => {
+    component.onFileChangePicture3(null);
+    expect(component.onFileChangePicture3).toHaveBeenCalled();
+  });
+
 
 
 

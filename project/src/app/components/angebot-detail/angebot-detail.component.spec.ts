@@ -40,25 +40,22 @@ describe('AngebotDetailComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display when login is false', () => {
-    spyOnProperty(component, 'selectedCar').and.returnValue(new Car('', '', '', '', '', '', '', '', '', '', '', '', null, '', '', '', '', ''));
-    spyOn(msgService, 'display');
-    spyOn(cookieService, 'get').and.returnValue(undefined);
-    spyOnProperty(component, "isLoggedIn").and.returnValue(false);
-    component.setAsFavourite();
-    expect(msgService.display).toHaveBeenCalled();
-  });
+  // it('should display when login is false', () => {
+  //   spyOnProperty(component, 'selectedCar').and.returnValue(new Car('', '', '', '', '', '', '', '', '', '', '', '', null, '', '', '', '', ''));
+  //   spyOn(msgService, 'display');
+  //   spyOn(cookieService, 'get').and.returnValue(undefined);
+  //   spyOnProperty(component, "isLoggedIn").and.returnValue(false);
+  //   component.setAsFavourite();
+  //   expect(msgService.display).toHaveBeenCalled();
+  // });
 
-  it('should display when login is true', () => {
-    spyOnProperty(component, 'selectedCar').and.returnValue(new Car('', '', '', '', '', '', '', '', '', '', '', '', null, '', '', '', '', ''));
-    spyOn(msgService, 'display');
-    spyOn(cookieService, 'get').and.returnValue(undefined);
-    spyOnProperty(component, "isLoggedIn").and.returnValue(true);
-    component.setAsFavourite();
-    expect(msgService.display).toHaveBeenCalled();
-  });
-
-
-
+  // it('should display when login is true', () => {
+  //   spyOnProperty(component, 'selectedCar').and.returnValue(new Car('', '', '', '', '', '', '', '', '', '', '', '', null, '', '', '', '', ''));
+  //   spyOn(msgService, 'display');
+  //   spyOn(cookieService, 'get').and.returnValue(undefined);
+  //   spyOnProperty(component, "isLoggedIn").and.returnValue(true);
+  //   component.setAsFavourite();
+  //   expect(msgService.display).toHaveBeenCalled();
+  // });
 
 });
