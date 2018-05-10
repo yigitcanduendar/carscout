@@ -71,9 +71,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-        err => {
-          console.log("Error occured!");
-        });
+      err => {
+        console.log("Error occured!");
+      });
   }
 
   public updateUserData(user: User) {
@@ -83,21 +83,22 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-        err => {
-          console.log("Error occured!");
-        });
+      err => {
+        console.log("Error occured!");
+      });
   }
 
-  public setCar(car: Car) {
+  public setCar(car: Car, pic1: string, pic2: string, pic3: string) {
     const body = new URLSearchParams();
-    body.set('setCar', JSON.stringify(car));
+    const data = [car, pic1, pic2, pic3];
+    body.set('setCar', JSON.stringify(data));
     this.http.post('api/cars/setCar/', body.toString(), this.options).
       subscribe(res => {
         console.log(res);
       },
-        err => {
-          console.log("Error occured!");
-        });
+      err => {
+        console.log("Error occured!");
+      });
   }
 
   public setFavorite(car, username) {
@@ -108,10 +109,11 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-        err => {
-          console.log("setFavourite klappt nicht " + err);
-        });
+      err => {
+        console.log("setFavourite klappt nicht " + err);
+      });
   }
+
   public deleteAsFavourite(car, username) {
     const body = new URLSearchParams();
     const data = [username, car.id];
@@ -120,9 +122,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-        err => {
-          console.log("deleteAsFavourite klappt nicht " + err);
-        });
+      err => {
+        console.log("deleteAsFavourite klappt nicht " + err);
+      });
   }
 
   public getFavouriteFromUser(username, car: Car) {
@@ -185,6 +187,7 @@ export class TodoRestApiService {
     this.refreshAllCars();
     this.refreshUsers();
     this.refreshOffers();
+
   }
 
   get offers(): Offer[] {
@@ -221,13 +224,14 @@ export class TodoRestApiService {
 
   public getImageBySelectCar(id): string {
     let imagePath: string = '';
+
     this.offers.forEach(offer => {
-      let currentOffer = offer;
+      let currentOffer: any = offer;
       let carID = currentOffer.car_id;
       if (carID == id) {
-        console.log(offer);
-
-        imagePath = currentOffer.picture1;
+        //console.log(offer);
+        imagePath = currentOffer.picture1
+        return imagePath;
       }
     });
     return imagePath;
