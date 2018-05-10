@@ -70,21 +70,9 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-3">
-                        <b>Verbrauch TBD</b>
-                    </div>
-                    <div class="col-sm-4">{{selectedCar.category}}</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
                         <b>Anzahl der Türen</b>
                     </div>
                     <div class="col-sm-4">{{selectedCar.number_of_doors}}</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <b>Fahrzeugzustand TBD</b>
-                    </div>
-                    <div class="col-sm-4">{{selectedCar.category}}</div>
                 </div>
                 <div class="row">
                     <div class="col-sm-3">
@@ -98,6 +86,24 @@
                     </div>
                     <div class="col-sm-4">{{selectedCar.description}}</div>
                 </div>
+                <div *ngIf="selectedCar.interiors" class="row">
+                    <div class="col-sm-3">
+                        <b>Innenausstattung</b>
+                    </div>
+                    <div class="col-sm-4">{{selectedCar.interiors}}</div>
+                </div>
+                <div *ngIf="selectedCar.safeties !== 'null'" class="row">
+                    <div class="col-sm-3">
+                        <b>Sicherheit</b>
+                    </div>
+                    <div class="col-sm-4">{{selectedCar.safeties}}</div>
+                </div>
+                <div *ngIf="selectedCar.extras" class="row">
+                    <div class="col-sm-3">
+                        <b>Extras</b>
+                    </div>
+                    <div class="col-sm-4">{{selectedCar.extras}}</div>
+                </div>
             </div>
 
             <div class="col-sm-4">
@@ -109,7 +115,6 @@
                 <br/>
                 <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> {{vendorType}}
                 <br/>
-                <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
 
                 <h4>Angebotsinformationen</h4>
                 <hr class="featurette-divider">
@@ -127,9 +132,9 @@
         <button type="button" routerLink="" routerLinkActive="active" class="btn btn-default pull-left">
             <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
         </button>
-        <button type="button" class="btn btn-default">Verkäufer kontaktieren TBD
+        <a href="mailto:{{vendorContactEmail}}" type="button" class="btn btn-default">Verkäufer kontaktieren
             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-        </button>
+        </a>
         <button type="button" *ngIf="!isFavorite" (click)="setAsFavourite()" class="btn btn-default">Favorisieren
             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
         </button>
