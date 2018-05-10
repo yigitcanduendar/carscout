@@ -462,12 +462,53 @@
 
     <!-- Bilder hinzufuegen -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="pictures">Bilder</label>
+      <!-- <label class="col-md-4 control-label" for="pictures">Bilder</label>
       <div class="col-md-4">
         <input id="pictures" name="pictures" class="input-file" multiple="true" type="file" (change)="onFileChange($event)" ngModel>
+      </div> -->
+      <div class="row">
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <img [src]="fileDataPicture1" onerror="this.onerror=null;this.src='http://images.digopaul.com/wp-content/uploads/related_images/2015/09/10/empty_3.jpg';">
+            <div class="caption">
+              <h3>Listenansicht</h3>
+              <input id="pictures" name="pictures" class="input-file" multiple="true" type="file" (change)="onFileChangePicture1($event)"
+                ngModel>
+              <p>
+                <a href="#" class="btn btn-primary" role="button">Zurücksetzen</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <img [src]="fileDataPicture2" onerror="this.onerror=null;this.src='http://images.digopaul.com/wp-content/uploads/related_images/2015/09/10/empty_3.jpg';">
+            <div class="caption">
+              <h3>Extra 1</h3>
+              <input id="pictures" name="pictures" class="input-file" multiple="true" type="file" (change)="onFileChangePicture2($event)"
+                ngModel>
+              <p>
+                <a href="#" class="btn btn-primary" role="button">Zurücksetzen</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <img [src]="fileDataPicture3" onerror="this.onerror=null;this.src='http://images.digopaul.com/wp-content/uploads/related_images/2015/09/10/empty_3.jpg';">
+            <div class="caption">
+              <h3>Extra 2</h3>
+              <input id="pictures" name="pictures" class="input-file" multiple="true" type="file" (change)="onFileChangePicture3($event)"
+                ngModel>
+              <p>
+                <a href="#" class="btn btn-primary" role="button">Zurücksetzen</a>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <img [src]="fileData" />
+
     <!-- Erstellen Button -->
     <div class="form-group">
       <label class="col-md-4 control-label" for="singlebutton"></label>

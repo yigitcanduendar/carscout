@@ -24,6 +24,10 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/cars/' + carId);
   }
 
+  public getCarPicture(id: number) {
+    return this.rest.getImageBySelectCar(id);
+  }
+
   ngOnInit() {
   }
 

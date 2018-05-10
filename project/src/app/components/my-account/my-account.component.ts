@@ -45,6 +45,11 @@ export class MyAccountComponent implements OnInit {
     }
   }
 
+  public getCarPicture(id: number) {
+    return this.rest.getImageBySelectCar(id);
+  }
+
+
   inputIsValid(): boolean {
     if (this.benutzer.email == null || this.benutzer.email == "") {
       this.messageService.display("Bitte geben sie ein gültige E-Mail Adresse ein.", MessageType.warning);

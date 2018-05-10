@@ -70,6 +70,11 @@ export class AngebotDetailComponent implements OnInit {
     }
   }
 
+  public getCarPicture(id: number) {
+    return this.rest.getImageBySelectCar(id);
+  }
+
+
   public deleteAsFavourite() {
     if (this.isLoggedIn === false) {
       this.msgservice.display('Sie müssen eingeloggt sein, um Angebote zu Entfavourisieren.', MessageType.warning);

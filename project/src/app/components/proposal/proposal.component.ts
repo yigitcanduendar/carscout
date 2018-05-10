@@ -18,6 +18,7 @@ import { NgForm } from '@angular/forms';
 })
 export class ProposalComponent implements OnInit {
 
+
   private offer: Offer;
   constructor(private cookieService: CookieService, private restApiService: TodoRestApiService, private messageService: MessageProviderService, private router: Router) {
   }
@@ -126,6 +127,7 @@ export class ProposalComponent implements OnInit {
       this.router.navigate(['/addCar']);
     } else {
       this.setCarIntoTable(this.carArray);
+
       this.router.navigateByUrl('');
       location.reload();
     }
@@ -287,8 +289,11 @@ export class ProposalComponent implements OnInit {
    * @param carArray
    */
   public setCarIntoTable(carArray: Car) {
-    this.restApiService.setCar(carArray);
+    this.restApiService.setCar(carArray, this.fileDataPicture1, this.fileDataPicture2, this.fileDataPicture3);
   }
+
+
+
 
   ngOnInit() {
   }
@@ -296,19 +301,42 @@ export class ProposalComponent implements OnInit {
   inputIsValid(): boolean {
     return true;
   }
-  public onFileChange(event) {
+
+  public onFileChangePicture1(event) {
     let reader = new FileReader();
     if (event.target.files && event.target.files.length > 0) {
       let file = event.target.files[0];
       reader.readAsDataURL(file);
       reader.onload = () => {
-        this.fileData = reader.result;
+        this.fileDataPicture1 = reader.result;
       };
-
     }
-
   }
 
-  public fileData: string;
+  public onFileChangePicture2(event) {
+    let reader = new FileReader();
+    if (event.target.files && event.target.files.length > 0) {
+      let file = event.target.files[0];
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.fileDataPicture2 = reader.result;
+      };
+    }
+  }
+
+  public onFileChangePicture3(event) {
+    let reader = new FileReader();
+    if (event.target.files && event.target.files.length > 0) {
+      let file = event.target.files[0];
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.fileDataPicture3 = reader.result;
+      };
+    }
+  }
+
+  public fileDataPicture1: string;
+  public fileDataPicture2: string;
+  public fileDataPicture3: string;
 
 }
