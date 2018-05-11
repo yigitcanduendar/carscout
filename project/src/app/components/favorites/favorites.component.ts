@@ -46,6 +46,10 @@ export class FavoritesComponent implements OnInit {
     this.router.navigateByUrl('/cars/' + carId);
   }
 
+  public getCarPicture(id: number) {
+    return this.rest.getImageBySelectCar(id);
+  }
+
   ngOnInit() {
   }
 

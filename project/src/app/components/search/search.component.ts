@@ -38,6 +38,7 @@ export class SearchComponent implements OnInit {
         e.manufacturer.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1
       ) {
         this.result = {
+          'id': e.id,
           'modell': e.modell,
           'category': e.category,
           'colour': e.colour,
