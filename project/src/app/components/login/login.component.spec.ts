@@ -2,18 +2,18 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginComponent } from './login.component';
 import { AppModule } from '../../app.module';
-import { TodoRestApiService } from '../../services/todo-rest-api.service';
 import { CookieService } from 'ngx-cookie';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { User } from '../../model/user';
 import { MessageType } from '../../model/messagetype.enum';
+import { CarscoutRestApiService } from '../../services/carscout-rest-api.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
   let msgService: MessageProviderService;
   let cookieService: CookieService;
-  let restService: TodoRestApiService;
+  let restService: CarscoutRestApiService;
   const user = new User();
   user.username = "Empty";
   user.id = 0;
@@ -24,7 +24,7 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [AppModule],
-      providers: [TodoRestApiService]
+      providers: [CarscoutRestApiService]
     })
       .compileComponents();
   }));
@@ -34,7 +34,7 @@ describe('LoginComponent', () => {
     component = fixture.componentInstance;
     msgService = TestBed.get(MessageProviderService);
     cookieService = TestBed.get(CookieService);
-    restService = TestBed.get(TodoRestApiService);
+    restService = TestBed.get(CarscoutRestApiService);
     fixture.detectChanges();
   });
 

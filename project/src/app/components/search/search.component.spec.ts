@@ -2,21 +2,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SearchComponent } from './search.component';
 import { CookieService } from 'ngx-cookie';
 import { MessageProviderService } from '../../services/messageprovider.service';
-import { TodoRestApiService } from '../../services/todo-rest-api.service';
 import { Car } from '../../model/car';
 import { AppModule } from '../../app.module';
+import { CarscoutRestApiService } from '../../services/carscout-rest-api.service';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
   let fixture: ComponentFixture<SearchComponent>;
   let msgService: MessageProviderService;
   let cookieService: CookieService;
-  let restService: TodoRestApiService;
+  let restService: CarscoutRestApiService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [AppModule],
-      providers: [TodoRestApiService]
+      providers: [CarscoutRestApiService]
     })
       .compileComponents();
   }));
@@ -26,7 +26,7 @@ describe('SearchComponent', () => {
     component = fixture.componentInstance;
     msgService = TestBed.get(MessageProviderService);
     cookieService = TestBed.get(CookieService);
-    restService = TestBed.get(TodoRestApiService);
+    restService = TestBed.get(CarscoutRestApiService);
     fixture.detectChanges();
   });
 

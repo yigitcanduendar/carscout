@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchServiceService } from '../../services/search-service.service';
-import { TodoRestApiService } from '../../services/todo-rest-api.service';
+
 import { Car } from '../../model/car';
 import { Router } from '@angular/router';
+import { CarscoutRestApiService } from '../../services/carscout-rest-api.service';
 
 @Component({
   selector: 'app-result-page',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ResultPageComponent implements OnInit {
 
-  constructor(private searchService: SearchServiceService, private rest: TodoRestApiService, private router: Router) {
+  constructor(private searchService: SearchServiceService, private rest: CarscoutRestApiService, private router: Router) {
   }
 
   get counter(): number {

@@ -1,7 +1,6 @@
 import { Offer } from './../../model/Offer';
 import { Component, OnInit } from '@angular/core';
 import { Car } from '../../model/car';
-import { TodoRestApiService } from '../../services/todo-rest-api.service';
 import { element } from 'protractor';
 import * as express from 'express';
 import { MessageProviderService } from '../../services/messageprovider.service';
@@ -10,6 +9,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
 import * as fs from "fs";
 import { NgForm } from '@angular/forms';
+import { CarscoutRestApiService } from '../../services/carscout-rest-api.service';
 
 @Component({
   selector: 'app-proposal',
@@ -20,7 +20,7 @@ export class ProposalComponent implements OnInit {
 
   public navigationSubscription;
   private offer: Offer;
-  constructor(private cookieService: CookieService, private restApiService: TodoRestApiService, private messageService: MessageProviderService, private router: Router) {
+  constructor(private cookieService: CookieService, private restApiService: CarscoutRestApiService, private messageService: MessageProviderService, private router: Router) {
   }
 
   public manufacturer = '';
@@ -297,7 +297,7 @@ export class ProposalComponent implements OnInit {
    * @param carArray
    */
   public setCarIntoTable(carArray: Car) {
-    this.restApiService.setCar(carArray, this.fileDataPicture1, this.fileDataPicture2, this.fileDataPicture3);
+    this.restApiService.setCar(carArray, this.fileDataPicture1);
   }
 
   ngOnInit() {
@@ -315,30 +315,8 @@ export class ProposalComponent implements OnInit {
     }
   }
 
-  public onFileChangePicture2(event) {
-    let reader = new FileReader();
-    if (event.target.files && event.target.files.length > 0) {
-      let file = event.target.files[0];
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        this.fileDataPicture2 = reader.result;
-      };
-    }
-  }
 
-  public onFileChangePicture3(event) {
-    let reader = new FileReader();
-    if (event.target.files && event.target.files.length > 0) {
-      let file = event.target.files[0];
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        this.fileDataPicture3 = reader.result;
-      };
-    }
-  }
 
   public fileDataPicture1: string;
-  public fileDataPicture2: string;
-  public fileDataPicture3: string;
 
 }

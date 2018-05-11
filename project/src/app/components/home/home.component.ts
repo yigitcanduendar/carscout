@@ -3,7 +3,7 @@ import { CookieService } from 'ngx-cookie';
 import { Router, NavigationEnd } from '@angular/router';
 import { Car } from '../../model/car';
 import { NextFunction } from 'express';
-import { TodoRestApiService } from '../../services/todo-rest-api.service';
+import { CarscoutRestApiService } from '../../services/carscout-rest-api.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,7 @@ import { TodoRestApiService } from '../../services/todo-rest-api.service';
 export class HomeComponent implements OnInit {
 
 
-  constructor(private router: Router, private rest: TodoRestApiService) {
+  constructor(private router: Router, private rest: CarscoutRestApiService) {
   }
 
   public navigationSubscription;

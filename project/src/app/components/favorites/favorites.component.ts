@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoRestApiService } from '../../services/todo-rest-api.service';
 import { CookieService } from 'ngx-cookie';
 import { Router, NavigationEnd } from '@angular/router';
 import { Car } from '../../model/car';
+import { CarscoutRestApiService } from '../../services/carscout-rest-api.service';
 
 @Component({
   selector: 'app-favorites',
@@ -11,7 +11,7 @@ import { Car } from '../../model/car';
 })
 export class FavoritesComponent implements OnInit {
 
-  constructor(private rest: TodoRestApiService, private cookieService: CookieService, private router: Router) {
+  constructor(private rest: CarscoutRestApiService, private cookieService: CookieService, private router: Router) {
   }
 
   public navigationSubscription;

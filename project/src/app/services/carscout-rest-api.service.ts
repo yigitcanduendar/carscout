@@ -7,7 +7,7 @@ import { Offer } from '../model/Offer';
 import { element } from 'protractor';
 
 @Injectable()
-export class TodoRestApiService {
+export class CarscoutRestApiService {
 
   private options = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
@@ -71,9 +71,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-        err => {
-          console.log("Error occured!");
-        });
+      err => {
+        console.log("Error occured!");
+      });
     this.refreshUsers();
   }
 
@@ -84,23 +84,23 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-        err => {
-          console.log("Error occured!");
-        });
+      err => {
+        console.log("Error occured!");
+      });
     this.refreshUsers();
   }
 
-  public setCar(car: Car, pic1: string, pic2: string, pic3: string) {
+  public setCar(car: Car, pic1: string) {
     const body = new URLSearchParams();
-    const data = [car, pic1, pic2, pic3];
+    const data = [car, pic1];
     body.set('setCar', JSON.stringify(data));
     this.http.post('api/cars/setCar/', body.toString(), this.options).
       subscribe(res => {
         console.log(res);
       },
-        err => {
-          console.log("Error occured!");
-        });
+      err => {
+        console.log("Error occured!");
+      });
     this.refreshAllCars();
     this.refreshOffers();
   }
@@ -113,9 +113,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-        err => {
-          console.log("setFavourite klappt nicht " + err);
-        });
+      err => {
+        console.log("setFavourite klappt nicht " + err);
+      });
     this.refreshUsers();
   }
 
@@ -127,9 +127,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-        err => {
-          console.log("deleteAsFavourite klappt nicht " + err);
-        });
+      err => {
+        console.log("deleteAsFavourite klappt nicht " + err);
+      });
     this.refreshUsers();
   }
 

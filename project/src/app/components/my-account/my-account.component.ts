@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoRestApiService } from '../../services/todo-rest-api.service';
+
 import { CookieService } from 'ngx-cookie';
 import { Router, NavigationEnd } from '@angular/router';
 import { User } from '../../model/user';
@@ -7,6 +7,7 @@ import { element } from 'protractor';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { MessageType } from '../../model/messagetype.enum';
 import { Car } from '../../model/car';
+import { CarscoutRestApiService } from '../../services/carscout-rest-api.service';
 
 @Component({
   selector: 'app-my-account',
@@ -15,7 +16,7 @@ import { Car } from '../../model/car';
 })
 export class MyAccountComponent implements OnInit {
 
-  constructor(private rest: TodoRestApiService, private cookieService: CookieService, private router: Router, private messageService: MessageProviderService) {
+  constructor(private rest: CarscoutRestApiService, private cookieService: CookieService, private router: Router, private messageService: MessageProviderService) {
   }
 
   public navigationSubscription;

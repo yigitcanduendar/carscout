@@ -5,20 +5,21 @@ import { AppModule } from '../../app.module';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { User } from '../../model/user';
 import { MessageType } from '../../model/messagetype.enum';
-import { TodoRestApiService } from '../../services/todo-rest-api.service';
+import { CarscoutRestApiService } from '../../services/carscout-rest-api.service';
+
 
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
   let messageService: MessageProviderService;
-  let todo: TodoRestApiService;
+  let todo: CarscoutRestApiService;
   let user: User;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [AppModule],
-      providers: [MessageProviderService, TodoRestApiService]
+      providers: [MessageProviderService, CarscoutRestApiService]
     })
       .compileComponents();
   }));
@@ -27,7 +28,7 @@ describe('RegisterComponent', () => {
     fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
     messageService = TestBed.get(MessageProviderService);
-    todo = TestBed.get(TodoRestApiService);
+    todo = TestBed.get(CarscoutRestApiService);
     user = component.benutzer;
     user.id = 0;
     user.username = 'Sebastian';

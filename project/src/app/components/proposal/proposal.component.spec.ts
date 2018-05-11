@@ -4,14 +4,14 @@ import { ProposalComponent } from './proposal.component';
 import { AppModule } from '../../app.module';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { CookieService } from 'ngx-cookie';
-import { TodoRestApiService } from '../../services/todo-rest-api.service';
+import { CarscoutRestApiService } from '../../services/carscout-rest-api.service';
 
 describe('ProposalComponent', () => {
   let component: ProposalComponent;
   let fixture: ComponentFixture<ProposalComponent>;
   let msgService: MessageProviderService;
   let cookieService: CookieService;
-  let restService: TodoRestApiService;
+  let restService: CarscoutRestApiService;
 
 
   beforeEach(async(() => {
@@ -26,7 +26,7 @@ describe('ProposalComponent', () => {
     component = fixture.componentInstance;
     msgService = TestBed.get(MessageProviderService);
     cookieService = TestBed.get(CookieService);
-    restService = TestBed.get(TodoRestApiService);
+    restService = TestBed.get(CarscoutRestApiService);
     fixture.detectChanges();
   });
 
@@ -74,14 +74,7 @@ describe('ProposalComponent', () => {
     component.onFileChangePicture1(null);
     expect(component.onFileChangePicture1).toHaveBeenCalled();
   });
-  it('onFileChangePicture2 should have been called', () => {
-    component.onFileChangePicture2(null);
-    expect(component.onFileChangePicture2).toHaveBeenCalled();
-  });
-  it('onFileChangePicture3 should have been called', () => {
-    component.onFileChangePicture3(null);
-    expect(component.onFileChangePicture3).toHaveBeenCalled();
-  });
+
 
 
 

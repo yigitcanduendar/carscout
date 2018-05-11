@@ -3,14 +3,14 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MyAccountComponent } from './my-account.component';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { CookieService } from 'ngx-cookie';
-import { TodoRestApiService } from '../../services/todo-rest-api.service';
+import { CarscoutRestApiService } from '../../services/carscout-rest-api.service';
 
 describe('MyAccountComponent', () => {
   let component: MyAccountComponent;
   let fixture: ComponentFixture<MyAccountComponent>;
   let msgService: MessageProviderService;
   let cookieService: CookieService;
-  let restService: TodoRestApiService;
+  let restService: CarscoutRestApiService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -24,7 +24,7 @@ describe('MyAccountComponent', () => {
     component = fixture.componentInstance;
     msgService = TestBed.get(MessageProviderService);
     cookieService = TestBed.get(CookieService);
-    restService = TestBed.get(TodoRestApiService);
+    restService = TestBed.get(CarscoutRestApiService);
     fixture.detectChanges();
   });
 
@@ -42,6 +42,14 @@ describe('MyAccountComponent', () => {
     spyOnProperty(component, 'inputIsValid').and.returnValue(true);
     component.submit();
     expect(msgService.display).toHaveBeenCalled();
+  });
+
+  it('getCarPicture should return picture', () => {
+    spyOn(restService, 'getImageBySelectCar').and.returnValue("picture");
+    spyOn(component, "getCarPicture");
+
+    let abc = component.getCarPicture(0);
+    expect(abc).toBeTruthy();
   });
 
 

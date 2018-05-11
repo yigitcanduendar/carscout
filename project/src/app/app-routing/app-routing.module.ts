@@ -31,8 +31,8 @@ const routes: Routes = [
   { path: 'cars/:id', component: AngebotDetailComponent },
   { path: 'favoriten', component: FavoritesComponent },
   { path: 'myAccount', component: MyAccountComponent },
-  {path: '404', component: NotFoundComponent},
-  {path: '**', redirectTo: '/404'}
+  { path: '404', component: NotFoundComponent },
+  { path: '**', redirectTo: '/404' }
 
 
 

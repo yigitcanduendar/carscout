@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoRestApiService } from '../../services/todo-rest-api.service';
 import { Car } from '../../model/car';
 import { Router } from '@angular/router';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { SearchServiceService } from '../../services/search-service.service';
 import { MessageType } from '../../model/messagetype.enum';
+import { CarscoutRestApiService } from '../../services/carscout-rest-api.service';
 
 @Component({
   selector: 'app-search',
@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
   public result;
 
   constructor(
-    private restApiService: TodoRestApiService,
+    private restApiService: CarscoutRestApiService,
     private router: Router,
     private searchService: SearchServiceService,
     private messageService: MessageProviderService

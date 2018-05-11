@@ -15,7 +15,6 @@ import { Md5 } from 'ts-md5';
 import { CookieModule } from 'ngx-cookie';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RegisterComponent } from './components/register/register.component';
-import { TodoRestApiService } from './services/todo-rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { AngebotDetailComponent } from './components/angebot-detail/angebot-detail.component'
@@ -27,6 +26,7 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { CarscoutRestApiService } from './services/carscout-rest-api.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +55,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     CookieModule.forRoot(),
     HttpClientModule
   ],
-  providers: [SearchServiceService, MessageProviderService, { provide: APP_BASE_HREF, useValue: '/' }, Md5, TodoRestApiService],
+  providers: [SearchServiceService, MessageProviderService, { provide: APP_BASE_HREF, useValue: '/' }, Md5, CarscoutRestApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

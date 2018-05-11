@@ -5,7 +5,7 @@ import { Md5 } from 'ts-md5/dist/md5';
 import { Router } from '@angular/router';
 import { CookieModule, CookieService } from 'ngx-cookie';
 import { User } from '../../model/user';
-import { TodoRestApiService } from '../../services/todo-rest-api.service';
+import { CarscoutRestApiService } from '../../services/carscout-rest-api.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     private messageService: MessageProviderService,
     private router: Router,
     private cookieService: CookieService,
-    private restApiService: TodoRestApiService
+    private restApiService: CarscoutRestApiService
   ) {
   }
 

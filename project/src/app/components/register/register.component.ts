@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../model/user';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { MessageType } from '../../model/messagetype.enum';
-import { TodoRestApiService } from "../../services/todo-rest-api.service";
 import { Router, NavigationEnd } from '@angular/router';
+import { CarscoutRestApiService } from '../../services/carscout-rest-api.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +12,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 
 export class RegisterComponent implements OnInit {
-  constructor(private router: Router, private rest: TodoRestApiService, private messageService: MessageProviderService) {
+  constructor(private router: Router, private rest: CarscoutRestApiService, private messageService: MessageProviderService) {
   }
 
   ngOnInit(): void {
