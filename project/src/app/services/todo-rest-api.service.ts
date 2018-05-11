@@ -74,6 +74,7 @@ export class TodoRestApiService {
         err => {
           console.log("Error occured!");
         });
+    this.refreshUsers();
   }
 
   public updateUserData(user: User) {
@@ -86,6 +87,7 @@ export class TodoRestApiService {
         err => {
           console.log("Error occured!");
         });
+    this.refreshUsers();
   }
 
   public setCar(car: Car, pic1: string, pic2: string, pic3: string) {
@@ -100,6 +102,7 @@ export class TodoRestApiService {
           console.log("Error occured!");
         });
     this.refreshAllCars();
+    this.refreshOffers();
   }
 
   public setFavorite(car, username) {
@@ -113,6 +116,7 @@ export class TodoRestApiService {
         err => {
           console.log("setFavourite klappt nicht " + err);
         });
+    this.refreshUsers();
   }
 
   public deleteAsFavourite(car, username) {
@@ -126,6 +130,7 @@ export class TodoRestApiService {
         err => {
           console.log("deleteAsFavourite klappt nicht " + err);
         });
+    this.refreshUsers();
   }
 
   public getFavouriteFromUser(username, car: Car) {
@@ -155,7 +160,6 @@ export class TodoRestApiService {
         }
       }
     });
-
     return isFavourite;
   }
 
@@ -225,7 +229,6 @@ export class TodoRestApiService {
 
   public getImageBySelectCar(id): string {
     let imagePath: string = '';
-
     this.offers.forEach(offer => {
       let currentOffer: any = offer;
       let carID = currentOffer.car_id;
