@@ -3,7 +3,7 @@ import { User } from '../../model/user';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { MessageType } from '../../model/messagetype.enum';
 import { TodoRestApiService } from "../../services/todo-rest-api.service";
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  public navigationSubscription;
   public benutzer: User = new User();
   public cb_agb: boolean = false;
   public pw2: string = "";
@@ -25,12 +25,20 @@ export class RegisterComponent implements OnInit {
   submit() {
     if (this.inputIsValid()) {
       this.rest.insertNewUser(this.benutzer);
-      this.benutzer = null;
-      this.pw2 = "";
       this.messageService.display("Erfolgreich registriert!", MessageType.success);
-      this.router.navigate(['/login']);
-      location.reload();
+      this.router.navigateByUrl('/login');
+
+      this.navigationSubscription = this.router.events.subscribe((e: any) => {
+        // If it is a NavigationEnd event re-initalise the component
+        if (e instanceof NavigationEnd) {
+          this.initialiseInvites();
+        }
+      });
     }
+  }
+
+  initialiseInvites() {
+    this.rest.refreshUsers();
   }
 
   inputIsValid(): boolean {

@@ -22,10 +22,8 @@ export class UserDAO {
 
     static async insertNewUser(newUser: User) {
         let db = await sqlite.open(UserDAO.dbFile);
-
         let user = await db.run("INSERT INTO Users (username, email, pw) VALUES('" + newUser.username + "','" + newUser.email + "','" + Md5.hashStr(newUser.pw) + "')");
         db.close();
-
         return user;
     }
 

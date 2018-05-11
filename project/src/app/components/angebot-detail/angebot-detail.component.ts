@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core/src/metadata/directives';
 import { Car } from '../../model/car';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { TodoRestApiService } from '../../services/todo-rest-api.service';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
@@ -16,6 +16,8 @@ import { User } from '../../model/user';
 })
 
 export class AngebotDetailComponent implements OnInit {
+
+  public navigationSubscription;
 
   constructor(private router: Router, private route: ActivatedRoute, private cookieService: CookieService, private rest: TodoRestApiService, private msgservice: MessageProviderService) {
     this.route.params.subscribe(params => {
@@ -66,8 +68,21 @@ export class AngebotDetailComponent implements OnInit {
       this.msgservice.display('Sie müssen eingeloggt sein, um Angebote zu Favourisieren.', MessageType.warning);
     } else if (!this.isFavorite) {
       this.rest.setFavorite(this.selectedCar, this.cookieService.get('user'));
-      location.reload();
+      window.location.reload(false);
+      this.navigationSubscription = this.router.events.subscribe((e: any) => {
+        if (e instanceof NavigationEnd) {
+          this.initialiseInvites(this.selectedCar.id);
+        }
+      });
+
+
     }
+  }
+
+  initialiseInvites(carID) {
+    this.rest.refreshSelectedCar(carID);
+    this.rest.refreshUsers();
+    this.rest.getFavouriteFromUser(this.cookieService.get('user'), this.selectedCar);
   }
 
   public getCarPicture(id: number) {
@@ -80,7 +95,12 @@ export class AngebotDetailComponent implements OnInit {
       this.msgservice.display('Sie müssen eingeloggt sein, um Angebote zu Entfavourisieren.', MessageType.warning);
     } else if (this.isFavorite) {
       this.rest.deleteAsFavourite(this.selectedCar, this.cookieService.get('user'));
-      location.reload();
+      window.location.reload(false);
+      this.navigationSubscription = this.router.events.subscribe((e: any) => {
+        if (e instanceof NavigationEnd) {
+          this.initialiseInvites(this.selectedCar.id);
+        }
+      });
     }
   }
 
