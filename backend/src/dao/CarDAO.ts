@@ -4,7 +4,7 @@ const sqlite = require('sqlite-async');
 
 export class CarDAO {
 
-    static dbFile = 'car.db3';
+    static dbFile = 'carscout_db.db3';
     static car_id;
     static async getAll(): Promise<Car[]> {
         let db = await sqlite.open(CarDAO.dbFile);
