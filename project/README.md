@@ -1,4 +1,11 @@
-## Project Settings CarScout
+## Projektteilnehmer
+- Milan S.
+- Antonios V.
+- Philipp H.
+- Daniel P.
+- Can D.
+
+################################### Project Settings CarScout ###################################
 
 Wenn Ihr Probleme habt, wie z.B. AppComponent nicht gefunden, dann bitte folgende Zeile ausführen:
 `npm install -g @angular/cli`
@@ -27,7 +34,7 @@ set PATH=%PATH%;C:\deinpfad
 
 Im constructor als Argument 'private router: Router'
 Dann innerhalb der Methode:
-    `this.router.navigate(['route'])` 
+    `this.router.navigate(['/route'])` 
 
 Beispiel: 
     `this.router.navigate(['/login'])` 
@@ -42,15 +49,17 @@ Um den Cookie `online` abzurufen:
 
 Oder siehe LoginComponent unter save(); !!!
 
-## MD5 
+## Node_Modules installieren
 
 npm install 
 
 #### Consolen
-## Backend Starten
-##  => gulp
-##  => npm start
+  ## Backend Starten
+    => gulp
+    => npm start
+ 
+  ## Frontend Starten
+    => npm start
 
-## Frontend Starten
-##  => npm start
-##  => ng test --code-coverage
+  ## Test starten
+    => ng test --code-coverage
