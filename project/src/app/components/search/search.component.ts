@@ -32,6 +32,11 @@ export class SearchComponent implements OnInit {
       return;
     }
 
+    if (this.allCars.length == 0) {
+      this.messageService.display('Zurzeit gibt es keine Autos!', MessageType.warning);
+      return;
+    }
+
     this.allCars.forEach(e => {
       if (
         e.modell.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1 ||

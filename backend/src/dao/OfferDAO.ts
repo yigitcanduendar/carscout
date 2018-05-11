@@ -4,7 +4,7 @@ const sqlite = require('sqlite-async');
 
 export class OfferDAO {
 
-    static dbFile = 'car.db3';
+    static dbFile = 'carscout_db.db3';
 
     static async getAll() {
         let db = await sqlite.open(OfferDAO.dbFile);
@@ -17,10 +17,10 @@ export class OfferDAO {
         }
     }
 
-     static async getOfferRelatedToCar(cardId: string): Promise<Offer> {
+    static async getOfferRelatedToCar(cardId: string): Promise<Offer> {
         let db = await sqlite.open(OfferDAO.dbFile);
         try {
-            let offer = await db.all('SELECT * FROM Offers Where car_id =='+ cardId);
+            let offer = await db.all('SELECT * FROM Offers Where car_id ==' + cardId);
             db.close();
             return offer[0];
         } catch (e) {

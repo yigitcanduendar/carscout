@@ -74,8 +74,6 @@ export class AngebotDetailComponent implements OnInit {
           this.initialiseInvites(this.selectedCar.id);
         }
       });
-
-
     }
   }
 

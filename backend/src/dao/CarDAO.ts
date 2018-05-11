@@ -4,7 +4,7 @@ const sqlite = require('sqlite-async');
 
 export class CarDAO {
 
-    static dbFile = 'car.db3';
+    static dbFile = 'carscout_db.db3';
     static car_id;
     static async getAll(): Promise<Car[]> {
         let db = await sqlite.open(CarDAO.dbFile);
@@ -19,7 +19,6 @@ export class CarDAO {
         let pic1 = carData[1];
         let pic2 = carData[2];
         let pic3 = carData[3];
-
         let db = await sqlite.open(CarDAO.dbFile);
         let car = await db.run(
             "INSERT INTO Cars (manufacturer, modell, ps, year, km_driven, colour, seats, description, price, category, fuel_type, number_of_doors, registration_date, transmission, interiors, safeties, extras, trader, username) VALUES('" + carDataCache.manufacturer + "','" + carDataCache.modell + "','" + carDataCache.ps + "','" + carDataCache.year + "','" + carDataCache.km_driven + "','" + carDataCache.colour + "','" + carDataCache.seats + "','" + carDataCache.description + "','" + carDataCache.price + "','" + carDataCache.category + "','" + carDataCache.fuel_type + "','" + carDataCache.number_of_doors + "','" + carDataCache.registration_date + "','" + carDataCache.transmission + "','" + carDataCache.interiors + "','" + carDataCache.safeties + "','" + carDataCache.extras + "','" + carDataCache.trader + "','" + carDataCache.username + "')").then(id => {

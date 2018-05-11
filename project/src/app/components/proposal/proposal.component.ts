@@ -6,7 +6,7 @@ import { element } from 'protractor';
 import * as express from 'express';
 import { MessageProviderService } from '../../services/messageprovider.service';
 import { MessageType } from '../../model/messagetype.enum';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
 import * as fs from "fs";
 import { NgForm } from '@angular/forms';
@@ -18,7 +18,7 @@ import { NgForm } from '@angular/forms';
 })
 export class ProposalComponent implements OnInit {
 
-
+  public navigationSubscription;
   private offer: Offer;
   constructor(private cookieService: CookieService, private restApiService: TodoRestApiService, private messageService: MessageProviderService, private router: Router) {
   }
@@ -125,12 +125,20 @@ export class ProposalComponent implements OnInit {
     ) {
       this.messageService.display('Bitte erst die Felder auswählen die ein * vor dem Input-Feld haben!', MessageType.warning);
       this.router.navigate(['/addCar']);
+
     } else {
       this.setCarIntoTable(this.carArray);
-
-      this.router.navigateByUrl('');
-      location.reload();
+      this.router.navigate(['/']);
+      this.navigationSubscription = this.router.events.subscribe((e: any) => {
+        if (e instanceof NavigationEnd) {
+          this.initialiseInvites();
+        }
+      });
     }
+  }
+
+  initialiseInvites() {
+    this.restApiService.refreshAllCars();
   }
 
   /**
@@ -292,14 +300,12 @@ export class ProposalComponent implements OnInit {
     this.restApiService.setCar(carArray, this.fileDataPicture1, this.fileDataPicture2, this.fileDataPicture3);
   }
 
-
-
-
   ngOnInit() {
   }
 
   public onFileChangePicture1(event) {
     let reader = new FileReader();
+
     if (event.target.files && event.target.files.length > 0) {
       let file = event.target.files[0];
       reader.readAsDataURL(file);

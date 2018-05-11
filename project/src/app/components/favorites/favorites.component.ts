@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoRestApiService } from '../../services/todo-rest-api.service';
 import { CookieService } from 'ngx-cookie';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { Car } from '../../model/car';
 
 @Component({
@@ -13,6 +13,8 @@ export class FavoritesComponent implements OnInit {
 
   constructor(private rest: TodoRestApiService, private cookieService: CookieService, private router: Router) {
   }
+
+  public navigationSubscription;
 
   get cars(): Car[] {
     const users = this.rest.users;
@@ -44,6 +46,16 @@ export class FavoritesComponent implements OnInit {
 
   public toOffer(carId: number) {
     this.router.navigateByUrl('/cars/' + carId);
+    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+      if (e instanceof NavigationEnd) {
+        this.initialiseInvites(carId);
+      }
+    });
+  }
+
+  initialiseInvites(carID) {
+    this.rest.refreshSelectedCar(carID);
+    this.rest.refreshUsers();
   }
 
   public getCarPicture(id: number) {

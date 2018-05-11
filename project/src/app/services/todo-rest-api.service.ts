@@ -99,6 +99,7 @@ export class TodoRestApiService {
         err => {
           console.log("Error occured!");
         });
+    this.refreshAllCars();
   }
 
   public setFavorite(car, username) {
