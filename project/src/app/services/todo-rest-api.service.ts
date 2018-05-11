@@ -46,7 +46,7 @@ export class TodoRestApiService {
       });
   }
 
-  private refreshUsers() {
+  public refreshUsers() {
     this.http.get('api/users').subscribe((data: User[]) => {
       this.userDataCache = data;
     },
@@ -71,9 +71,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-      err => {
-        console.log("Error occured!");
-      });
+        err => {
+          console.log("Error occured!");
+        });
   }
 
   public updateUserData(user: User) {
@@ -83,9 +83,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-      err => {
-        console.log("Error occured!");
-      });
+        err => {
+          console.log("Error occured!");
+        });
   }
 
   public setCar(car: Car, pic1: string, pic2: string, pic3: string) {
@@ -96,9 +96,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-      err => {
-        console.log("Error occured!");
-      });
+        err => {
+          console.log("Error occured!");
+        });
   }
 
   public setFavorite(car, username) {
@@ -109,9 +109,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-      err => {
-        console.log("setFavourite klappt nicht " + err);
-      });
+        err => {
+          console.log("setFavourite klappt nicht " + err);
+        });
   }
 
   public deleteAsFavourite(car, username) {
@@ -122,9 +122,9 @@ export class TodoRestApiService {
       subscribe(res => {
         console.log(res);
       },
-      err => {
-        console.log("deleteAsFavourite klappt nicht " + err);
-      });
+        err => {
+          console.log("deleteAsFavourite klappt nicht " + err);
+        });
   }
 
   public getFavouriteFromUser(username, car: Car) {
