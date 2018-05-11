@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchServiceService } from '../../services/search-service.service';
 import { TodoRestApiService } from '../../services/todo-rest-api.service';
+import { Car } from '../../model/car';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-result-page',
@@ -9,7 +11,7 @@ import { TodoRestApiService } from '../../services/todo-rest-api.service';
 })
 export class ResultPageComponent implements OnInit {
 
-  constructor(private searchService: SearchServiceService,private rest:TodoRestApiService) {
+  constructor(private searchService: SearchServiceService, private rest: TodoRestApiService, private router: Router) {
   }
 
   get counter(): number {
@@ -30,6 +32,9 @@ export class ResultPageComponent implements OnInit {
     return this.rest.getImageBySelectCar(id);
   }
 
+  public toOffer(carId: number) {
+    this.router.navigateByUrl('/cars/' + carId);
+  }
 
   ngOnInit() {
   }
