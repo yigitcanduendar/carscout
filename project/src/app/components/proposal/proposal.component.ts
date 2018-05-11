@@ -128,19 +128,17 @@ export class ProposalComponent implements OnInit {
 
     } else {
       this.setCarIntoTable(this.carArray);
-      this.router.navigateByUrl('');
+      this.router.navigate(['/']);
       this.navigationSubscription = this.router.events.subscribe((e: any) => {
         if (e instanceof NavigationEnd) {
-          this.initialiseInvites(this.carArray.id);
+          this.initialiseInvites();
         }
       });
     }
   }
 
-  initialiseInvites(carID) {
-    this.restApiService.refreshSelectedCar(carID);
-    this.restApiService.refreshUsers();
-    this.restApiService.getFavouriteFromUser(this.cookieService.get('user'), carID);
+  initialiseInvites() {
+    this.restApiService.refreshAllCars();
   }
 
   /**
@@ -311,6 +309,7 @@ export class ProposalComponent implements OnInit {
 
   public onFileChangePicture1(event) {
     let reader = new FileReader();
+
     if (event.target.files && event.target.files.length > 0) {
       let file = event.target.files[0];
       reader.readAsDataURL(file);
